@@ -1,16 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Steam</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/index.js"></script>
 </head>
 <body>
-    
+    <div id="wrap">
+        <div id="slider">
+        <!-- 검색과 로그인 -->
+            <header>
+                <div class="headContainer">
+                    <div class="logo">
+                        <h3>logo</h3>
+                    </div>
+                    <nav>
+                        <ul>
+                            <li><a href="">Profile</a></li>
+                            <li><a href="">Shop</a></li>
+                            <li class="open">icon
+                                <ul id="sub_Menu">
+                                    <span class="close" onclick="close()">X</span>
+                                    <li>Sub_1
+                                        <ul class="semi_Menu">
+                                            <li>sub1-1-1</li>
+                                        </ul>
+                                    </li>
+                                    <li>Sub_2
+                                        <ul class="semi_Menu">
+                                            <li>sub2-1-1</li>
+                                        </ul>
+                                    </li>
+                                    <li>Sub_3
+                                        <ul class="semi_Menu">
+                                            <li>sub3-1-1</li>
+                                        </ul>
+                                    </li>
+                                    <li>Sub_4
+                                        <ul class="semi_Menu">
+                                            <li>sub4-1-1</li>
+                                        </ul>
+                                    </li>
+                                    <li>Sub_5
+                                        <ul class="semi_Menu">
+                                            <li>sub5-1-1</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+        <!-- 검색과 로그인 -->
+
+            <ul class="mySlide">
+                <li></li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
+            <div class="btn_Control">
+                <div class="prev"></div>
+                <div class="next"></div>
+            </div>
+        </div>
+        <!-- 게임들 넘어가면서 슬라이드  / transform으로 크기 값을 줄여가면서 입체적 슬라이드 만들기-->
+        
+        <main>
+            <div class="main_Head">
+                <h2>Other Games</h2>
+            </div>    
+            <div class="container">
+                <section>
+                    <div></div>
+                </section>
+                <section>
+                    <div></div>
+                </section>
+                <section>
+                    <div></div>
+                </section>
+                <section>
+                    <div></div>
+                </section>
+                <section>
+                    <div></div>
+                </section>
+                <section>
+                    <div></div>
+                </section>
+            </div>
+        </main>
+        <!--  게임들 소개 / 오버시 슬라이드 닫히며 큰 이미지로 로드 -->
+        <footer>
+            <div></div>
+            <div></div>
+            <div></div>
+        </footer>
+    </div>
 </body>
 </html>
