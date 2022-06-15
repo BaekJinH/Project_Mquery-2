@@ -13,72 +13,109 @@
 </head>
 <body>
     <div id="wrap">
-        <div id="slider">
         <!-- 검색과 로그인 -->
             <header>
                 <div class="headContainer">
                     <div class="logo">
-                        <h3>logo</h3>
+                        <h3><a href="">Logo</a></h3>
                     </div>
                     <nav>
                         <ul>
                             <li><a href="">Profile</a></li>
                             <li><a href="">Shop</a></li>
-                            <li class="open">icon
+                            <li class="open">icon</li>
                                 <ul id="sub_Menu">
-                                    <span class="close" onclick="close()">X</span>
-                                    <li>Sub_1
-                                        <ul class="semi_Menu">
-                                            <li>sub1-1-1</li>
-                                        </ul>
-                                    </li>
-                                    <li>Sub_2
-                                        <ul class="semi_Menu">
-                                            <li>sub2-1-1</li>
-                                        </ul>
-                                    </li>
-                                    <li>Sub_3
-                                        <ul class="semi_Menu">
-                                            <li>sub3-1-1</li>
-                                        </ul>
-                                    </li>
-                                    <li>Sub_4
-                                        <ul class="semi_Menu">
-                                            <li>sub4-1-1</li>
-                                        </ul>
-                                    </li>
-                                    <li>Sub_5
-                                        <ul class="semi_Menu">
-                                            <li>sub5-1-1</li>
-                                        </ul>
-                                    </li>
+                                    <div class="close_Box">
+                                        <span class="close" onclick="close()">X</span>
+                                    </div>
+                                    <div class="flex_Box">
+                                        <li>Sub_1
+                                            <ul class="semi_Menu">
+                                                <li>sub1-1-1</li>
+                                                <li>sub1-1-2</li>
+                                                <li>sub1-1-3</li>
+                                                <li>sub1-1-4</li>
+                                            </ul>
+                                        </li>
+                                        <li>Sub_2
+                                            <ul class="semi_Menu">
+                                                <li>sub2-1-1</li>
+                                                <li>sub2-1-2</li>
+                                                <li>sub2-1-3</li>
+                                                <li>sub2-1-4</li>
+                                            </ul>
+                                        </li>
+                                        <li>Sub_3
+                                            <ul class="semi_Menu">
+                                                <li>sub3-1-1</li>
+                                                <li>sub3-1-2</li>
+                                                <li>sub3-1-3</li>
+                                            </ul>
+                                        </li>
+                                        <li>Sub_4
+                                            <ul class="semi_Menu">
+                                                <li>sub4-1-1</li>
+                                                <li>sub4-1-2</li>
+                                            </ul>
+                                        </li>
+                                        <li>Sub_5
+                                            <ul class="semi_Menu">
+                                                <li>sub5-1-1</li>
+                                                <li>sub5-1-2</li>
+                                                <li>sub5-1-3</li>
+                                            </ul>
+                                        </li>
+                                    </div>
                                 </ul>
-                            </li>
                         </ul>
                     </nav>
                 </div>
             </header>
         <!-- 검색과 로그인 -->
-
-            <ul class="mySlide">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
-        <div class="btn_Control">
-            <div class="prev">
-            </div>
-            <div class="next">
+        <div id="intro">
+            <div class="intro_Image">
+                <div class="text">
+                    <h2>Main txt</h2>
+                    <h4>Sub txt</h4>
+                    <button>Click Here</button>
+                </div>
             </div>
         </div>
         <!-- 게임들 넘어가면서 슬라이드  / transform으로 크기 값을 줄여가면서 입체적 슬라이드 만들기-->
+        <div id="slide_Wrap">
+            <div class="slide_Head">
+                <h2>Title</h2>
+            </div>
+            <div id="slider">
+                <ul class="mySlide">
+                    <li class="slideBox"></li>
+                    <li class="slideBox"></li>
+                    <li class="slideBox"></li>
+                    <li class="slideBox"></li>
+                    <li class="slideBox"></li>
+                    <li class="slideBox"></li>
+                </ul>
+            </div>
+            <div class="btn_Control">
+                <div class="prev">
+                </div>
+                <div class="next">
+                </div>
+            </div>
+        </div>
         <div class="input_Cont">
-            <input type="text" placeholder="찾으시는 게임을 검색해주세요..">
-            <div class="popup"></div>
+            <input  type="text" placeholder="찾으시는 게임을 검색해주세요..">
+            <div class="popup">
+                <div class="btn_Box">
+                    <div>Elden Ring</div>
+                    <div>Ori And the Will of the Wisps</div>
+                    <div>Forspoken</div>
+                    <div>Apex legend</div>
+                    <div>Hollowknight SilkSong</div>
+                    <div>Battelfield</div>
+                    <div>Horizon</div>
+                </div>
+            </div>
         </div>
         <main>
             <div class="main_Head">
