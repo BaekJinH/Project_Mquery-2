@@ -219,8 +219,8 @@ nav ul li{
 
 
 #intro{
-    width:100vw;
-    height:800px;
+    width:100%;
+    height:850px;
     position:relative;
     overflow:hidden
 }
@@ -231,17 +231,27 @@ nav ul li{
     position:relative;
     background-image: url(../img/intro-main1.jpg);
     background-size:cover;
-    /* display:none; */
 }
 
+#intro .intro_Image2{
+    background-image: url(../img/intro-main2.jpg);
+}
+#intro .intro_Image3{
+    background-image: url(../img/intro-main3-1.jpg);
+    background-size:cover;
+    background-position:center;
+}
+
+
 .intro_wrap{
-    width:100vw;
-    height:800px;
+    width: 5760px;
+    height:850px;
+
 }
 
 
 .intro_wrap > li{
-    width:100%;
+    width:100vw;
     height:100%;
     float:left;
 }
@@ -346,14 +356,16 @@ nav ul li{
 .text h4{
     font-size:40px;
     margin-bottom:15px;
+    font-weight: bold;
     opacity: 1;
 }
 .text > button{
     border:none;
-    width:200px;
-    height:50px;
+    /* width:200px; */
+    width:auto;
+    padding:15px 10px;
     border-radius: 10px;
-    font-size:23px;
+    font-size:24px;
     font-weight:bold;
     position:relative;
     transition:all 0.5s;
@@ -403,13 +415,12 @@ nav ul li{
     margin:150px 0;
 }
 #slider{
-    width:1502px;
+    width:1450px;
     height:937px;
     position:relative;
     margin:0 auto;
     overflow:hidden;
 }
-
 
 .mySlide{      
     position:absolute;
@@ -431,37 +442,39 @@ nav ul li{
     height:600px;
     /* margin-left:25px;
     margin-right:25px; */
-    margin:0px 25px 0px 25px; 
+    /* margin:0px 25px 0px 25px;  */
     /* background-color:Red; */
     float:left;
     background-size:cover;
     background-position:center;
     /* position:relative; */
 }
+.mySlide > li:not(:last-child){
+    margin-right:50px
+}
 
-
-.mySlide > li:nth-of-type(1){
+.mySlide > .slideBox1{
     background-image:url(../img/slide_img-1.jpg);
 }
 
-.mySlide > li:nth-of-type(2){
+.mySlide > .slideBox2{
     background-image:url(../img/slide_img-2.jpg);
 }
 
 
-.mySlide > li:nth-of-type(3){
+.mySlide > .slideBox3{
     background-image:url(../img/slide_img-3.jpg);
 }
 
-.mySlide > li:nth-of-type(4){
+.mySlide > .slideBox4{
     background-image:url(../img/slide_img-4.jpg);
 }
 
-.mySlide > li:nth-of-type(5){
+.mySlide > .slideBox5{
     background-image:url(../img/slide_img-5.jpg);
 }
 
-.mySlide > li:nth-of-type(6){
+.mySlide > .slideBox6{
     background-image:url(../img/slide_img-6.jpg);
 }
 
@@ -693,7 +706,7 @@ section > div > .main_txt>button{
     border-radius: 15px;
 }
 section > div:nth-of-type(1){
-    background-image:url(../img/section-1.jpg)    
+    background-image:url(../img/section-3-1.png)    
 }
 
 section:nth-of-type(2) > div{
@@ -701,7 +714,7 @@ section:nth-of-type(2) > div{
 }
 
 section:nth-of-type(3) > div{
-    background-image:url(../img/section-3.jpg)    
+    background-image:url(../img/section-6.jpg)    
 }
 
 section:nth-of-type(4) > div{
@@ -714,7 +727,7 @@ section:nth-of-type(5) > div{
 }
 
 section:nth-of-type(6) > div{
-    background-image:url(../img/section-6.jpg)    
+    background-image:url(../img/section-3.jpg)    
 }
 
 section > div:hover{
