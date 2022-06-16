@@ -7,7 +7,7 @@ $(function(){
 })
 $(function(){
     $('.open').click(function(){
-        $('#sub_Menu').height(250)
+        $('#sub_Menu').height(280)
         // $('#sub_Menu').animate({height:300})
     })
     $('.close').click(function(){
@@ -15,6 +15,108 @@ $(function(){
         $('#sub_Menu').height(0)
     })
 })
+
+// $(function(){
+//     $('.intro_Image').fadeIn(3000);
+// })
+
+
+// 아래 인트로 슬라이드
+
+$(function(){
+    function prev(){
+    }
+    function next(){
+        
+    }
+    function slide(){
+        $('.intro_Slide').stop().animate({marginLeft:'-100vw'},1000,function(){
+            $('.intro_Slide li:first').appendTo('.intro_Slide');
+            $('.intro_Slide').css({marginLeft:0})
+        });
+    }
+    // setInterval(slide,5000)
+    $('.prev').click(function(){
+        prev()
+    })
+    $('.next').click(function(){
+        next()
+    })
+})
+
+
+
+// 아래 메인 멀티플 슬라이드
+
+// $(function(){
+
+//     var slides = document.querySelector('.mySlide'),
+//         slide = document.querySelectorAll('.mySlide li'),
+//         currentIdx = 0,
+//         slideCount = slide.length,
+//         slideWidth = 450,
+//         slideMargin = 50,
+//         prevBtn = document.querySelector('.prev'),
+//         nextBtn = document.querySelector('.next');
+
+//     makeClone();
+
+//     function makeClone(){
+//         for(var i = 0; i <slideCount; i++){
+//             var cloneSlide = slide[i].cloneNode(true);
+//             cloneSlide.classList.add('clone');
+//             slides.appendChild(cloneSlide);
+//         }
+//         for(var i = slideCount -1; i >=0; i--){
+//             var cloneSlide = slide[i].cloneNode(true);
+//             cloneSlide.classList.add('clone');
+//             slides.prepend(cloneSlide);
+//         }
+//             ubdateWidth();
+//             setInitialPos();
+            
+//             setTimeout(function(){
+//                 slides.classList.add('animated');
+//             },100)
+//     }
+
+//     function ubdateWidth(){
+//         var currentSlides = document.querySelectorAll('.mySlide li');
+//         var newSlideCount = currentSlides.length;
+        
+//         var newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin + 'px';
+//         slides.style.width = newWidth;
+//     }
+//     function setInitialPos(){
+//         var initialTranslateValue = -(slideWidth + slideMargin) * newSlideCount;
+//         slides.style.transform = 'translateX('+ initialTranslateValue +'px)';
+//     }
+
+//     nextBtn.addEventListener('click',function(){
+//         moveSlide(currentIdx -1 )
+//     })
+//     function moveSlide(num){
+//         slides.style.left = -num * (slideWidth + slideMargin) + 'px';
+//         currentIdx = num;
+//         console.log(currentIdx,slideCount);
+        
+//         if(currentIdx == slideCount || currentIdx == -slideCount){
+//             setTimeout(function(){
+//                 slides.classList.remove('animated');
+//                 slides.style.left = '0px';
+//                 currentIdx = 0;
+//             },500);
+//             setTimeout(function(){
+//                 slides.classList.add('animated');
+//             },600);
+//         }
+//     }
+// })
+
+
+
+
+// 뜯어보는중
 
 
 
@@ -63,8 +165,11 @@ $(function(){
     }
 
     nextBtn.addEventListener('click',function(){
-        moveSlide(currentIdx - 1 )
+        moveSlide(currentIdx -1 )
     })
+
+
+
     function moveSlide(num){
         slides.style.left = -num * (slideWidth + slideMargin) + 'px';
         currentIdx = num;
@@ -82,6 +187,13 @@ $(function(){
         }
     }
 })
+
+
+
+
+
+
+
 
 
 
@@ -149,16 +261,91 @@ $(function(){
 })
 
 $(function(){
-    $('input').on({'keydown focus':function(){
+    $('input').on({'click keydown focus':function(){
         document.getElementsByClassName('popup')[0].style.height='300px';
+        // $('.popup').height(300);
         $('.popup').css({boxShadow:'0 0 50px'});
         $('.btn_Box').css({display:'block'}).fadeDown('slow').height(300);
     }})
+
     $('.input_Cont').mouseleave(function(){
         $('.popup').height(0);
         $('.btn_Box').fadeUp('slow').height(0);
     })
 })
+
+
+// 팝업에서 버튼 누르면 value 값 가져오기
+
+
+$(function(){
+    var input = $('input');
+    $('.btn_Box > button').on('click',function(){
+        var value = $(this).val()
+        $("input[type=text]").val("")
+        input.val(value)
+        $('.input_Cont').mouseleave(function(){
+            input=null
+        })
+    })
+})
+
+
+
+
+
+
+// 밑 두개 햄버거
+
+// var burger = $('.menu-trigger');
+
+// burger.each(function(index){
+//   var $this = $(this);
+  
+//   $this.on('click', function(e){
+//     e.preventDefault();
+//     $(this).toggleClass('active-' + (index+1));
+//   })
+// });
+
+var e = document.getElementById('btn');
+e.addEventListener('click', function() {
+  if (this.className == 'on') this.classList.remove('on');
+  else this.classList.add('on');
+});
+
+
+
+
+// 수정해서 사용
+
+// $(function(){
+//     var wid = $('#gnb ul li').width();
+//     $('#gnb').append('<span></span>');
+//     $('#gnb ul li').on({'mouseenter focusin':function(){
+//         var index = $(this).index();
+//         $(this).find('a').addClass('on');
+//         $(this).siblings().find('a').removeClass('on');
+//         $('#gnb span').stop().animate({left:index * wid},'fast')
+//     }});
+//     $('#gnb ul li:eq(0)').trigger('mouseenter')
+// });
+
+
+
+$(function(){
+    var hei = $('.semi_Menu li').height();
+    $('.semi_Menu').append('<span></span>');
+    $('.semi_Menu li').on({'mouseenter focusin':function(){
+        var index = $(this).index();
+        $('.semi_Menu span').stop().animate({top:index * hei},'fast')
+    }});
+    $('.semi_Menu li:eq(0)').trigger('mouseenter')
+});
+
+
+
+
 $(function(){
     // main 박스들 슬라이드 열리면 사이즈 커지게 만들기
 })
@@ -167,6 +354,7 @@ $(function(){
 //         $(this).find('ul').slideDown().css({display:'flex'})
 //     }})
 // })
+
 
 
 

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            var wid = $('#gnb ul li').width();
+            $('#gnb').append('<span></span>');
+            $('#gnb ul li').on({'mouseenter focusin':function(){
+                var index = $(this).index();
+                $(this).find('a').addClass('on');
+                $(this).siblings().find('a').removeClass('on');
+                $('#gnb span').stop().animate({left:index * wid},'fast')
+            }});
+            $('#gnb ul li:eq(0)').trigger('mouseenter')
+        });
+
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: "돋움";
+            font-size: 12px;
+            color: #000;
+            text-align: center;
+        }
+        a {
+            color: #999;
+            text-decoration: none;
+            display: block;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: color 0.5s ease;
+        }
+        a.on{
+            color: #000;
+        }
+        li {
+            list-style: none;
+        }
+        #gnb {
+            display: inline-block;
+            position: relative;
+        }
+        #gnb ul li {
+            float: left;
+            height: 40px;
+            width:150px;
+            line-height: 40px;            
+        }
+        #gnb span {
+            display: block;
+            border-bottom: 2px solid #ff6600;
+            height: 40px;
+            width: 150px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <nav id="gnb">
+        <ul>
+            <li><a href="#">HTML</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">Javascript</a></li>
+            <li><a href="#">jQuery</a></li>
+            <span></span>
+        </ul>
+    </nav>
+</body>
+</html>
