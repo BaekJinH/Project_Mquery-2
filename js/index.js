@@ -7,8 +7,8 @@ $(function(){
 })
 $(function(){
     $('.open').click(function(){
-        $('#sub_Menu').height(280)
-        // $('#sub_Menu').animate({height:300})
+        // $('#sub_Menu').height(280)
+        $('#sub_Menu').height(500)
     })
     $('.close').click(function(){
         // $('#sub_Menu').animate({height:0})
@@ -16,20 +16,162 @@ $(function(){
     })
 })
 
-// $(function(){
-//     $('.intro_Image').fadeIn(3000);
-// })
+
+// 서브 메뉴바 작업
+
+$(function(){
+    $('.semi_Menu').hide();
+        $('.flex_Box > li').mouseover(function(){
+        $(this).find('.semi_Menu').stop().slideDown();
+    })
+    $('.flex_Box > li').mouseout(function(){
+        $(this).find('.semi_Menu').stop().slideUp()
+    })
+})
+
 
 
 // 아래 인트로 슬라이드
 
 $(function(){
-    var length = $('.intro_wrap li').length;
-    var index = $('.intro_wrap').find('button').index();
-    $('button').click(function(){
-        $(this).parent().parent().parent().animate({marginLeft:'-100vw'});
+    $('.intro_wrap button').click(function(){
+        $('.intro_wrap').stop().animate({marginLeft:'-100vw'},800,function(){
+            $('.intro_wrap li:first').appendTo('.intro_wrap');
+            $('.intro_wrap').css({marginLeft:0})
+        })
     })
 })
+
+
+
+
+// 인트로 4번 div 호버시 커밍 순 글자 제거
+
+// 아래는 글자 작업하려고 앞으로 당겨놓음
+
+$(function(){
+    $('.intro_wrap').animate({marginLeft:'-300vw'})
+})
+
+// 
+$(function(){
+    $('.intro_Image4').not('.text4').on({click:function(){
+        $('.text4').stop().animate({top:'-50%'},500);
+    },mouseout:function(){
+        $('.text4').stop().animate({top:'50%'},500)
+    }})
+})
+
+
+
+
+
+// $(function(){
+
+//     var slides = document.querySelector('.intro_wrap'),
+//         slide = document.querySelectorAll('.intro_wrap li'),
+//         currentIdx = 0,
+//         slideCount = slide.length,
+//         slideWidth = $('.intro_Slide'),
+//         slideMargin = 0,
+//         nextBtn = document.querySelectorAll('.oth');
+
+//     makeClone();
+
+//     function makeClone(){
+//         for(var i = 0; i <slideCount; i++){
+//             var cloneSlide = slide[i].cloneNode(true);
+//             cloneSlide.classList.add('clone');
+//             slides.appendChild(cloneSlide);
+//         }
+//         for(var i = slideCount -1; i >=0; i--){
+//             var cloneSlide = slide[i].cloneNode(true);
+//             cloneSlide.classList.add('clone');
+//             slides.prepend(cloneSlide);
+//         }
+//             ubdateWidth();
+//             setInitialPos();
+            
+//             setTimeout(function(){
+//                 slides.classList.add('animated');
+//             },100)
+//     }
+
+//     function ubdateWidth(){
+//         var currentSlides = document.querySelectorAll('.intro_wrap li');
+//         var newSlideCount = currentSlides.length;
+        
+//         var newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin + 'px';
+//         slides.style.width = newWidth;
+//     }
+//     function setInitialPos(){
+//         var initialTranslateValue = -(slideWidth + slideMargin) * slideCount;
+//         slides.style.transform = 'translateX('+ initialTranslateValue +'px)';
+//     }
+
+//     nextBtn.addEventListener('click',function(){
+//         moveSlide(currentIdx +1 )
+//     })
+//     prevBtn.addEventListener('click',function(){
+//         moveSlide(currentIdx -1 )
+//     })
+
+//     var timer = undefined;
+
+//     function autoSlide(){
+//         if(timer == undefined){
+//             timer = setInterval(function(){
+//                 moveSlide(currentIdx + 1 )
+//             },3000)
+//         }
+//     }
+//     autoSlide();
+//     function stopSlide(){
+//         clearInterval(timer);
+//         timer = undefined;
+//         // timer의 값을 undefined으로 지정을 해줘야 마우스로 왔다갔다 했을 때 오류가 안 생김
+//     }
+//     slides.addEventListener('mouseenter',function(){
+//         stopSlide();
+//     })
+
+//     slides.addEventListener('mouseleave',function(){
+//         autoSlide();
+//     })
+//     function moveSlide(num){
+//         slides.style.left = -num * (slideWidth + slideMargin) + 'px';
+//         currentIdx = num;
+//         console.log(currentIdx,slideCount);
+        
+//         if(currentIdx == slideCount || currentIdx == -slideCount){
+//             setTimeout(function(){
+//                 slides.classList.remove('animated');
+//                 slides.style.left = '0px';
+//                 currentIdx = 0;
+//             },500);
+//             setTimeout(function(){
+//                 slides.classList.add('animated');
+//             },600);
+//         }
+//     }
+// })
+
+
+
+
+
+// $(function(){
+//     var length = $('.intro_wrap li').length;
+//     var index = $('.intro_wrap').find('button').index();
+//     $('.intro_wrap button').click(function(){
+//         // var index = $('.intro_wrap li').length;
+//         var me = $(this).index();
+//         if(me == 3){
+//             $('.intro_wrap').append('.intro_wrap li:first')
+//         }
+//         $(this).parent().parent().parent().animate({marginLeft:'-100vw'});
+//     })
+// })
 
 
 // 아래 메인 멀티플 슬라이드
@@ -128,137 +270,17 @@ $(function(){
 
 
 
-// 뜯어보는중
-
-
-
-// $(function(){
-
-//     var slides = document.querySelector('.mySlide'),
-//         slide = document.querySelectorAll('.mySlide li'),
-//         currentIdx = 0,
-//         slideCount = slide.length,
-//         slideWidth = 450,
-//         slideMargin = 50,
-//         prevBtn = document.querySelector('.prev'),
-//         nextBtn = document.querySelector('.next');
-
-//     makeClone();
-
-//     function makeClone(){
-//         for(var i = 0; i <slideCount; i++){
-//             var cloneSlide = slide[i].cloneNode(true);
-//             cloneSlide.classList.add('clone');
-//             slides.appendChild(cloneSlide);
-//         }
-//         for(var i = slideCount -1; i >=0; i--){
-//             var cloneSlide = slide[i].cloneNode(true);
-//             cloneSlide.classList.add('clone');
-//             slides.prepend(cloneSlide);
-//         }
-//             ubdateWidth();
-//             setInitialPos();
-            
-//             setTimeout(function(){
-//                 slides.classList.add('animated');
-//             },100)
-//     }
-
-//     function ubdateWidth(){
-//         var currentSlides = document.querySelectorAll('.mySlide li');
-//         var newSlideCount = currentSlides.length;
-        
-//         var newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin + 'px';
-//         slides.style.width = newWidth;
-//     }
-//     function setInitialPos(){
-//         var initialTranslateValue = -(slideWidth + slideMargin) * newSlideCount;
-//         slides.style.transform = 'translateX('+ initialTranslateValue +'px)';
-//     }
-
-//     nextBtn.addEventListener('click',function(){
-//         moveSlide(currentIdx -1 )
-//     })
-
-
-
-//     function moveSlide(num){
-//         slides.style.left = -num * (slideWidth + slideMargin) + 'px';
-//         currentIdx = num;
-//         console.log(currentIdx,slideCount);
-        
-//         if(currentIdx == slideCount || currentIdx == -slideCount){
-//             setTimeout(function(){
-//                 slides.classList.remove('animated');
-//                 slides.style.left = '0px';
-//                 currentIdx = 0;
-//             },500);
-//             setTimeout(function(){
-//                 slides.classList.add('animated');
-//             },600);
-//         }
-//     }
-// })
 
 
 
 
 
-
-
-
-
-
-// $(function(){
-//     var img = $('.mySlide > li')
-//     var img_Array = ['.mySlide li'].length
-//     var i = 0;
-//     img_Array.eq(0).css({transform:'scale(0.5)'})
-// })
-
-// $(function(){
-//     var w = $('.mySlide > li').width();
-//     var scrLeft = $('.mySlide').scrollLeft();
-//     var img_Array = ['.mySlide li'].length;
-//     // var cop = img_Array.clone();
-
-//     function prev(){
-//         $('.mySlide li:last').prependTo('.mySlide');
-//         // $('.mySlide').css({marginLeft:'-28vw'});
-//         $('.mySlide').css({marginLeft:-w});
-//         $('.mySlide').stop().animate({marginLeft:'0'}, 1000);
-//     }
-//     function next(){
-//             // $('.mySlide').stop().animate({marginLeft:'-28vw'}, 1000,function(){
-//             $('.mySlide').stop().animate({marginLeft:-w}, 1000,function(){
-//             $('.mySlide li:first').appendTo('.mySlide');
-//             $('.mySlide').css({marginLeft:0});
-//         });
-//     }
-//     function slide(){
-//             // $('.mySlide').stop().animate({marginLeft:'-28vw'},1000,function(){
-//             $('.mySlide').stop().animate({marginLeft:-w},1000,function(){
-//             $('.mySlide li:first').appendTo('.mySlide');
-//             $('.mySlide').css({marginLeft:0})
-//         })
-//     }
-    
-//     setInterval(slide,5000)
-//     $('.prev').click(function(){
-//         prev()
-//     })
-    
-//     $('.next').click(function(){
-//         next()
-//     })
-// })
 
 
 // intro가 먹히는 애니메이션 추가하기
 $(function(){
     $(window).scroll(function(){
-        if($(this).scrollTop() > 200){
-            // $('#intro').css({position:'absolute'}).css('z-index',-9);
+        if($(this).scrollTop() > 3200){
         }
     })
 })
@@ -275,30 +297,26 @@ $(function(){
 $(function(){
     $('input').on({'click keydown focus':function(){
         document.getElementsByClassName('popup')[0].style.height='300px';
-        // $('.popup').height(300);
         $('.popup').css({boxShadow:'0 0 50px'});
         $('.btn_Box').css({display:'block'}).fadeDown('slow').height(300);
     }})
 
     $('.input_Cont').mouseleave(function(){
         $('.popup').height(0);
+        $('input[type=text').val('')
         $('.btn_Box').fadeUp('slow').height(0);
     })
 })
 
 
-// 팝업에서 버튼 누르면 value 값 가져오기
-
+// 검색어 값 가져오기
 
 $(function(){
-    var input = $('input');
+    var input = $('input:text');
     $('.btn_Box > button').on('click',function(){
         var value = $(this).val()
         $("input[type=text]").val("")
         input.val(value)
-        $('.input_Cont').mouseleave(function(){
-            input=null
-        })
     })
 })
 
@@ -342,6 +360,8 @@ $(function(){
 //     }});
 //     $('#gnb ul li:eq(0)').trigger('mouseenter')
 // });
+
+
 
 
 

@@ -38,14 +38,15 @@ nav{
     justify-content: space-around;
     align-items: center;
 }
-nav ul{
+nav > ul{
     display:flex;
     flex-flow:row nowrap;
     justify-content: space-evenly;
     align-items: center;
     width:100%;
+    text-align: center;
 }
-nav ul li{
+nav > ul > li{
     height: 100%;
     float:left;
     display:block;
@@ -79,141 +80,19 @@ nav ul li{
     top:0;
     display:flex;
     flex-flow:row wrap;
+    justify-content: center;
     align-items:flex-start;
     overflow:hidden;
     /* box-shadow:rgba(0,0,0,0.8) 0 0 0 100vw,rgba(0, 0, 0, 0.8)2px 2px 3px 3px; */
 }
-.sub_wrap{
-    width:65%;
-    height:auto;
-}
-#sub_Menu >.sub_wrap> .flex_Box > li > a{
-    font-weight:bold;
-    width:auto;
-    text-align:center;
-    height:auto;
-    font-size:30px;
-    display:block;
-    cursor: pointer;
-    color:white
-}
-#sub_Menu >.sub_wrap> .flex_Box > li > a:hover{
-    color:red;
-}
+
 .open{
     color:White;
     font-size:25px;
     cursor:pointer;
 }
-/* hambugur */
-
-  .menu-trigger,.menu-trigger span {
-    display: inline-block;
-    transition: all .4s;
-    box-sizing: border-box;
-  }
-  
-  .menu-trigger {
-    position: relative;
-    width: 50px;
-    height: 44px;
-  }
-  
-  .menu-trigger span {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background-color: #fff;
-    border-radius: 4px;
-  }
-  
-  .menu-trigger span:nth-of-type(1) {
-    top: 0;
-  }
-  
-  .menu-trigger span:nth-of-type(2) {
-    top: 20px;
-  }
-  
-  .menu-trigger span:nth-of-type(3) {
-    bottom: 0;
-  }
 
 
-.menu-trigger.active-1 span:nth-of-type(1) {
-    -webkit-transform: translateY (20px) rotate (-45deg);
-    transform: translateY(20px) rotate(-45deg);
-  }
-  
-  .menu-trigger.active-1 span:nth-of-type(2) {
-    opacity: 0;
-  }
-  
-  .menu-trigger.active-1 span:nth-of-type(3) {
-    -webkit-transform: translateY(-20px) rotate(45deg);
-    transform: translateY(-20px) rotate(45deg);
-  }
-
-  
-/* 햄버거 */
-.close_Box{
-    display:flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    width:100%;
-    height:40%;
-    margin: 10px auto;
-}
-.close{
-    font-size:40px;
-    display:block;
-    text-align:right;
-    font-weight: bold;
-    cursor:pointer;
-}
-.close:hover{
-    opacity: 0.5;
-    transition: 0.5s;
-}
-
-.flex_Box{
-    width:100%;
-    height:80%;
-    display:flex;
-    flex-flow:row wrap;
-    justify-content: space-around;
-    align-items: flex-start;
-}
-.semi_Menu{
-    width:auto;
-    height:auto;
-    /* display:none; */
-    flex-flow:column wrap;
-    justify-content: space-around;
-    position:relative;
-}
-.semi_Menu > li{
-    height:auto;
-    padding:10px;
-    font-size:17px;
-    font-weight:bold;
-    cursor: pointer;;
-}
-.semi_Menu > span{
-    position:absolute;
-    display:block;
-    width:100%;
-    /* height:40px; */
-    height:40px;
-    left:0;
-    top:0;
-    z-index:-1;
-    border-bottom:3px solid white
-}
-.on{
-    color:black;
-}
 /* sub_menu */
 
 
@@ -229,10 +108,12 @@ nav ul li{
     width:100%;
     height:100%;
     position:relative;
+    background-size:cover;
+}
+#intro .intro_Image1{
     background-image: url(../img/intro-main1.jpg);
     background-size:cover;
 }
-
 #intro .intro_Image2{
     background-image: url(../img/intro-main2.jpg);
 }
@@ -244,9 +125,8 @@ nav ul li{
 
 
 .intro_wrap{
-    width: 5760px;
-    height:850px;
-
+    height:100%;
+    width:7680px;
 }
 
 
@@ -315,12 +195,6 @@ nav ul li{
     transform: translate(-50%,-50%);
     animation:fade 1.2s;
 }
-.text img{
-    /* width:80%; */
-    width:536.75px;
-    height:212px;
-    -webkit-user-drag: none;
-}
 @keyframes fade {
     0%{
         opacity: 0;
@@ -331,7 +205,110 @@ nav ul li{
         top:50%;
     }
 }
+.text img{
+    /* width:80%; */
+    width:536.75px;
+    height:212px;
+    -webkit-user-drag: none;
+}
 
+.text3{
+    width:536.75px;
+    height:212px;
+    left:35%;
+    top:40%;
+    transform: translate(-50%,-50%);
+    animation:fade2 1.2s;
+}
+
+.text4{
+    width:100%;
+    left:50%;
+    top:50%;
+    position: absolute;
+    z-index:10;
+}
+.intro_Image4{
+    display:flex;
+}
+
+
+.intro_Image4 > div:not(.text){
+    width:33.2vw;
+    height:100%;
+    background-color:#eee
+}
+.end{
+    background-size:cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* intro end라인 before after 구간 */
+
+
+.end:before{
+    content:'';
+    display:block;
+    width:100%;
+    height:100%;
+    background-color:rgba(0, 0, 0, 0.5);
+    position:absolute;
+    transform: translateX(-50%);
+}
+.end:hover:before{
+    transition:0.5s;
+    transform:translateX(-100%)
+}
+
+.end:after{
+    content:'';
+    display:block;
+    width:100%;
+    height:100%;
+    background-color:rgba(0, 0, 0, 0.5);
+    position:absolute;
+    transform: translateX(50%);
+}
+.end:hover:after{
+    transition:0.5s;
+    transform:translateX(100%);
+}
+
+
+
+
+.end_one{
+    background-image:url(../img/intro3-1.png);
+    box-shadow:inset 0 0 0 100vw rgba(0, 0, 0, 0.2);
+
+}
+.end_two{
+
+}
+.end_three{
+    background-image: url(../img/slide_img-3.jpg);
+}
+
+
+
+
+@keyframes fade2 {
+    0%{
+        opacity: 0;
+        top:0%;
+    }
+    100%{
+        opacity: 1;
+        top:40%;
+    }
+}
+
+.intro_Image4{
+}
+
+/* 
 .text-out{
     animation:fadeout 1s;
     animation-fill-mode: both;
@@ -346,7 +323,7 @@ nav ul li{
         opacity: 1;
         top:150%;
     }
-}
+} */
 
 .text h2{
     font-size:120px;
@@ -908,3 +885,58 @@ footer >.foot_Wrap{
     display: flex;
 }
 /* footer */
+
+
+
+/* hambugur */
+
+.menu-trigger,.menu-trigger span {
+    display: inline-block;
+    transition: all .4s;
+    box-sizing: border-box;
+  }
+  
+  .menu-trigger {
+    position: relative;
+    width: 50px;
+    height: 44px;
+  }
+  
+  .menu-trigger span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 4px;
+  }
+  
+  .menu-trigger span:nth-of-type(1) {
+    top: 0;
+  }
+  
+  .menu-trigger span:nth-of-type(2) {
+    top: 20px;
+  }
+  
+  .menu-trigger span:nth-of-type(3) {
+    bottom: 0;
+  }
+
+
+.menu-trigger.active-1 span:nth-of-type(1) {
+    -webkit-transform: translateY (20px) rotate (-45deg);
+    transform: translateY(20px) rotate(-45deg);
+  }
+  
+  .menu-trigger.active-1 span:nth-of-type(2) {
+    opacity: 0;
+  }
+  
+  .menu-trigger.active-1 span:nth-of-type(3) {
+    -webkit-transform: translateY(-20px) rotate(45deg);
+    transform: translateY(-20px) rotate(45deg);
+  }
+
+  
+/* 햄버거 */
