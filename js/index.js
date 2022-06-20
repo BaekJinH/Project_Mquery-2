@@ -49,18 +49,24 @@ $(function(){
 
 // 아래는 글자 작업하려고 앞으로 당겨놓음
 
-$(function(){
-    $('.intro_wrap').animate({marginLeft:'-300vw'})
-})
+// $(function(){
+//     $('.intro_wrap').animate({marginLeft:'-300vw'})
+// })
 
 // 
 $(function(){
     $('.intro_Image4').not('.text4').on({click:function(){
+        // $(this).addClass('up')
+        // 제이쿼리로 클릭시 상자 내리기
         $('.text4').stop().animate({top:'-50%'},500);
     },mouseout:function(){
         $('.text4').stop().animate({top:'50%'},500)
     }})
 })
+
+
+// 시간지연 후 ㅅ원하는 애니메이션 끝나고 이미지 커지게
+// $(this).find('.end').delay(1000).animate({transform: 'scale(1.1)'})
 
 
 

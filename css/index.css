@@ -222,12 +222,20 @@ nav > ul > li{
 }
 
 .text4{
-    width:100%;
     left:50%;
     top:50%;
     position: absolute;
-    z-index:10;
+    z-index:1;
+    cursor: pointer;
+    pointer-events: none;
 }
+.text4 > h2{
+    opacity: 1 !important;
+}
+.intro_Image2{
+    background-position:left center !important;
+}
+
 .intro_Image4{
     display:flex;
 }
@@ -246,8 +254,25 @@ nav > ul > li{
 }
 
 /* intro end라인 before after 구간 */
+.end:before{
+    content:'';
+    display:block;
+    width:100%;
+    height:100%;
+    background-color:rgba(0, 0, 0, 0.5);
+    position:absolute;
+    transform: translateY(-00%);
+}
+.end:hover:before.up{
+    transition:0.5s;
+    transform:translateY(-100%)
+}
 
 
+
+
+/* 좌우로 닫혀있다가 열리는 애니메이션 */
+/* 
 .end:before{
     content:'';
     display:block;
@@ -274,8 +299,11 @@ nav > ul > li{
 .end:hover:after{
     transition:0.5s;
     transform:translateX(100%);
-}
+} */
 
+/* .up_img{
+    transform: scale(1.1)
+} */
 
 
 
@@ -285,7 +313,7 @@ nav > ul > li{
 
 }
 .end_two{
-
+    background-image: url(../img/intro-main4-2.jpg);
 }
 .end_three{
     background-image: url(../img/slide_img-3.jpg);
