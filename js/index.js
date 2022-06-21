@@ -35,7 +35,7 @@ $(function(){
 
 
 $(function(){
-    $('.intro_wrap button').not('.behind').click(function(){
+    $('.intro_wrap button').not('.behind').not('.front').click(function(){
         $('.intro_wrap').stop().animate({marginLeft:'-100vw'},800,function(){
             $('.intro_wrap li:first').appendTo('.intro_wrap');
             $('.intro_wrap').css({marginLeft:0})
@@ -45,10 +45,20 @@ $(function(){
 
 
 
+//  버튼 클릭시 div 마우스 이벤트가  true가 되면서 이벤트 실행할 수 있게 만들기
+
 $(function(){
+    $('.intro_Image4').children().not('.text4').not('.front').css('pointer-events', 'none')
+    $('.front').css({pointerEvents:'true',top:'0%',left:'50%',transform:'translate(-50%,-250%)'});
     $('.behind').click(function(){
-        // $('.text4').css({transform:'translateY(-100%)'})
-        // $('.text4').stop().animate({top:'-100%'})
+        $('.intro_Image4').children().not('.text4').not('.front').css({pointerEvents:'true'})
+        $('.text4').css({transform:'translate(-50%,-250%)'});
+        $('.front').css({pointerEvents:'true',top:'50%',left:'50%',transform:'translate(-50%,-50%)'});
+    })
+    $('.front').click(function(){
+        $('.intro_Image4').children().not('.text4').not('.front').css({pointerEvents:'none'})
+        $('.text4').css({transform:'translate(-50%,-50%)'});
+        $('.front').css({pointerEvents:'true',top:'0%',left:'50%',transform:'translate(-50%,-250%)'});
     })
 })
 
