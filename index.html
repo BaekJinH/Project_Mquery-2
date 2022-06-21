@@ -17,7 +17,7 @@
             <header>
                 <div class="headContainer">
                     <div class="logo">
-                        <h3><a href="">Logo</a></h3>
+                        <h3><a href="">Steam</a></h3>
                     </div>
                     <nav>
                         <ul>
@@ -31,10 +31,10 @@
                                 <ul id="sub_Menu">
                                     <div class="sub_wrap">
                                         <div class="close_Box">
-                                            <span class="close" onclick="close()">X</span>
+                                            <div class="close" onclick="close()"></div>
                                         </div>
                                         <div class="flex_Box">
-                                            <li class="sub_main"><a href="">Sub_1</a> 
+                                            <li class="sub_main"><a href="#" class="sub">GOTY</a> 
                                                 <ul class="semi_Menu">
                                                     <span></span>
                                                     <li><a href="">sub1-1-1</a></li>
@@ -43,7 +43,7 @@
                                                     <li><a href="">sub1-1-4</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="">Sub_2</a> 
+                                            <li class="sub_main"><a href="#" class="sub">Sub_2</a> 
                                                 <ul class="semi_Menu">
                                                     <span></span>
                                                     <li><a href="">sub2-1-1</a></li>
@@ -52,14 +52,14 @@
                                                     <li><a href="">sub2-1-4</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="">Sub_3</a> 
+                                            <li class="sub_main"><a href="#" class="sub">Sub_3</a> 
                                                 <ul class="semi_Menu">
                                                     <span></span>
                                                     <li><a href="">sub3-1-1</a></li>
                                                     <li><a href="">sub3-1-2</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="">Sub_4</a> 
+                                            <li class="sub_main"><a href="#" class="sub">Sub_4</a> 
                                                 <ul class="semi_Menu">
                                                     <span></span>
                                                     <li><a href="">sub4-1-1</a></li>
@@ -67,7 +67,7 @@
                                                     <li><a href="">sub4-1-3</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="">Sub_5</a> 
+                                            <li class="sub_main"><a href="#" class="sub">Sub_5</a> 
                                                 <ul class="semi_Menu">
                                                     <span></span>
                                                     <li><a href="">sub5-1-1</a></li>
@@ -105,7 +105,7 @@
                     <div class="intro_Image intro_Image2">
                         <div class="text text2">
                             <img src="img/main2_logo.png" alt="">
-                            <h4>2022 / 08 / 12</h4>
+                            <h4>2022 / 10 / 08</h4>
                             <button class="oth">Other Upcoming Games</button>
 
                         </div>
@@ -116,7 +116,7 @@
                         <div class="text text3">
                             <img src="img/intro-main3-1_logo.jpg" alt="">
                             <!-- <img src=img/" alt=""> -->
-                            <h4>2022 / 08 / 12</h4>
+                            <h4>2023 / 01 / 12</h4>
                             <button class="oth">Other Upcoming Games</button>
 
                         </div>
@@ -127,7 +127,8 @@
                         <div class="text text4">
                             <h2>Coming Soon</h2>
                             <h4>Thank You</h4>
-                            <!-- <button>First Image</button> -->
+                            <button class="behind">Take a Closer Look</button>
+                            <button>First Page</button>
                         </div>
                         <!-- 앞의 이미지 3개 같이 보여주기 -->
                         <div class="end end_one"></div>
@@ -139,7 +140,7 @@
         </div>
         <!-- 게임들 넘어가면서 슬라이드  / transform으로 크기 값을 줄여가면서 입체적 슬라이드 만들기-->
         <div class="slide_Head">
-            <h2>Best Games</h2>
+            <h2>Game of the Year</h2>
         </div>
         <div id="slide_Wrap">
             <div id="slider">
@@ -163,6 +164,7 @@
             <input  type="text" placeholder="찾으시는 게임을 검색해주세요..">
             <div class="popup">
                 <div class="btn_Box">
+                    <button value="">All</button>
                     <button value="Elden Ring">Elden Ring</button>
                     <button value="Ori And the Will of the Wisps">Ori And the Will of the Wisps</button>
                     <button value="Forspoken">Forspoken</button>
@@ -170,6 +172,12 @@
                     <button value="Hollow knight Silk Song">Hollowknight SilkSong</button>
                     <button value="Battelfield">Battelfield</button>
                     <button value="Horizon Forbidden West">Horizon Forbidden West</button>
+                    <button value="Horizon Zero Dawn">Horizon Zero Dawn</button>
+                    <button value="Ori And The Blind Forest">Ori And The Blind Forest</button>
+                    <button value="Monster Hunter World" value2="action">Monster Hunter World</button>
+                    <button value="Apex Legends">Apex Legends</button>
+                    <button value="Dark Souls">Dark Souls</button>
+                    <button value="Sekiro">Sekiro</button>
                 </div>
             </div>
         </div>
@@ -180,52 +188,82 @@
             <div class="container">
                 <section>
                     <div>
-                        <!-- <div class="main_txt">
-                            <h3>Monster Hunter Rise</h3>
+                        <div class="main_txt">
+                            <h3>Horizon Zero Dawn</h3>
                             <span>66,900</span>
                             <button>Click</button>
-                        </div> -->
+                        </div>
                     </div>
                 </section>
                 <section>
-                    <div></div>
+                    <div>
+                        <div class="main_txt">
+                            <h3>Ori And The Blind Forest</h3>
+                            <span>66,900</span>
+                            <button>Click</button>
+                        </div>
+                    </div>
                 </section>
                 <section>
-                    <div></div>
+                    <div>
+                        <div class="main_txt">
+                            <h3>Monster Hunter World</h3>
+                            <span>66,900</span>
+                            <button>Click</button>
+                        </div>
+                    </div>
                 </section>
                 <section>
-                    <div></div>
+                    <div>
+                        <div class="main_txt">
+                            <h3>Apex Legends</h3>
+                            <span>66,900</span>
+                            <button>Click</button>
+                        </div>
+                    </div>
                 </section>
                 <section>
-                    <div></div>
+                    <div>
+                        <div class="main_txt">
+                            <h3>Dark Souls</h3>
+                            <span>66,900</span>
+                            <button>Click</button>
+                        </div>
+                    </div>
                 </section>
                 <section>
-                    <div></div>
+                    <div>
+                        <div class="main_txt">
+                            <h3>Sekiro</h3>
+                            <span>66,900</span>
+                            <button>Click</button>
+                        </div>
+                    </div>
                 </section>
             </div>
         </main>
         <!--  게임들 소개 / 오버시 슬라이드 닫히며 큰 이미지로 로드 -->
 
-        <!-- 개봉 예정 게임 -->
+        <!-- 추천 게임 -->
         <div class="main2">
             <div class="head">
-                <H2></H2>
+                <H2>Recommended game</H2>
             </div>
-            <div class="soon_img"></div>
-            <div class="text"></div>
+            <div class="main2_img"></div>
+            <div class="main2_txt"></div>
         </div>
-        <!-- 개봉 예정 게임 -->
+        <!-- 추천 게임 -->
 
         <footer>
             <div class="foot_Wrap">
                 <div class="foot_logo">
-                    <h2>Logo</h2>
+                    <h2><a href="">Steam</a></h2>
                 </div>
                 <div class="ant_txt">
                     <ul>
                         <li>Profile</li>
                         <li>Shop</li>
-                        <li>Top Scroll</li>
+                        <li class="scrollTop">Top Scroll</li>
                     </ul>
                 </div>
             </div>
