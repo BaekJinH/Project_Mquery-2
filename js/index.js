@@ -1,3 +1,47 @@
+// header
+
+// 서브 메뉴 홈페이지 앵커
+// $(function(){
+//     $('.flex_Box > li').click(function(){
+//         var i  = $('.flex_Box > li').index();
+//         if(i == 0){
+//             var offset = $('.slide_Head').offset();
+//             $('html').animate({scrollTop:offset.top},800);
+//         }
+//         else if(i == 1){
+//             var offset = $('.input_Cont').offset();
+//             $('html').animate({scrollTop:offset.top},800);
+//         }
+//     })
+// })
+$(function(){
+    $('.flex_Box > li').eq(0).click(function(){
+        var offset = $('.slide_Head').offset();
+        $('html').animate({scrollTop:offset.top},800);
+    })
+    $('.flex_Box > li').eq(1).click(function(){
+        var offset = $('.input_Cont').offset();
+        $('html').animate({scrollTop:offset.top},800);
+    })
+    $('.flex_Box > li').eq(2).click(function(){
+        var offset = $('.main2').offset();
+        $('html').animate({scrollTop:offset.top},800);
+    })
+    // $('.flex_Box > li').eq(3).click(function(){
+    //     var offset = $('.slide_Head').offset();
+    //     $('html').animate({scrollTop:offset.top},800);
+    // })
+    // $('.flex_Box > li').eq(4).click(function(){
+    //     var offset = $('.slide_Head').offset();
+    //     $('html').animate({scrollTop:offset.top},800);
+    // })
+})
+
+
+
+
+
+
 $(function(){
     $('.container > div').on({mouseover: function(){
 
@@ -5,16 +49,22 @@ $(function(){
         $('')
     }})
 })
+
+// 서브 열리면 주변 흐릿하게 / 보류
 $(function(){
     $('.open').click(function(){
-        // $('#sub_Menu').height(280)
-        $('#sub_Menu').height(350)
+        // $('body').not('#sub_Menu').css({backgroundColor:'rgba(0, 0, 0,'+ 0.8+')'})
+        $('#sub_Menu').height(350);
     })
     $('.close').click(function(){
-        // $('#sub_Menu').animate({height:0})
         $('#sub_Menu').height(0)
     })
 })
+
+
+
+
+
 
 
 // 서브 메뉴바 작업
@@ -31,6 +81,25 @@ $(function(){
 
 
 
+
+
+
+
+
+// header
+
+
+
+
+
+// intro가 먹히는 애니메이션 추가하기
+// 블럭을 따로 따로 지정하면 가능할 것 같음 (header intro) (그 외 나머지들) 라면 가능할듯
+
+$(function(){
+
+})
+
+
 // 아래 인트로 슬라이드
 
 
@@ -43,145 +112,84 @@ $(function(){
     })
 })
 
+// 아래는 글자 작업하려고 앞으로 당겨놓음
+
+// $(function(){
+//     $('.intro_wrap').animate({marginLeft:'-300vw'})
+// })
+
+
 
 
 //  버튼 클릭시 div 마우스 이벤트가  true가 되면서 이벤트 실행할 수 있게 만들기
 
 $(function(){
-    $('.intro_Image4').children().not('.text4').not('.front').css('pointer-events', 'none')
+    $('.text3 > button').click(function(){
+        $('.intro_Image4').children().not('.text4').not('.front').css({pointerEvents:'none'})
+    })
     $('.front').css({pointerEvents:'true',top:'0%',left:'50%',transform:'translate(-50%,-250%)'});
     $('.behind').click(function(){
-        $('.intro_Image4').children().not('.text4').not('.front').css({pointerEvents:'true'})
+        $('.intro_Image4').children().not('.text4').not('.front').css({pointerEvents:'all'})
         $('.text4').css({transform:'translate(-50%,-250%)'});
         $('.front').css({pointerEvents:'true',top:'50%',left:'50%',transform:'translate(-50%,-50%)'});
     })
     $('.front').click(function(){
-        $('.intro_Image4').children().not('.text4').not('.front').css({pointerEvents:'none'})
         $('.text4').css({transform:'translate(-50%,-50%)'});
+        $('.intro_Image4').children().not('.text4').not('.front').css({pointerEvents:'none'})
         $('.front').css({pointerEvents:'true',top:'0%',left:'50%',transform:'translate(-50%,-250%)'});
     })
 })
 
-
-
-
-
-// 인트로 4번 div 호버시 커밍 순 글자 제거
-
-// 아래는 글자 작업하려고 앞으로 당겨놓음
+// 인트로 박스 열리기
 
 $(function(){
-    $('.intro_wrap').animate({marginLeft:'-300vw'})
+    $(".end").on({mouseover:function(){
+        $(this).find('.down').css({transform:'translateY(-100%)',transition:'0.6s'})
+        $(this).css({transform:'scale(1.06)'})
+    },mouseout:function(){
+        $(this).find('.down').css({transform:'translateY(00%)',transition:'0.6s'})
+        $(this).css({transform:'scale(1)'})
+    }})
+    
 })
 
-// 보류
+
+// 애니메이션 끝나고 이미지 커지게
+
 // $(function(){
-//     $('.intro_Image4').not('.text4').on({click:function(){
-//         // $(this).addClass('up')
-//         // 제이쿼리로 클릭시 상자 내리기
-//         $('.text4').stop().animate({top:'-50%'},500);
-//     },mouseout:function(){
-//         $('.text4').stop().animate({top:'50%'},500)
-//     }})
+//     $('.end').mouseover(function(){
+//         // $(this).addClass('scale').delay(5000);
+//         $(this).delay('slow').css({transform:'scale(1.05)'});
+//     })
+//     $('.end').mouseleave(function(){
+//         $(this).css({transform:'scale(1)'})
+//     })
+// })
+
+// $(function(){
+//     $('.end').mouseover(function(){
+//         $(this).addClass('scale').delay(5000);
+//     })
+//     $('.end').mouseleave(function(){
+//     })
 // })
 
 
-// 시간지연 후 ㅅ원하는 애니메이션 끝나고 이미지 커지게
-// $(this).find('.end').delay(1000).animate({transform: 'scale(1.1)'})
+// 인트로 버튼 클릭시 다음 페이지 글자 애니메이션 효과 넣기
 
-
-
-
+// 반복문 아닌 것
 
 // $(function(){
-
-//     var slides = document.querySelector('.intro_wrap'),
-//         slide = document.querySelectorAll('.intro_wrap li'),
-//         currentIdx = 0,
-//         slideCount = slide.length,
-//         slideWidth = $('.intro_Slide'),
-//         slideMargin = 0,
-//         nextBtn = document.querySelectorAll('.oth');
-
-//     makeClone();
-
-//     function makeClone(){
-//         for(var i = 0; i <slideCount; i++){
-//             var cloneSlide = slide[i].cloneNode(true);
-//             cloneSlide.classList.add('clone');
-//             slides.appendChild(cloneSlide);
-//         }
-//         for(var i = slideCount -1; i >=0; i--){
-//             var cloneSlide = slide[i].cloneNode(true);
-//             cloneSlide.classList.add('clone');
-//             slides.prepend(cloneSlide);
-//         }
-//             ubdateWidth();
-//             setInitialPos();
-            
-//             setTimeout(function(){
-//                 slides.classList.add('animated');
-//             },100)
-//     }
-
-//     function ubdateWidth(){
-//         var currentSlides = document.querySelectorAll('.intro_wrap li');
-//         var newSlideCount = currentSlides.length;
-        
-//         var newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin + 'px';
-//         slides.style.width = newWidth;
-//     }
-//     function setInitialPos(){
-//         var initialTranslateValue = -(slideWidth + slideMargin) * slideCount;
-//         slides.style.transform = 'translateX('+ initialTranslateValue +'px)';
-//     }
-
-//     nextBtn.addEventListener('click',function(){
-//         moveSlide(currentIdx +1 )
+//     $('.intro_Image button').not('.front').not('.behind').click(function(){
+//         $('.text').addClass('add')
 //     })
-//     prevBtn.addEventListener('click',function(){
-//         moveSlide(currentIdx -1 )
-//     })
-
-//     var timer = undefined;
-
-//     function autoSlide(){
-//         if(timer == undefined){
-//             timer = setInterval(function(){
-//                 moveSlide(currentIdx + 1 )
-//             },3000)
-//         }
-//     }
-//     autoSlide();
-//     function stopSlide(){
-//         clearInterval(timer);
-//         timer = undefined;
-//         // timer의 값을 undefined으로 지정을 해줘야 마우스로 왔다갔다 했을 때 오류가 안 생김
-//     }
-//     slides.addEventListener('mouseenter',function(){
-//         stopSlide();
-//     })
-
-//     slides.addEventListener('mouseleave',function(){
-//         autoSlide();
-//     })
-//     function moveSlide(num){
-//         slides.style.left = -num * (slideWidth + slideMargin) + 'px';
-//         currentIdx = num;
-//         console.log(currentIdx,slideCount);
-        
-//         if(currentIdx == slideCount || currentIdx == -slideCount){
-//             setTimeout(function(){
-//                 slides.classList.remove('animated');
-//                 slides.style.left = '0px';
-//                 currentIdx = 0;
-//             },500);
-//             setTimeout(function(){
-//                 slides.classList.add('animated');
-//             },600);
-//         }
-//     }
 // })
+
+
+
+
+
+
 
 
 
@@ -214,6 +222,20 @@ $(function(){
 
 
 // 아래 메인 멀티플 슬라이드
+
+
+
+// offset 이용해서 입체 슬라이드 만들어보기
+
+$(function(){
+    if( $('.slideBox2').offset().change(){
+        
+    })
+})
+
+
+
+
 
 $(function(){
 
@@ -276,11 +298,13 @@ $(function(){
         }
     }
     autoSlide();
+
     function stopSlide(){
         clearInterval(timer);
         timer = undefined;
         // timer의 값을 undefined으로 지정을 해줘야 마우스로 왔다갔다 했을 때 오류가 안 생김
     }
+    
     slides.addEventListener('mouseenter',function(){
         stopSlide();
     })
@@ -288,6 +312,7 @@ $(function(){
     slides.addEventListener('mouseleave',function(){
         autoSlide();
     })
+
     function moveSlide(num){
         slides.style.left = -num * (slideWidth + slideMargin) + 'px';
         currentIdx = num;
@@ -304,25 +329,28 @@ $(function(){
             },600);
         }
     }
-})
-// 천천히 누르면 적용되는데 빨리 눌리면 적용이 안 됨 여쭤보기
-
-
-
-
-
-
-
-
-
-
-// intro가 먹히는 애니메이션 추가하기
-$(function(){
-    $(window).scroll(function(){
-        if($(this).scrollTop() > 3200){
-        }
+    prevBtn.addEventListener('click',function(){
+        stopSlide()
+    })
+    prevBtn.addEventListener('mouseleave',function(){
+        autoSlide()
+    })
+    nextBtn.addEventListener('click',function(){
+        stopSlide()
+    })
+    nextBtn.addEventListener('mouseleave',function(){
+        autoSlide()
     })
 })
+// 천천히 누르면 적용되는데 빨리 누르면 적용이 안 됨 여쭤보기 / prev next 클릭시 인터벌 요소를 제거해야할 것 같음
+
+
+
+
+
+
+
+
 
 
 // 섹션 버튼 클릭시 이미지 회전 / 보류
@@ -373,6 +401,13 @@ $(function(){
         })
     })
 })
+
+
+
+
+
+
+
 
 
 
@@ -428,6 +463,11 @@ $(function(){
 //     })
 // })
 
+
+
+
+
+
 // 밑 두개 햄버거 / 뜯어보기
 
 // var burger = $('.menu-trigger');
@@ -479,52 +519,6 @@ $(function(){
 
 
 
-//  footer 스크롤 탑으로
-$(function(){
-    $('.scrollTop').click(function(){
-        var offset = $('header').offset();
-        $('html').animate({scrollTop:offset.top},1200)
-    })
-})
-
-// 서브 메뉴 홈페이지 앵커
-// $(function(){
-//     $('.flex_Box > li').click(function(){
-//         var i  = $('.flex_Box > li').index();
-//         if(i == 0){
-//             var offset = $('.slide_Head').offset();
-//             $('html').animate({scrollTop:offset.top},800);
-//         }
-//         else if(i == 1){
-//             var offset = $('.input_Cont').offset();
-//             $('html').animate({scrollTop:offset.top},800);
-//         }
-//     })
-// })
-$(function(){
-    $('.flex_Box > li').eq(0).click(function(){
-        var offset = $('.slide_Head').offset();
-        $('html').animate({scrollTop:offset.top},800);
-    })
-    $('.flex_Box > li').eq(1).click(function(){
-        var offset = $('.input_Cont').offset();
-        $('html').animate({scrollTop:offset.top},800);
-    })
-    $('.flex_Box > li').eq(2).click(function(){
-        var offset = $('.main2').offset();
-        $('html').animate({scrollTop:offset.top},800);
-    })
-    // $('.flex_Box > li').eq(3).click(function(){
-    //     var offset = $('.slide_Head').offset();
-    //     $('html').animate({scrollTop:offset.top},800);
-    // })
-    // $('.flex_Box > li').eq(4).click(function(){
-    //     var offset = $('.slide_Head').offset();
-    //     $('html').animate({scrollTop:offset.top},800);
-    // })
-})
-
-
 $(function(){
     // main 박스들 슬라이드 열리면 사이즈 커지게 만들기
 })
@@ -536,6 +530,123 @@ $(function(){
 
 
 
+// 마우스 오버시 밑줄 변경
+
+
+// $(function(){
+//     var hei = $('.main2_txt ul li').height();
+//     var margin = 50
+//     $('.main2_txt ul li').on({'mouseenter focusin':function(){
+//         var index = $(this).index();
+//         $(this).find('a').addClass('on');
+//         $(this).siblings().find('a').removeClass('on');
+//         $('.main2_txt span').stop().animate({top:index * (hei+margin)},'fast')
+//     }});
+//     $('.main2_txt ul li:eq(0)').trigger('mouseenter')
+// });
+
+
+
+// Main 2  line
+
+
+// main2
+
+$(function(){
+})
+
+
+
+
+
+$(function(){
+
+})
+
+
+
+
+
+
+
+// 클릭시 밑줄 변경
+
+$(function(){
+    $('.main2_txt ul span').css({top:80})
+    var hei = $('.main2_txt ul li').height();
+    // var margin = 50
+    var margin = 50
+    $('.main2_txt ul li').on({'keydown click':function(){
+        var index = $(this).index();
+        $(this).find('a').addClass('on');
+        $(this).siblings().find('a').removeClass('on');
+        $('.main2_txt span').stop().animate({top:index * (hei+margin)},'fast')
+    }});
+    $('.main2_txt ul li:eq(0)').trigger('mouseenter')
+});
+
+
+
+
+$(function(){
+    $('.main2 > .main2_img').not('.main2_img1').css({display:'none'});
+        // 1번 빼고 다 지우기
+
+        // 글자 슬라이드 효과 가져오기
+    $('.main2_txt > ul  li').click(function(){
+        $('.main2_imgtxt').stop().addClass('txt_fade');
+    })
+
+    // 제목에 맞는 그림 가져오기
+    $('.main2_txt ul li').eq(0).click(function(){
+        $('.main2_img1').show();
+        $('.main2_img').not('.main2_img1').hide()
+    })
+    $('.main2_txt ul li').eq(1).click(function(){
+        $('.main2_img2').show()
+        $('.main2_img').not('.main2_img2').hide()
+    })
+    $('.main2_txt ul li').eq(2).click(function(){
+        $('.main2_img3').show()
+        $('.main2_img').not('.main2_img3').hide()
+    })
+    $('.main2_txt ul li').eq(3).click(function(){
+        $('.main2_img4').show()
+        $('.main2_img').not('.main2_img4').hide()
+    })
+    $('.main2_txt ul li').eq(4).click(function(){
+        $('.main2_img5').show()
+        $('.main2_img').not('.main2_img5').hide()
+    })
+    $('.main2_txt ul li').eq(5).click(function(){
+        $('.main2_img6').show()
+        $('.main2_img').not('.main2_img6').hide()
+    })
+    $('.main2_txt ul li').eq(6).click(function(){
+        $('.main2_img7').show()
+        $('.main2_img').not('.main2_img7').hide()
+    })
+})
+
+
+
+
+
+// 반복문으로 만들기
+
+$(function(){
+    var arr = $('.main2_img').length;
+    $('.main2_txt ul li').click(function(){
+        var index = $(this).index();
+        if(index == arr.index()){
+            $('.main2_img').show()
+        }
+        // arr.index(index).show()
+    })
+})
+
+// Main 2  line
+
 
 // 보류
 // $(function(){
@@ -546,3 +657,14 @@ $(function(){
 //         $('.intro_Sub').width('50%')
 //     }})
 // })
+
+
+
+
+//  footer 스크롤 탑으로
+$(function(){
+    $('.scrollTop').click(function(){
+        var offset = $('header').offset();
+        $('html').animate({scrollTop:offset.top},1200)
+    })
+})
