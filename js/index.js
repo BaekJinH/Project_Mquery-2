@@ -227,11 +227,6 @@ $(function(){
 
 // offset 이용해서 입체 슬라이드 만들어보기
 
-$(function(){
-    if( $('.slideBox2').offset().change(){
-        
-    })
-})
 
 
 
