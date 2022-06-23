@@ -3,6 +3,14 @@
     height:auto;
     overflow:hidden;
 }
+.mask{
+    position:absolute;
+    left:0%;
+    top:0;
+    z-index:90;
+    background-color: rgba(0, 0, 0, 0.5);
+    display:none;
+}
 header{
     width: 100%;
     height:100px;
@@ -605,8 +613,8 @@ nav > ul > li{
     float:left;
     background-size:cover;
     background-position:center;
-    /* position:relative; */
 }
+
 .mySlide > li:not(:last-child){
     margin-right:50px
 }
@@ -652,7 +660,7 @@ nav > ul > li{
     cursor:pointer;
     width:75px;
     height:75px;
-    z-index:999;
+    z-index:9;
     position:absolute;
     left:5%;
     top:45%;
@@ -674,7 +682,7 @@ nav > ul > li{
     cursor:pointer;
     width:75px;
     height:75px;
-    z-index:999;
+    z-index:9;
     position:absolute;
     right:5%;
     top:45%;
@@ -809,6 +817,16 @@ main{
     margin-top:150px;
 }
 
+/* .container{
+    width:90%;
+    height:100%;
+    margin:0 auto;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:space-around;
+    align-items: center;
+} */
+
 .container{
     width:90%;
     height:100%;
@@ -818,9 +836,16 @@ main{
     justify-content:space-around;
     align-items: center;
 }
-section{
+/* section{
     width:28%;
     height:650px;
+    background-color:#eee;
+    margin-bottom:50px;
+    position:relative;
+} */
+section{
+    width:22%;
+    height:520px;
     background-color:#eee;
     margin-bottom:50px;
     position:relative;
@@ -866,10 +891,21 @@ section > div > .main_txt>button{
     left:50%;
     transform: translate(-50%,-50%);
     font-weight:bold;
-    font-size:18px;
+    font-size:20px;
     border-radius: 15px;
     overflow: hidden;
 }
+section > div > p{
+    text-align: center;
+    position:absolute;
+    color:white;
+    bottom:15%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    display:none;
+}
+
+
 .main_txt > button::before{
     content: '';
     /* display:none; */
@@ -922,6 +958,13 @@ section:nth-of-type(6) > div{
     background-image:url(../img/section-3.jpg)    
 }
 
+section:nth-of-type(7) > div{
+    background-image:url(../img/section-ex-1.jpg)    
+}
+section:nth-of-type(8) > div{
+    /* background-image:url(../img/section-3.jpg)     */
+    background-color:#eee
+}
 section > div:hover{
     animation:size 1s;
     animation-fill-mode: both;
@@ -1072,6 +1115,13 @@ section > div:hover:after{
     background-position:center;
     position: relative;
 }
+.main2_img img{
+    width:100%;
+    height:100%;
+    display:none;
+}
+
+
 
 .main2_txt{
     width:30%;
@@ -1144,18 +1194,44 @@ section > div:hover:after{
 }
 
 .main2_imgtxt > button{
-    border:none;
     padding:15px 10px;
     width:30%;
     margin-top:10px;
     border-radius:10px;
     font-weight: bold;
     font-size:20px;
+    border:3px solid white;
+    box-sizing: border-box;
+    color:White;
+    overflow:hidden;
+    position:relative;
+    transition:all 0.5s;
+    background-color:transparent;
+    border:3px solid white;
+    box-sizing: border-box;
+}
+.main2_imgtxt > button:hover{
+    color:black;
+}
+.main2_imgtxt > button:before{
+    display:block;
+    content: '';
+    width:300px;
+    height:200px;
+    top:-20%;
+    left:0;
+    background-color:white;
+    position: absolute;
+    transform: translateX(-102%);
+    transition: all 1s;
+    z-index:-1
+}
+.main2_imgtxt > button:hover::before{
+    transform: translateX(-10%);
 }
 
-
-
 /* main2 img txt */
+
 .main2_txt > ul{
     vertical-align: middle;
     height:100%;
@@ -1211,7 +1287,7 @@ footer{
 
 footer >.foot_Wrap{
     width:90%;
-    height:180px;
+    height:150px;
     display:flex;
     flex-flow:row wrap;
     align-items: center;

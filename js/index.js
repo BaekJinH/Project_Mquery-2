@@ -49,11 +49,29 @@ $(function(){
         $('')
     }})
 })
-
-// 서브 열리면 주변 흐릿하게 / 보류
 $(function(){
+    function windowMask(){
+        var maskHeight = $(document).height();
+        var maskWidth = $(window).width();
+
+        $('.mask').css({width:maskWidth,height:maskHeight});
+
+        $('.mask').fadeIn(1000);
+        // $('.mask').fadeOut('slow')
+    }
+
+    // 화면 흐리게 + 서브 메뉴 제외하고 나머지 마우스 이벤트 무효화
+
     $('.open').click(function(){
-        // $('body').not('#sub_Menu').css({backgroundColor:'rgba(0, 0, 0,'+ 0.8+')'})
+        windowMask()
+        $('#sub_Menu').css({position:'fixed'})
+    })
+    $('.close').click(function(){
+        $('.mask').fadeOut('slow')
+    })
+    
+    // 서브메뉴 오픈
+    $('.open').click(function(){
         $('#sub_Menu').height(350);
     })
     $('.close').click(function(){
@@ -61,9 +79,12 @@ $(function(){
     })
 })
 
-
-
-
+$(function(){
+    $('.mask').click(function(){
+        $('#sub_Menu').height(0)
+        $(this).fadeOut('slow')
+    })
+})
 
 
 
@@ -337,14 +358,34 @@ $(function(){
         autoSlide()
     })
 })
+
+$(function(){
+    $('.slideBox').on({mouseover:function(){
+        $(this).css({transform:'translateY(-5%)',transition:'all 0.45s ease-in-out'});
+
+    },mouseout:function(){
+        $(this).css({transform:'translateY(0%)',transition:'all 0.45s ease-in-out'})
+
+    }})
+    
+})
+
+
 // 천천히 누르면 적용되는데 빨리 누르면 적용이 안 됨 여쭤보기 / prev next 클릭시 인터벌 요소를 제거해야할 것 같음
 
 
 
 
+// slider end line
 
 
 
+
+
+
+
+
+// section
 
 
 
@@ -403,31 +444,6 @@ $(function(){
 
 
 
-
-
-
-// 검색어 값 가져오기
-
-$(function(){
-    var input = $('input:text');
-    $('.btn_Box > button').on('click',function(){
-        var value = $(this).val()
-        $("input[type=text]").val("")
-        input.val(value)
-    })
-})
-
-// 그림 호버시 글자 생성 / 내려왔다 올라가는 버젼
-
-$(function(){
-    $('section > div').on({mouseover:function(){
-        $(this).find('.main_txt').css({transform:'translateY(0%)',transition:'1s'});
-        // $('.main_txt').stop().animate({},800);
-    },mouseout:function(){
-        $(this).find('.main_txt').css({transform:'translateY(-100%)',transition:'1s'});
-        
-    }})
-})
 
 // 내려왔다가 밑으로 가고 위에서 다시 내려오게 만들기
 
@@ -545,18 +561,112 @@ $(function(){
 // Main 2  line
 
 
+
+// 검색어 값 가져오기
+
+$(function(){
+    var input = $('input:text');
+    $('.btn_Box > button').on('click',function(){
+        var value = $(this).val()
+        $("input[type=text]").val("")
+        input.val(value)
+    })
+})
+
+// 그림 호버시 글자 생성
+
+$(function(){
+    $('section > div').on({mouseover:function(){
+        $(this).find('.main_txt').css({transform:'translateY(0%)',transition:'1s'})
+        $(this).find('p').stop().fadeIn(3200)
+    },mouseout:function(){
+        $(this).find('.main_txt').css({transform:'translateY(-100%)',transition:'1s'})
+        $(this).find('p').stop().fadeOut('fast')
+    }})
+})
+
+
+
+
+// 바로 밑은 콜백함수 참고용
+
+// $(document).ready(function(){
+//     $("button").click(function(){
+//         $("p").hide("slow", function(){
+//             alert("주소 숨었지롱.");
+//         });
+//     });
+// });
+
+
+//  텍스트들이 박스가 닫히고 나오게 만드는 중
+
+// $(function(){
+//     $('section > div').on({mouseover:function(){
+//         var txt = $('.txt_P');
+//         setTimeout(() => {
+//             $(this).find('p').stop().fadeIn(500)
+//         },1000)
+//     }})
+//     $('section > div').on({mouseout:function(){
+//         $(this).find('p').stop().fadeOut('fast')
+//     }})
+// })
+
+
+// $(function(){
+//     $('section > div').on({mouseout:function(){
+//         $('.txt_P').stop().fadeOut()
+//     }})
+// })
+
+
+
+// function textIn(){
+//     var txt = document.querySelectorAll('.txt_P')
+//     // var txt = $(this).find('p')
+//     setTimeout(() => {
+//         $(this).stop().fadeIn('slow')
+//         // $(txt).stop().fadeIn('slow')
+//     },1000)
+// }
+
+window.onload=function(){
+    
+    var obTimeout;
+
+    var ObjectArray  = new Array();
+    ObjectArray [0]='../img/slide_img-1.jpg'
+    ObjectArray [1]='../img/section-1.jpg'
+    ObjectArray [2]='../img/intro3-1.jpg'
+
+    var nObjectCnt = 0;
+
+    function ShowDefaultRotate(){   // 스스로 자신을 호출하는 재귀함수
+        nObjectCnt++;
+        if(nObjectCnt < ObjectArray.length){
+            // document.getElementsByClassName('main2_img1')[0].src=imageArr[imgCnt];
+            document.getElementById("image").src = ObjectArray[nObjectCnt];
+            obTimeOut = setTimeout("ShowDefaultRotate()",1000)
+        }
+        else{
+            clearTimeout(obTimeout)
+        }
+    } 
+    function startAnimation(){
+        obTimeout = window.setTimeout(ShowDefaultRotate,100)
+    }
+
+        window.onload=startAnimation;
+
+    //확인용
+    console.log(ObjectArray)
+}
+    
+
+//     var arr = ['../img/slide_img-1.jpg','../img/section-1.jpg','../img/intro3-1.jpg']
+
 // main2
-
-$(function(){
-})
-
-
-
-
-
-$(function(){
-
-})
 
 
 
@@ -626,19 +736,7 @@ $(function(){
 
 
 
-
 // 반복문으로 만들기
-
-$(function(){
-    var arr = $('.main2_img').length;
-    $('.main2_txt ul li').click(function(){
-        var index = $(this).index();
-        if(index == arr.index()){
-            $('.main2_img').show()
-        }
-        // arr.index(index).show()
-    })
-})
 
 // Main 2  line
 
