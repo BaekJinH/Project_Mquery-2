@@ -1130,23 +1130,32 @@ section > div:hover:after{
     /* background-color:#eee; */
 }
 
+.main2_img1{
+    background-image: url(../img/slide_img-1.jpg);
+}
+
 .main2_img2{
-    /* background-color:cyan; */
+    background-image: url(../img/main2_2.png)
 }
 .main2_img3{
     /* background-color:#eee; */
+    background-image: url(../img/main2_3.jpg)
 }
 .main2_img4{
     /* background-color:green; */
+    background-image: url(../img/main2_4.jpg)
 }
 .main2_img5{
     /* background-color:pink; */
+    background-image: url(../img/main2_5.jpg)
 }
 .main2_img6{
     /* background-color:#fff; */
+    background-image: url(../img/main2_6.jpg)
 }
 .main2_img7{
     /* background-color:khaki; */
+    background-image: url(../img/main2_7.jpg)
 }
 
 /* main2 img txt */
