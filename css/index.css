@@ -104,7 +104,7 @@ nav > ul > li{
 }
 
 .close_Box{
-    width:70%;
+    width:90%;
     height:80px;
     margin: 0 auto;
     display:flex;
@@ -123,6 +123,8 @@ nav > ul > li{
 }
 
 .sub_wrap{
+    width:85%;
+    margin:0 auto;
     display:flex;
     flex-flow:row wrap;
 }
@@ -279,6 +281,8 @@ nav > ul > li{
     transform: translate(-50%,-50%);
     animation:fade 1.2s;
 }
+
+
 @keyframes fade {
     0%{
         opacity: 0;
@@ -1114,6 +1118,7 @@ section > div:hover:after{
     background-size:cover;
     background-position:center;
     position: relative;
+    overflow:hidden;
 }
 .main2_img img{
     width:100%;
@@ -1161,16 +1166,21 @@ section > div:hover:after{
 /* main2 img txt */
 .main2_imgtxt{
     position:absolute;
-    top:50%;
-    right:5%;
-    transform: translate(0%,-50%);
+    background-color:rgba(0, 0, 0, 0.7);
+    /* background:linear-gradient(rgba(255,255,255,0.1),rgba(0,0,0,0.8)); */
+    bottom:0;
+    left:0;
+    transform:translateY(100%);
     text-align: center;
-    width:40%;
+    width:100%;
+    transition: all 1s;
 }
 
-/* text click animat */
 
-.txt_fade{
+
+/* text click animat */
+/* 
+.txt_fade1{
     animation:right_fade 1s    
 }
 @keyframes right_fade {
@@ -1184,6 +1194,23 @@ section > div:hover:after{
     }
 }
 
+.txt_fade2{
+    animation:right_fade2 1s    
+}
+@keyframes right_fade2 {
+    0%{
+        opacity: 0;
+        right:-10%;
+    }
+    100%{
+        opacity: 1;
+        right:15%;
+    }
+}
+ */
+
+
+
 
 /* text click animat */
 
@@ -1196,6 +1223,9 @@ section > div:hover:after{
 
 
 .main2_imgtxt > p{
+    margin:0 auto;
+    text-align:center;
+    width:70%;
     font-size:15px;
     /* font-weight:bold; */
     line-height: 30px;
@@ -1204,11 +1234,11 @@ section > div:hover:after{
 
 .main2_imgtxt > button{
     padding:15px 10px;
-    width:30%;
+    width:20%;
     margin-top:10px;
     border-radius:10px;
     font-weight: bold;
-    font-size:20px;
+    font-size:23px;
     border:3px solid white;
     box-sizing: border-box;
     color:White;
@@ -1285,6 +1315,64 @@ section > div:hover:after{
 
 
 /* main2 */
+
+.main3{
+    margin-top:350px;
+    width:100%;
+    height:auto;
+}
+.reviewContainer{
+    width:1450px;
+    margin:0 auto;
+    /* background-color:#eee; */
+}
+.reviewContainer > h2{
+    width:80vw;
+    text-align:center;
+    font-size:30px;
+    color:white;
+}
+
+.reviewImg{
+    width:80vw;
+    height:400px;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content: space-around;
+    align-items: center;
+    /* overflow: hidden; */
+}
+.reviewImg > div{
+    width:40%;
+    height:100%;
+    background-color:#eee;
+}
+
+.reviewBtn{
+    width:80vw;
+    margin:80px auto;
+    display:flex;
+    align-items: center;
+    justify-content:Center;
+}
+.reviewBtn > div{
+    margin:0px 10px;
+    width:30px;
+    height:30px;
+    /* background-color:white; */
+    border-radius: 50%;
+}
+.reviewBtn > div:hover{
+    background-color:#666;
+    transition:0.3s;
+}
+.reviewAdd{
+    background-color:#666;
+}
+
+/* main3 */
+
+
 
 
 footer{

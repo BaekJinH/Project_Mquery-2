@@ -72,7 +72,7 @@ $(function(){
     
     // 서브메뉴 오픈
     $('.open').click(function(){
-        $('#sub_Menu').height(350);
+        $('#sub_Menu').height(310);
     })
     $('.close').click(function(){
         $('#sub_Menu').height(0)
@@ -114,7 +114,7 @@ $(function(){
 
 
 // intro가 먹히는 애니메이션 추가하기
-// 블럭을 따로 따로 지정하면 가능할 것 같음 (header intro) (그 외 나머지들) 라면 가능할듯
+// 블럭을 따로 따로 지정하면 가능할 것 같음 (header intro) (그 외 나머지들) 이라면 가능할듯
 
 $(function(){
 
@@ -691,16 +691,20 @@ $(function(){
 });
 
 
+$(function(){
+    $('.main2_img').hover(function(){
+        $(this).find('.main2_imgtxt').css({transform:'translateY(0%)'});
+        $('.main2_imgtxt').children().not('button').css({pointerEvents:'none'})
+    },function(){
+        $(this).find('.main2_imgtxt').css({transform:'translateY(100%)'})
+    })
+})
+
 
 
 $(function(){
     $('.main2 > .main2_img').not('.main2_img1').css({display:'none'});
         // 1번 빼고 다 지우기
-
-        // 글자 슬라이드 효과 가져오기
-    $('.main2_txt > ul  li').click(function(){
-        $('.main2_imgtxt').stop().addClass('txt_fade');
-    })
 
     // 제목에 맞는 그림 가져오기
     $('.main2_txt ul li').eq(0).click(function(){
@@ -734,7 +738,32 @@ $(function(){
 })
 
 
+window.onload=function(){
+    var hei = $('.reviewImg').outerHeight(true);
 
+
+}
+$(function(){
+    var wid = $('.reviewImg > div').width();
+    var hei = $('.reviewImg > div').height();
+    $('.reviewBtn > div').click(function(){
+        var i = $('.reviewBtn > div').index(this)
+        if(i == 0){
+            $('.reviewImg > div').stop().animate({marginTop:'0px'})
+        }
+        else if(i == 1){
+            $('.reviewImg > div').stop().animate({marginTop:-hei})
+        }
+        else if(i == 2){
+            $('.reviewImg > div').stop().animate({marginTop:-hei*2})
+        }
+        else{
+            $('.reviewImg > div').stop().animate({marginTop:-hei*3})
+        }
+        $(this).addClass('reviewAdd');
+        $(this).siblings().removeClass('reviewAdd');
+    })
+})
 
 // 반복문으로 만들기
 
