@@ -41,7 +41,6 @@ $(function(){
 
 
 
-
 $(function(){
     $('.container > div').on({mouseover: function(){
 
@@ -249,115 +248,553 @@ $(function(){
 // offset 이용해서 입체 슬라이드 만들어보기
 
 
-
-
-
-
-$(function(){
-
-    var slides = document.querySelector('.mySlide'),
-        slide = document.querySelectorAll('.mySlide li'),
-        currentIdx = 0,
-        slideCount = slide.length,
-        slideWidth = 450,
-        slideMargin = 50,
-        prevBtn = document.querySelector('.prev'),
-        nextBtn = document.querySelector('.next');
-
-    makeClone();
-
-    function makeClone(){
-        for(var i = 0; i <slideCount; i++){
-            var cloneSlide = slide[i].cloneNode(true);
-            cloneSlide.classList.add('clone');
-            slides.appendChild(cloneSlide);
-        }
-        for(var i = slideCount -1; i >=0; i--){
-            var cloneSlide = slide[i].cloneNode(true);
-            cloneSlide.classList.add('clone');
-            slides.prepend(cloneSlide);
-        }
-            ubdateWidth();
-            setInitialPos();
-            
-            setTimeout(function(){
-                slides.classList.add('animated');
-            },100)
-    }
-
-    function ubdateWidth(){
-        var currentSlides = document.querySelectorAll('.mySlide li');
-        var newSlideCount = currentSlides.length;
-        
-        var newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin + 'px';
-        slides.style.width = newWidth;
-    }
-    function setInitialPos(){
-        var initialTranslateValue = -(slideWidth + slideMargin) * slideCount;
-        slides.style.transform = 'translateX('+ initialTranslateValue +'px)';
-    }
-
-    nextBtn.addEventListener('click',function(){
-        moveSlide(currentIdx +1 )
-    })
-    prevBtn.addEventListener('click',function(){
-        moveSlide(currentIdx -1 )
-    })
-
-    var timer = undefined;
-
-    function autoSlide(){
-        if(timer == undefined){
-            timer = setInterval(function(){
-                moveSlide(currentIdx + 1 )
-            },3000)
-        }
-    }
-    autoSlide();
-
-    function stopSlide(){
-        clearInterval(timer);
-        timer = undefined;
-        // timer의 값을 undefined으로 지정을 해줘야 마우스로 왔다갔다 했을 때 오류가 안 생김
-    }
+if(matchMedia('screen and (min-width:1500px)').matches){
+    $(function(){
+        var slides = document.querySelector('.mySlide'),
+            slide = document.querySelectorAll('.mySlide li'),
+            currentIdx = 0,
+            slideCount = slide.length,
+            slideWidth = 450,
+            slideMargin = 50,
+            prevBtn = document.querySelector('.prev'),
+            nextBtn = document.querySelector('.next');
     
-    slides.addEventListener('mouseenter',function(){
-        stopSlide();
-    })
-
-    slides.addEventListener('mouseleave',function(){
-        autoSlide();
-    })
-
-    function moveSlide(num){
-        slides.style.left = -num * (slideWidth + slideMargin) + 'px';
-        currentIdx = num;
-        console.log(currentIdx,slideCount);
-        
-        if(currentIdx == slideCount || currentIdx == -slideCount){
-            setTimeout(function(){
-                slides.classList.remove('animated');
-                slides.style.left = '0px';
-                currentIdx = 0;
-            },500);
-            setTimeout(function(){
-                slides.classList.add('animated');
-            },600);
+        makeClone();
+    
+        function makeClone(){
+            for(var i = 0; i <slideCount; i++){
+                var cloneSlide = slide[i].cloneNode(true);
+                cloneSlide.classList.add('clone');
+                slides.appendChild(cloneSlide);
+            }
+            for(var i = slideCount -1; i >=0; i--){
+                var cloneSlide = slide[i].cloneNode(true);
+                cloneSlide.classList.add('clone');
+                slides.prepend(cloneSlide);
+            }
+                ubdateWidth();
+                setInitialPos();
+                
+                setTimeout(function(){
+                    slides.classList.add('animated');
+                },100)
         }
-    }
-    prevBtn.addEventListener('click',function(){
-        stopSlide()
+    
+        function ubdateWidth(){
+            var currentSlides = document.querySelectorAll('.mySlide li');
+            var newSlideCount = currentSlides.length;
+            
+            var newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin + 'px';
+            slides.style.width = newWidth;
+        }
+        function setInitialPos(){
+            var initialTranslateValue = -(slideWidth + slideMargin) * slideCount;
+            slides.style.transform = 'translateX('+ initialTranslateValue +'px)';
+        }
+    
+        nextBtn.addEventListener('click',function(){
+            moveSlide(currentIdx +1 )
+        })
+        prevBtn.addEventListener('click',function(){
+            moveSlide(currentIdx -1 )
+        })
+    
+        var timer = undefined;
+    
+        function autoSlide(){
+            if(timer == undefined){
+                timer = setInterval(function(){
+                    moveSlide(currentIdx + 1 )
+                },3000)
+            }
+        }
+        autoSlide();
+    
+        function stopSlide(){
+            clearInterval(timer);
+            timer = undefined;
+            // timer의 값을 undefined으로 지정을 해줘야 마우스로 왔다갔다 했을 때 오류가 안 생김
+        }
+        
+        slides.addEventListener('mouseenter',function(){
+            stopSlide();
+        })
+    
+        slides.addEventListener('mouseleave',function(){
+            autoSlide();
+        })
+    
+        function moveSlide(num){
+            slides.style.left = -num * (slideWidth + slideMargin) + 'px';
+            currentIdx = num;
+            console.log(currentIdx,slideCount);
+            
+            if(currentIdx == slideCount || currentIdx == -slideCount){
+                setTimeout(function(){
+                    slides.classList.remove('animated');
+                    slides.style.left = '0px';
+                    currentIdx = 0;
+                },500);
+                setTimeout(function(){
+                    slides.classList.add('animated');
+                },600);
+            }
+        }
+        prevBtn.addEventListener('click',function(){
+            stopSlide()
+        })
+        prevBtn.addEventListener('mouseleave',function(){
+            autoSlide()
+        })
+        nextBtn.addEventListener('click',function(){
+            stopSlide()
+        })
+        nextBtn.addEventListener('mouseleave',function(){
+            autoSlide();
+        })
     })
-    prevBtn.addEventListener('mouseleave',function(){
-        autoSlide()
+}
+else if(matchMedia('screen and (min-width:1100px)').matches){
+    $(function(){
+        var slides = document.querySelector('.mySlide'),
+            slide = document.querySelectorAll('.mySlide li'),
+            currentIdx = 0,
+            slideCount = slide.length,
+            slideWidth = $('.slideBox').width()
+            slideMargin = 20,
+            prevBtn = document.querySelector('.prev'),
+            nextBtn = document.querySelector('.next');
+    
+        makeClone();
+    
+        function makeClone(){
+            for(var i = 0; i <slideCount; i++){
+                var cloneSlide = slide[i].cloneNode(true);
+                cloneSlide.classList.add('clone');
+                slides.appendChild(cloneSlide);
+            }
+            for(var i = slideCount -1; i >=0; i--){
+                var cloneSlide = slide[i].cloneNode(true);
+                cloneSlide.classList.add('clone');
+                slides.prepend(cloneSlide);
+            }
+                ubdateWidth();
+                setInitialPos();
+                
+                setTimeout(function(){
+                    slides.classList.add('animated');
+                },100)
+        }
+    
+        function ubdateWidth(){
+            var currentSlides = document.querySelectorAll('.mySlide li');
+            var newSlideCount = currentSlides.length;
+            
+            var newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin + 'px';
+            slides.style.width = newWidth;
+        }
+        function setInitialPos(){
+            var initialTranslateValue = -(slideWidth + slideMargin) * slideCount;
+            slides.style.transform = 'translateX('+ initialTranslateValue +'px)';
+        }
+    
+        nextBtn.addEventListener('click',function(){
+            moveSlide(currentIdx +1 )
+        })
+        prevBtn.addEventListener('click',function(){
+            moveSlide(currentIdx -1 )
+        })
+    
+        var timer = undefined;
+    
+        function autoSlide(){
+            if(timer == undefined){
+                timer = setInterval(function(){
+                    moveSlide(currentIdx + 1 )
+                },3000)
+            }
+        }
+        autoSlide();
+    
+        function stopSlide(){
+            clearInterval(timer);
+            timer = undefined;
+            // timer의 값을 undefined으로 지정을 해줘야 마우스로 왔다갔다 했을 때 오류가 안 생김
+        }
+        
+        slides.addEventListener('mouseenter',function(){
+            stopSlide();
+        })
+    
+        slides.addEventListener('mouseleave',function(){
+            autoSlide();
+        })
+    
+        function moveSlide(num){
+            slides.style.left = -num * (slideWidth + slideMargin) + 'px';
+            currentIdx = num;
+            console.log(currentIdx,slideCount);
+            
+            if(currentIdx == slideCount || currentIdx == -slideCount){
+                setTimeout(function(){
+                    slides.classList.remove('animated');
+                    slides.style.left = '0px';
+                    currentIdx = 0;
+                },500);
+                setTimeout(function(){
+                    slides.classList.add('animated');
+                },600);
+            }
+        }
+        prevBtn.addEventListener('click',function(){
+            stopSlide()
+        })
+        prevBtn.addEventListener('mouseleave',function(){
+            autoSlide()
+        })
+        nextBtn.addEventListener('click',function(){
+            stopSlide()
+        })
+        nextBtn.addEventListener('mouseleave',function(){
+            autoSlide()
+        })
     })
-    nextBtn.addEventListener('click',function(){
-        stopSlide()
-    })
-    nextBtn.addEventListener('mouseleave',function(){
-        autoSlide()
-    })
-})
+}
+// else if(matchMedia('min-width:799px')){
+//     $(function(){
+//         var slides = document.querySelector('.mySlide'),
+//             slide = document.querySelectorAll('.mySlide li'),
+//             currentIdx = 0,
+//             slideCount = slide.length,
+//             slideWidth = $('.slideBox').width()
+//             slideMargin = 20,
+//             prevBtn = document.querySelector('.prev'),
+//             nextBtn = document.querySelector('.next');
+    
+//         makeClone();
+    
+//         function makeClone(){
+//             for(var i = 0; i <slideCount; i++){
+//                 var cloneSlide = slide[i].cloneNode(true);
+//                 cloneSlide.classList.add('clone');
+//                 slides.appendChild(cloneSlide);
+//             }
+//             for(var i = slideCount -1; i >=0; i--){
+//                 var cloneSlide = slide[i].cloneNode(true);
+//                 cloneSlide.classList.add('clone');
+//                 slides.prepend(cloneSlide);
+//             }
+//                 ubdateWidth();
+//                 setInitialPos();
+                
+//                 setTimeout(function(){
+//                     slides.classList.add('animated');
+//                 },100)
+//         }
+    
+//         function ubdateWidth(){
+//             var currentSlides = document.querySelectorAll('.mySlide li');
+//             var newSlideCount = currentSlides.length;
+            
+//             var newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin + 'px';
+//             slides.style.width = newWidth;
+//         }
+//         function setInitialPos(){
+//             var initialTranslateValue = -(slideWidth + slideMargin) * slideCount;
+//             slides.style.transform = 'translateX('+ initialTranslateValue +'px)';
+//         }
+    
+//         nextBtn.addEventListener('click',function(){
+//             moveSlide(currentIdx +1 )
+//         })
+//         prevBtn.addEventListener('click',function(){
+//             moveSlide(currentIdx -1 )
+//         })
+    
+//         var timer = undefined;
+    
+//         function autoSlide(){
+//             if(timer == undefined){
+//                 timer = setInterval(function(){
+//                     moveSlide(currentIdx + 1 )
+//                 },3000)
+//             }
+//         }
+//         autoSlide();
+    
+//         function stopSlide(){
+//             clearInterval(timer);
+//             timer = undefined;
+//             // timer의 값을 undefined으로 지정을 해줘야 마우스로 왔다갔다 했을 때 오류가 안 생김
+//         }
+        
+//         slides.addEventListener('mouseenter',function(){
+//             stopSlide();
+//         })
+    
+//         slides.addEventListener('mouseleave',function(){
+//             autoSlide();
+//         })
+    
+//         function moveSlide(num){
+//             slides.style.left = -num * (slideWidth + slideMargin) + 'px';
+//             currentIdx = num;
+//             console.log(currentIdx,slideCount);
+            
+//             if(currentIdx == slideCount || currentIdx == -slideCount){
+//                 setTimeout(function(){
+//                     slides.classList.remove('animated');
+//                     slides.style.left = '0px';
+//                     currentIdx = 0;
+//                 },500);
+//                 setTimeout(function(){
+//                     slides.classList.add('animated');
+//                 },600);
+//             }
+//         }
+//         prevBtn.addEventListener('click',function(){
+//             stopSlide()
+//         })
+//         prevBtn.addEventListener('mouseleave',function(){
+//             autoSlide()
+//         })
+//         nextBtn.addEventListener('click',function(){
+//             stopSlide()
+//         })
+//         nextBtn.addEventListener('mouseleave',function(){
+//             autoSlide()
+//         })
+//     })
+// }
+
+
+
+
+// function dectectMediaSize(){
+//     if(window.matchMedia('(min-width:0px) and (max-width:599px)').matches){
+
+//     }
+//     else if(window.matchMedia('(min-width:600px) and (max-width:1100px)').matches){
+
+//     }
+//     else if(window.matchMedia('(min-width:1101px) and (max-width:1300px)').matches){
+//         $(function(){
+//             var slides = document.querySelector('.mySlide'),
+//                 slide = document.querySelectorAll('.mySlide li'),
+//                 currentIdx = 0,
+//                 slideCount = slide.length,
+//                 slideWidth = $('.slideBox').width()
+//                 slideMargin = 20,
+//                 prevBtn = document.querySelector('.prev'),
+//                 nextBtn = document.querySelector('.next');
+        
+//             makeClone();
+        
+//             function makeClone(){
+//                 for(var i = 0; i <slideCount; i++){
+//                     var cloneSlide = slide[i].cloneNode(true);
+//                     cloneSlide.classList.add('clone');
+//                     slides.appendChild(cloneSlide);
+//                 }
+//                 for(var i = slideCount -1; i >=0; i--){
+//                     var cloneSlide = slide[i].cloneNode(true);
+//                     cloneSlide.classList.add('clone');
+//                     slides.prepend(cloneSlide);
+//                 }
+//                     ubdateWidth();
+//                     setInitialPos();
+                    
+//                     setTimeout(function(){
+//                         slides.classList.add('animated');
+//                     },100)
+//             }
+        
+//             function ubdateWidth(){
+//                 var currentSlides = document.querySelectorAll('.mySlide li');
+//                 var newSlideCount = currentSlides.length;
+                
+//                 var newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin + 'px';
+//                 slides.style.width = newWidth;
+//             }
+//             function setInitialPos(){
+//                 var initialTranslateValue = -(slideWidth + slideMargin) * slideCount;
+//                 slides.style.transform = 'translateX('+ initialTranslateValue +'px)';
+//             }
+        
+//             nextBtn.addEventListener('click',function(){
+//                 moveSlide(currentIdx +1 )
+//             })
+//             prevBtn.addEventListener('click',function(){
+//                 moveSlide(currentIdx -1 )
+//             })
+        
+//             var timer = undefined;
+        
+//             function autoSlide(){
+//                 if(timer == undefined){
+//                     timer = setInterval(function(){
+//                         moveSlide(currentIdx + 1 )
+//                     },3000)
+//                 }
+//             }
+//             autoSlide();
+        
+//             function stopSlide(){
+//                 clearInterval(timer);
+//                 timer = undefined;
+//                 // timer의 값을 undefined으로 지정을 해줘야 마우스로 왔다갔다 했을 때 오류가 안 생김
+//             }
+            
+//             slides.addEventListener('mouseenter',function(){
+//                 stopSlide();
+//             })
+        
+//             slides.addEventListener('mouseleave',function(){
+//                 autoSlide();
+//             })
+        
+//             function moveSlide(num){
+//                 slides.style.left = -num * (slideWidth + slideMargin) + 'px';
+//                 currentIdx = num;
+//                 console.log(currentIdx,slideCount);
+                
+//                 if(currentIdx == slideCount || currentIdx == -slideCount){
+//                     setTimeout(function(){
+//                         slides.classList.remove('animated');
+//                         slides.style.left = '0px';
+//                         currentIdx = 0;
+//                     },500);
+//                     setTimeout(function(){
+//                         slides.classList.add('animated');
+//                     },600);
+//                 }
+//             }
+//             prevBtn.addEventListener('click',function(){
+//                 stopSlide()
+//             })
+//             prevBtn.addEventListener('mouseleave',function(){
+//                 autoSlide()
+//             })
+//             nextBtn.addEventListener('click',function(){
+//                 stopSlide()
+//             })
+//             nextBtn.addEventListener('mouseleave',function(){
+//                 autoSlide()
+//             })
+//         })
+//     }
+//     else{
+//         $(function(){
+//             var slides = document.querySelector('.mySlide'),
+//                 slide = document.querySelectorAll('.mySlide li'),
+//                 currentIdx = 0,
+//                 slideCount = slide.length,
+//                 slideWidth = $('.slideBox').width(),
+//                 slideMargin = 50,
+//                 prevBtn = document.querySelector('.prev'),
+//                 nextBtn = document.querySelector('.next');
+        
+//             makeClone();
+        
+//             function makeClone(){
+//                 for(var i = 0; i <slideCount; i++){
+//                     var cloneSlide = slide[i].cloneNode(true);
+//                     cloneSlide.classList.add('clone');
+//                     slides.appendChild(cloneSlide);
+//                 }
+//                 for(var i = slideCount -1; i >=0; i--){
+//                     var cloneSlide = slide[i].cloneNode(true);
+//                     cloneSlide.classList.add('clone');
+//                     slides.prepend(cloneSlide);
+//                 }
+//                     ubdateWidth();
+//                     setInitialPos();
+                    
+//                     setTimeout(function(){
+//                         slides.classList.add('animated');
+//                     },100)
+//             }
+        
+//             function ubdateWidth(){
+//                 var currentSlides = document.querySelectorAll('.mySlide li');
+//                 var newSlideCount = currentSlides.length;
+                
+//                 var newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin + 'px';
+//                 slides.style.width = newWidth;
+//             }
+//             function setInitialPos(){
+//                 var initialTranslateValue = -(slideWidth + slideMargin) * slideCount;
+//                 slides.style.transform = 'translateX('+ initialTranslateValue +'px)';
+//             }
+        
+//             nextBtn.addEventListener('click',function(){
+//                 moveSlide(currentIdx +1 )
+//             })
+//             prevBtn.addEventListener('click',function(){
+//                 moveSlide(currentIdx -1 )
+//             })
+        
+//             var timer = undefined;
+        
+//             function autoSlide(){
+//                 if(timer == undefined){
+//                     timer = setInterval(function(){
+//                         moveSlide(currentIdx + 1 )
+//                     },3000)
+//                 }
+//             }
+//             autoSlide();
+        
+//             function stopSlide(){
+//                 clearInterval(timer);
+//                 timer = undefined;
+//                 // timer의 값을 undefined으로 지정을 해줘야 마우스로 왔다갔다 했을 때 오류가 안 생김
+//             }
+            
+//             slides.addEventListener('mouseenter',function(){
+//                 stopSlide();
+//             })
+        
+//             slides.addEventListener('mouseleave',function(){
+//                 autoSlide();
+//             })
+        
+//             function moveSlide(num){
+//                 slides.style.left = -num * (slideWidth + slideMargin) + 'px';
+//                 currentIdx = num;
+//                 console.log(currentIdx,slideCount);
+                
+//                 if(currentIdx == slideCount || currentIdx == -slideCount){
+//                     setTimeout(function(){
+//                         slides.classList.remove('animated');
+//                         slides.style.left = '0px';
+//                         currentIdx = 0;
+//                     },500);
+//                     setTimeout(function(){
+//                         slides.classList.add('animated');
+//                     },600);
+//                 }
+//             }
+//             prevBtn.addEventListener('click',function(){
+//                 stopSlide()
+//             })
+//             prevBtn.addEventListener('mouseleave',function(){
+//                 autoSlide()
+//             })
+//             nextBtn.addEventListener('click',function(){
+//                 stopSlide()
+//             })
+//             nextBtn.addEventListener('mouseleave',function(){
+//                 autoSlide()
+//             })
+//         })
+//     }
+// }
+
+window.addEventListener('resize',dectectMediaSize,true);
+dectectMediaSize()
+
+
 
 $(function(){
     $('.slideBox').on({mouseover:function(){
@@ -369,6 +806,9 @@ $(function(){
     }})
     
 })
+
+
+
 
 
 // 천천히 누르면 적용되는데 빨리 누르면 적용이 안 됨 여쭤보기 / prev next 클릭시 인터벌 요소를 제거해야할 것 같음
@@ -738,27 +1178,21 @@ $(function(){
 })
 
 
-window.onload=function(){
-    var hei = $('.reviewImg').outerHeight(true);
-
-
-}
 $(function(){
-    var wid = $('.reviewImg > div').width();
-    var hei = $('.reviewImg > div').height();
+    var hei = $('.reviewWrap').height();
     $('.reviewBtn > div').click(function(){
         var i = $('.reviewBtn > div').index(this)
         if(i == 0){
-            $('.reviewImg > div').stop().animate({marginTop:'0px'})
+            $('.reviewImg').stop().animate({marginTop:0},800)
         }
         else if(i == 1){
-            $('.reviewImg > div').stop().animate({marginTop:-hei})
+            $('.reviewImg').stop().animate({marginTop:-hei},800)
         }
         else if(i == 2){
-            $('.reviewImg > div').stop().animate({marginTop:-hei*2})
+            $('.reviewImg').stop().animate({marginTop:-hei*2},800)
         }
         else{
-            $('.reviewImg > div').stop().animate({marginTop:-hei*3})
+            $('.reviewImg').stop().animate({marginTop:-hei*3},800)
         }
         $(this).addClass('reviewAdd');
         $(this).siblings().removeClass('reviewAdd');
