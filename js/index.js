@@ -791,8 +791,8 @@ else if(matchMedia('screen and (min-width:1100px)').matches){
 //     }
 // }
 
-window.addEventListener('resize',dectectMediaSize,true);
-dectectMediaSize()
+// window.addEventListener('resize',dectectMediaSize,true);
+// dectectMediaSize()
 
 
 
@@ -853,6 +853,7 @@ $(function(){
         $('.popup').stop().animate({height:350},100);
         $('.popup').css({boxShadow:'0 0 8px white'});
         $('.btn_Box').css({display:'block'}).fadeDown('slow').height(350);
+        $('.main_Head').css({color:'red'})
     }})
     $('.input_Cont').mouseleave(function(){
         $('.popup').height(0);
