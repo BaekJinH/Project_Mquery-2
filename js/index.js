@@ -460,113 +460,218 @@ else if(matchMedia('screen and (min-width:1100px)').matches){
         })
     })
 }
-// else if(matchMedia('min-width:799px')){
-//     $(function(){
-//         var slides = document.querySelector('.mySlide'),
-//             slide = document.querySelectorAll('.mySlide li'),
-//             currentIdx = 0,
-//             slideCount = slide.length,
-//             slideWidth = $('.slideBox').width()
-//             slideMargin = 20,
-//             prevBtn = document.querySelector('.prev'),
-//             nextBtn = document.querySelector('.next');
+else if(matchMedia('min-width:799px')){
+    $(function(){
+        var slides = document.querySelector('.mySlide'),
+            slide = document.querySelectorAll('.mySlide li'),
+            currentIdx = 0,
+            slideCount = slide.length,
+            slideWidth = $('.slideBox').width(),
+            slideMargin = 20,
+            prevBtn = document.querySelector('.prev'),
+            nextBtn = document.querySelector('.next');
     
-//         makeClone();
+        makeClone();
     
-//         function makeClone(){
-//             for(var i = 0; i <slideCount; i++){
-//                 var cloneSlide = slide[i].cloneNode(true);
-//                 cloneSlide.classList.add('clone');
-//                 slides.appendChild(cloneSlide);
-//             }
-//             for(var i = slideCount -1; i >=0; i--){
-//                 var cloneSlide = slide[i].cloneNode(true);
-//                 cloneSlide.classList.add('clone');
-//                 slides.prepend(cloneSlide);
-//             }
-//                 ubdateWidth();
-//                 setInitialPos();
+        function makeClone(){
+            for(var i = 0; i <slideCount; i++){
+                var cloneSlide = slide[i].cloneNode(true);
+                cloneSlide.classList.add('clone');
+                slides.appendChild(cloneSlide);
+            }
+            for(var i = slideCount -1; i >=0; i--){
+                var cloneSlide = slide[i].cloneNode(true);
+                cloneSlide.classList.add('clone');
+                slides.prepend(cloneSlide);
+            }
+                ubdateWidth();
+                setInitialPos();
                 
-//                 setTimeout(function(){
-//                     slides.classList.add('animated');
-//                 },100)
-//         }
+                setTimeout(function(){
+                    slides.classList.add('animated');
+                },100)
+        }
     
-//         function ubdateWidth(){
-//             var currentSlides = document.querySelectorAll('.mySlide li');
-//             var newSlideCount = currentSlides.length;
+        function ubdateWidth(){
+            var currentSlides = document.querySelectorAll('.mySlide li');
+            var newSlideCount = currentSlides.length;
             
-//             var newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin + 'px';
-//             slides.style.width = newWidth;
-//         }
-//         function setInitialPos(){
-//             var initialTranslateValue = -(slideWidth + slideMargin) * slideCount;
-//             slides.style.transform = 'translateX('+ initialTranslateValue +'px)';
-//         }
+            var newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin + 'px';
+            slides.style.width = newWidth;
+        }
+        function setInitialPos(){
+            var initialTranslateValue = -(slideWidth + slideMargin) * slideCount;
+            slides.style.transform = 'translateX('+ initialTranslateValue +'px)';
+        }
     
-//         nextBtn.addEventListener('click',function(){
-//             moveSlide(currentIdx +1 )
-//         })
-//         prevBtn.addEventListener('click',function(){
-//             moveSlide(currentIdx -1 )
-//         })
+        nextBtn.addEventListener('click',function(){
+            moveSlide(currentIdx +1 )
+        })
+        prevBtn.addEventListener('click',function(){
+            moveSlide(currentIdx -1 )
+        })
     
-//         var timer = undefined;
+        var timer = undefined;
     
-//         function autoSlide(){
-//             if(timer == undefined){
-//                 timer = setInterval(function(){
-//                     moveSlide(currentIdx + 1 )
-//                 },3000)
-//             }
-//         }
-//         autoSlide();
+        function autoSlide(){
+            if(timer == undefined){
+                timer = setInterval(function(){
+                    moveSlide(currentIdx + 1 )
+                },3000)
+            }
+        }
+        autoSlide();
     
-//         function stopSlide(){
-//             clearInterval(timer);
-//             timer = undefined;
-//             // timer의 값을 undefined으로 지정을 해줘야 마우스로 왔다갔다 했을 때 오류가 안 생김
-//         }
+        function stopSlide(){
+            clearInterval(timer);
+            timer = undefined;
+            // timer의 값을 undefined으로 지정을 해줘야 마우스로 왔다갔다 했을 때 오류가 안 생김
+        }
         
-//         slides.addEventListener('mouseenter',function(){
-//             stopSlide();
-//         })
+        slides.addEventListener('mouseenter',function(){
+            stopSlide();
+        })
     
-//         slides.addEventListener('mouseleave',function(){
-//             autoSlide();
-//         })
+        slides.addEventListener('mouseleave',function(){
+            autoSlide();
+        })
     
-//         function moveSlide(num){
-//             slides.style.left = -num * (slideWidth + slideMargin) + 'px';
-//             currentIdx = num;
-//             console.log(currentIdx,slideCount);
+        function moveSlide(num){
+            slides.style.left = -num * (slideWidth + slideMargin) + 'px';
+            currentIdx = num;
+            console.log(currentIdx,slideCount);
             
-//             if(currentIdx == slideCount || currentIdx == -slideCount){
-//                 setTimeout(function(){
-//                     slides.classList.remove('animated');
-//                     slides.style.left = '0px';
-//                     currentIdx = 0;
-//                 },500);
-//                 setTimeout(function(){
-//                     slides.classList.add('animated');
-//                 },600);
-//             }
-//         }
-//         prevBtn.addEventListener('click',function(){
-//             stopSlide()
-//         })
-//         prevBtn.addEventListener('mouseleave',function(){
-//             autoSlide()
-//         })
-//         nextBtn.addEventListener('click',function(){
-//             stopSlide()
-//         })
-//         nextBtn.addEventListener('mouseleave',function(){
-//             autoSlide()
-//         })
-//     })
-// }
-
+            if(currentIdx == slideCount || currentIdx == -slideCount){
+                setTimeout(function(){
+                    slides.classList.remove('animated');
+                    slides.style.left = '0px';
+                    currentIdx = 0;
+                },500);
+                setTimeout(function(){
+                    slides.classList.add('animated');
+                },600);
+            }
+        }
+        prevBtn.addEventListener('click',function(){
+            stopSlide()
+        })
+        prevBtn.addEventListener('mouseleave',function(){
+            autoSlide()
+        })
+        nextBtn.addEventListener('click',function(){
+            stopSlide()
+        })
+        nextBtn.addEventListener('mouseleave',function(){
+            autoSlide()
+        })
+    })
+}
+else{
+    $(function(){
+        var slides = document.querySelector('.mySlide'),
+            slide = document.querySelectorAll('.mySlide li'),
+            currentIdx = 0,
+            slideCount = slide.length,
+            slideWidth = $('.slideBox').width(),
+            slideMargin = 20,
+            prevBtn = document.querySelector('.prev'),
+            nextBtn = document.querySelector('.next');
+    
+        makeClone();
+    
+        function makeClone(){
+            for(var i = 0; i <slideCount; i++){
+                var cloneSlide = slide[i].cloneNode(true);
+                cloneSlide.classList.add('clone');
+                slides.appendChild(cloneSlide);
+            }
+            for(var i = slideCount -1; i >=0; i--){
+                var cloneSlide = slide[i].cloneNode(true);
+                cloneSlide.classList.add('clone');
+                slides.prepend(cloneSlide);
+            }
+                ubdateWidth();
+                setInitialPos();
+                
+                setTimeout(function(){
+                    slides.classList.add('animated');
+                },100)
+        }
+    
+        function ubdateWidth(){
+            var currentSlides = document.querySelectorAll('.mySlide li');
+            var newSlideCount = currentSlides.length;
+            
+            var newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin + 'px';
+            slides.style.width = newWidth;
+        }
+        function setInitialPos(){
+            var initialTranslateValue = -(slideWidth + slideMargin) * slideCount;
+            slides.style.transform = 'translateX('+ initialTranslateValue +'px)';
+        }
+    
+        nextBtn.addEventListener('click',function(){
+            moveSlide(currentIdx +1 )
+        })
+        prevBtn.addEventListener('click',function(){
+            moveSlide(currentIdx -1 )
+        })
+    
+        var timer = undefined;
+    
+        function autoSlide(){
+            if(timer == undefined){
+                timer = setInterval(function(){
+                    moveSlide(currentIdx + 1 )
+                },3000)
+            }
+        }
+        autoSlide();
+    
+        function stopSlide(){
+            clearInterval(timer);
+            timer = undefined;
+            // timer의 값을 undefined으로 지정을 해줘야 마우스로 왔다갔다 했을 때 오류가 안 생김
+        }
+        
+        slides.addEventListener('mouseenter',function(){
+            stopSlide();
+        })
+    
+        slides.addEventListener('mouseleave',function(){
+            autoSlide();
+        })
+    
+        function moveSlide(num){
+            slides.style.left = -num * (slideWidth + slideMargin) + 'px';
+            currentIdx = num;
+            console.log(currentIdx,slideCount);
+            
+            if(currentIdx == slideCount || currentIdx == -slideCount){
+                setTimeout(function(){
+                    slides.classList.remove('animated');
+                    slides.style.left = '0px';
+                    currentIdx = 0;
+                },500);
+                setTimeout(function(){
+                    slides.classList.add('animated');
+                },600);
+            }
+        }
+        prevBtn.addEventListener('click',function(){
+            stopSlide()
+        })
+        prevBtn.addEventListener('mouseleave',function(){
+            autoSlide()
+        })
+        nextBtn.addEventListener('click',function(){
+            stopSlide()
+        })
+        nextBtn.addEventListener('mouseleave',function(){
+            autoSlide()
+        })
+    })
+}
 
 
 
@@ -850,6 +955,7 @@ $(function(){
 
 $(function(){
     $('input').on({'click keydown focus':function(){
+        $('.categoryBox').hide()
         $('.popup').stop().animate({height:350},100);
         $('.popup').css({boxShadow:'0 0 8px white'});
         $('.btn_Box').css({display:'block'}).fadeDown('slow').height(350);
@@ -1014,6 +1120,26 @@ $(function(){
     })
 })
 
+// 인풋 햄버거 클릭시 카테고리 박스 생성
+$(function(){
+    var btn = document.getElementsByClassName('btnCategory')[0];
+    var categoryBox = document.getElementsByClassName('categoryBox')[0];
+    $(btn).click(function(){
+        $(categoryBox).height(50).toggle()
+    })
+})
+
+$(function(){
+    $('.categoryBox > ul > li').click(function(){
+        var index = $('.categoryBox > ul > li').index(this)
+        if(index == 0){
+                $('section').show()
+            }
+            else if(index == 1){
+                $('section').hide()
+            }
+        })
+})
 // 그림 호버시 글자 생성
 
 $(function(){
@@ -1025,8 +1151,6 @@ $(function(){
         $(this).find('p').stop().fadeOut('fast')
     }})
 })
-
-
 
 
 // 바로 밑은 콜백함수 참고용
@@ -1116,20 +1240,54 @@ window.onload=function(){
 
 
 // 클릭시 밑줄 변경
+if(window.matchMedia('(min-width:1100px)').matches){
+    $(function(){
+        $('.main2_txt ul span').css({top:80})
+        var hei = $('.main2_txt ul li').height();
+        // var margin = 50
+        var margin = 50
+        $('.main2_txt ul li').on({'keydown click':function(){
+            var index = $(this).index();
+            $(this).find('a').addClass('on');
+            $(this).siblings().find('a').removeClass('on');
+            $('.main2_txt span').stop().animate({top:index * (hei+margin)},'fast')
+        }});
+        $('.main2_txt ul li:eq(0)').trigger('mouseenter')
+    });
+}
 
-$(function(){
-    $('.main2_txt ul span').css({top:80})
-    var hei = $('.main2_txt ul li').height();
-    // var margin = 50
-    var margin = 50
-    $('.main2_txt ul li').on({'keydown click':function(){
-        var index = $(this).index();
-        $(this).find('a').addClass('on');
-        $(this).siblings().find('a').removeClass('on');
-        $('.main2_txt span').stop().animate({top:index * (hei+margin)},'fast')
-    }});
-    $('.main2_txt ul li:eq(0)').trigger('mouseenter')
-});
+// 799 px 이상 이하 전부 다 고치기
+else if(window.matchMedia('(min-width:799px)').matches){
+    $(function(){
+        $('.main2_txt ul span').css({top:80})
+        var hei = $('.main2_txt ul li').height();
+        // var margin = 50
+        var margin = 50
+        $('.main2_txt ul li').on({'keydown click':function(){
+            var index = $(this).index();
+            $(this).find('a').addClass('on');
+            $(this).siblings().find('a').removeClass('on');
+            $('.main2_txt span').stop().animate({top:index * (hei+margin)},'fast')
+        }});
+        $('.main2_txt ul li:eq(0)').trigger('mouseenter')
+    });
+}
+else{
+    $(function(){
+        $('.main2_txt ul span').css({top:80})
+        var hei = $('.main2_txt ul li').height();
+        // var margin = 50
+        var margin = 50
+        $('.main2_txt ul li').on({'keydown click':function(){
+            var index = $(this).index();
+            $(this).find('a').addClass('on');
+            $(this).siblings().find('a').removeClass('on');
+            $('.main2_txt span').stop().animate({top:index * (hei+margin)},'fast')
+        }});
+        $('.main2_txt ul li:eq(0)').trigger('mouseenter')
+    });
+}
+    
 
 
 $(function(){
@@ -1177,6 +1335,7 @@ $(function(){
         $('.main2_img').not('.main2_img7').hide()
     })
 })
+
 
 
 $(function(){

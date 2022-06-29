@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Steam</title>
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/max-width799px.css">
+    <link rel="stylesheet" href="css/min-width799.css">
+    <link rel="stylesheet" href="css/min-width1100.css">
     <link rel="stylesheet" href="css/index.css">
     <script src="https://kit.fontawesome.com/c6f3140d93.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -172,7 +175,18 @@
             </div>
         </div>
         <div class="input_Cont">
-            <input  type="text" placeholder="찾으시는 게임을 검색해주세요..">
+            <form action="">
+                <input  type="text" placeholder="찾으시는 게임을 검색해주세요.." >
+                <button class="btnSearch" type="button"></button>
+                <button class="btnCategory" onclick="hamburger()" type="button"></button>
+                <div class="categoryBox">
+                    <ul>
+                        <li>All</li>
+                        <li>Action</li>
+                        <li>Story</li>
+                    </ul>
+                </div>
+            </form>
             <div class="popup">
                 <div class="btn_Box">
                     <button value="">All</button>
@@ -201,7 +215,7 @@
                     <div onmouseover="textIn()">
                         <div class="main_txt">
                             <h3>Horizon Zero Dawn</h3>
-                            <span>66,900</span>
+                            <span>₩66,900</span>
                             <button>Click</button>
                         </div>
                         <p class="txt_P">"기사"라 불리는 이 그릇의 귀환, </p>
@@ -211,7 +225,7 @@
                     <div onmouseover="textIn()">
                         <div class="main_txt">
                             <h3>Ori And The Blind Forest</h3>
-                            <span>23,000</span>
+                            <span>₩23,000</span>
                             <button>Click</button>
                         </div>
                         <p class="txt_P">"기사"라 불리는 이 그릇의 귀환, </p>
@@ -221,7 +235,7 @@
                     <div onmouseover="textIn()">
                         <div class="main_txt">
                             <h3>Monster Hunter World</h3>
-                            <span>43,500</span>
+                            <span>₩43,500</span>
                             <button>Click</button>
                         </div>
                         <p class="txt_P">혹한의 추위를 이겨내고 당신을 위협하는 몬스터로부터 살아남으세요. </p>
@@ -241,7 +255,7 @@
                     <div onmouseover="textIn()">
                         <div class="main_txt">
                             <h3>Dark Souls</h3>
-                            <span>32,000</span>
+                            <span>₩32,000</span>
                             <button>Click</button>
                         </div>
                         <p class="txt_P">다 타버린 세상에서 자신을 연료삼아 세상을 이어가는
@@ -252,7 +266,7 @@
                     <div onmouseover="textIn()">
                         <div class="main_txt">
                             <h3>Sekiro</h3>
-                            <span>59,900</span>
+                            <span>₩59,900</span>
                             <button>Click</button>
                         </div>
                         <p class="txt_P">고독한 늑대는 주인을 위해 싸웁니다. </p>
@@ -262,7 +276,7 @@
                     <div onmouseover="textIn()">
                         <div class="main_txt">
                             <h3>Hollow knight</h3>
-                            <span>23,900</span>
+                            <span>₩23,900</span>
                             <button>Click</button>
                         </div>
                         <p class="txt_P">"기사"라 불리는 이 그릇의 귀환.</p>
@@ -272,7 +286,7 @@
                     <div onmouseover="textIn()">
                         <div class="main_txt">
                             <h3>Sekiro</h3>
-                            <span>59,900</span>
+                            <span>₩59,900</span>
                             <button>Click</button>
                         </div>
                         <p class="txt_P">"기사"라 불리는 이 그릇의 귀환, </p>
@@ -286,6 +300,7 @@
             <!-- <div class="head">
                 <h2>Recommended game / 추천 게임</h2>
             </div> -->
+            
             <div class="main2_img main2_img1" id="image">
                 <div class="main2_imgtxt">
                     <h2>Elden Ring</h2>
@@ -379,17 +394,23 @@
                                 <div class="upImg"></div>
                                 <div class="upTxt">
                                     <div class="upTxt_Up">
+                                        <!-- <i class="fa-solid fa-face-unamused"></i> -->
                                         <i class="fa-solid fa-face-grin-beam"></i>
-                                        <i class="fa-solid fa-face-unamused"></i>
                                         <span>추천</span>
                                     </div>
                                     <div class="upTxt_Down">
+                                        <span>
+                                            <p>
+                                                과거 눈동자에서 황금의 축복을 잃고 틈새의
+                                            </p>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                             <div class="Redown ">
                                 <div class="prop">
                                     <i class="fa-solid fa-user"></i>
+                                    <span>User #1333</span>
                                 </div>
                                 <div class="review">
                                     <h4>올해의 게임 중 최고</h4>
@@ -407,11 +428,16 @@
                                         <span>비추천</span>
                                     </div>
                                     <div class="upTxt_Down">
+                                        <p>
+                                            Far Cry라는 명성을 이용한 게임.
+                                            돈을 지불하고 즐길 가치가 없다.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="Redown ">
                                 <div class="prop">
+                                    <span>User #1333</span>
                                     <i class="fa-solid fa-user"></i>
                                 </div>
                                 <div class="review">
@@ -438,6 +464,7 @@
                             </div>
                             <div class="Redown ">
                                 <div class="prop">
+                                    <span>User #1333</span>
                                     <i class="fa-solid fa-user"></i>
 
                                 </div>
@@ -465,6 +492,7 @@
                             </div>
                             <div class="Redown ">
                                 <div class="prop">
+                                    <span>User #1333</span>
                                     <i class="fa-solid fa-user"></i>
 
                                 </div>
@@ -495,6 +523,7 @@
                             </div>
                             <div class="Redown ">
                                 <div class="prop">
+                                    <span>User #1333</span>
                                     <i class="fa-solid fa-user"></i>
 
                                 </div>
@@ -519,6 +548,7 @@
                             </div>
                             <div class="Redown ">
                                 <div class="prop">
+                                    <span>User #1333</span>
                                     <i class="fa-solid fa-user"></i>
 
                                 </div>
@@ -546,6 +576,7 @@
                             </div>
                             <div class="Redown ">
                                 <div class="prop">
+                                    <span>User #1333</span>
                                     <i class="fa-solid fa-user"></i>
 
                                 </div>
@@ -574,6 +605,7 @@
                             </div>
                             <div class="Redown ">
                                 <div class="prop">
+                                    <span>User #1333</span>
                                     <i class="fa-solid fa-user"></i>
 
                                 </div>
