@@ -1234,8 +1234,33 @@ window.onload=function(){
 // main2
 
 
+// $(function(){
+//     $('.txtSlideBtn').on({click:function(){
+//         $(this).find('.Turn').css({transform:'rotate('+0+'deg)',transition:'all 0.5s'});
+//         $('.main2_txt').css({right:'40%'})
+//     }})
+// })
 
+// $(function(){
+//     $('.Turn').hover(function(){
+//         $(this).css({transform:'rotate('+180+'deg)',transition:'all 0.5s'});
+//         $('.main2_txt').css({right:'40%'})
+//     },function(){
+//         $(this).css({transform:'rotate('+0+'deg)',transition:'all 0.5s'});
+//         $('.main2_txt').css({right:'0%'})
+//     })
+// })
 
+$(function(){
+    $('.Turn').on({mouseover:function(){
+        $(this).css({transform:'rotate('+00+'deg)',transition:'all 0.5s'});
+        $('.main2_txt').css({right:'40%'})
+    }})
+    $('.main2').mouseleave(function(){
+        $('.Turn').css({transform:'rotate('+-180+'deg)',transition:'all 0.5s'});
+        $('.main2_txt').css({right:'0%'})
+    })
+})
 
 
 
@@ -1362,6 +1387,17 @@ $(function(){
 // 반복문으로 만들기
 
 // Main 2  line
+
+$(function(){
+    $('.main3').on({mouseover:function(){
+        // $(this).find('.underLine').css({left:'28%'})
+        $(this).find('.underLine').css({left:'100%'})
+    }
+    ,mouseout:function(){
+        $(this).find('.underLine').css({left:'-10%'})
+    }})
+})
+
 
 
 // 보류
