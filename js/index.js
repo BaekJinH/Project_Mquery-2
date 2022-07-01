@@ -1242,23 +1242,24 @@ window.onload=function(){
 // })
 
 // $(function(){
-//     $('.Turn').hover(function(){
-//         $(this).css({transform:'rotate('+180+'deg)',transition:'all 0.5s'});
+//     $('.Turn').on({mouseover:function(){
+//         $(this).css({transform:'rotate('+00+'deg)',transition:'all 0.5s'});
 //         $('.main2_txt').css({right:'40%'})
-//     },function(){
-//         $(this).css({transform:'rotate('+0+'deg)',transition:'all 0.5s'});
+//     }})
+//     $('.main2').mouseleave(function(){
+//         $('.Turn').css({transform:'rotate('+-180+'deg)',transition:'all 0.5s'});
 //         $('.main2_txt').css({right:'0%'})
 //     })
 // })
 
 $(function(){
-    $('.Turn').on({mouseover:function(){
-        $(this).css({transform:'rotate('+00+'deg)',transition:'all 0.5s'});
-        $('.main2_txt').css({right:'40%'})
-    }})
-    $('.main2').mouseleave(function(){
-        $('.Turn').css({transform:'rotate('+-180+'deg)',transition:'all 0.5s'});
-        $('.main2_txt').css({right:'0%'})
+    $('.Turn').click(function(){
+        if($('.Turn').hasClass('Turn')){
+            $('.Turn').addClass('open').removeClass('Turn')
+        }
+        else if($('.open').hasClass('open')){
+            $('.open').addClass('Turn').removeClass('open')
+        }
     })
 })
 

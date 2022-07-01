@@ -406,18 +406,16 @@
     }
     
     
-    .text h2{
-        font-size:50px;
-        margin-bottom:15px;
-        opacity: 0.7;
-    }
+
     .text h4{
+        position:relative;
         font-size:40px;
         margin-bottom:15px;
         font-weight: bold;
         opacity: 1;
     }
     .text > button{
+        position:relative;
         border:none;
         /* width:200px; */
         width:auto;
@@ -1072,7 +1070,6 @@
         z-index: 999;
     }
 
-
     .main2_txt{
         transition:all 0.5s;
         /* position: relative; */
@@ -1274,7 +1271,7 @@
         overflow: hidden;
     }
     .main3Head{
-        width:33%;
+        width:35%;
         height:65px;
         margin:20px ;
         overflow: hidden;
