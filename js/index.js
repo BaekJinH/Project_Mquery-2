@@ -1321,7 +1321,7 @@ $(function(){
         $(this).find('.main2_imgtxt').css({transform:'translateY(0%)'});
         $('.main2_imgtxt').children().not('button').css({pointerEvents:'none'})
     },function(){
-        $(this).find('.main2_imgtxt').css({transform:'translateY(100%)'})
+        $(this).find('.main2_imgtxt').css({transform:'translateY(105%)'})
     })
 })
 
