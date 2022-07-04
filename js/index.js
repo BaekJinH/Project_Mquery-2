@@ -360,7 +360,7 @@ else if(matchMedia('screen and (min-width:1100px)').matches){
             slide = document.querySelectorAll('.mySlide li'),
             currentIdx = 0,
             slideCount = slide.length,
-            slideWidth = $('.slideBox').width()
+            slideWidth = $('.slideBox').width(),
             slideMargin = 20,
             prevBtn = document.querySelector('.prev'),
             nextBtn = document.querySelector('.next');
