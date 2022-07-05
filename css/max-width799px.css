@@ -36,7 +36,7 @@
     }
     .logo h3 a{
         color:white;
-        font-size:35px;
+        font-size:25px;
     }
     nav{
         width:60%;
@@ -65,7 +65,7 @@
         text-align:center;
         padding:15px;
         color:white;
-        font-size:25px;
+        font-size:17px;
         cursor:pointer;
     }
     
@@ -75,7 +75,7 @@
     
     .open{
         color:White;
-        font-size:25px;
+        font-size:20px;
         cursor:pointer;
     }
     
@@ -168,7 +168,7 @@
         width:100%;
         height:550px;
         position:relative;
-        overflow:hidden
+        overflow:hidden;
     }
     
     #intro .intro_Image{
@@ -177,6 +177,7 @@
         position:relative;
         background-size:cover;
         background-position: center;
+        box-shadow:inset 0 0 0 100vw rgba(0, 0, 0, 0.5);
     }
     #intro .intro_Image1{
         background-image: url(../img/intro-main1.jpg);
@@ -640,7 +641,7 @@
         margin:30px auto;
     }
     .input_Cont input{
-        background-color:black;
+        background-color:inherit;
         border-top:none;
         border-left:none;
         border-right:none;
@@ -701,13 +702,13 @@
         justify-content: space-around;
         align-items: center;
         position:absolute;
+        top:105%;
         right:0;
-        top:0;
-        transform: translateY(-100%);
         width:200px;
         height:0px;
         border-radius: 25px;
         background-color:white;
+        z-index: 9;
         /* transition: all 0.3s; */
     }
     .categoryBox > ul li{
@@ -877,14 +878,14 @@
         font-size:20px;
         color:white;
         position:absolute;
-        top:10%;
+        top:20%;
         left:50%;
         transform: translate(-50%,0%);
         text-align: center;;
         width:100%;
     }
     section > div > .main_txt>span{
-        top:25% !important;
+        top:50% !important;
         left:50%;
     }
     section > div > .main_txt>button{
@@ -892,7 +893,7 @@
         padding:5px 10px;
         border:none;
         position:absolute;
-        top:45%;
+        top:80%;
         left:50%;
         margin-top:10px;
         transform: translate(-50%,-50%);
@@ -907,7 +908,7 @@
         position:absolute;
         color:white;
         width:85%;
-        bottom:5%;
+        bottom:0%;
         left:50%;
         transform: translate(-50%,-20%);
         font-size:14px;
@@ -1229,7 +1230,7 @@
         justify-content: space-evenly;
     }
     .main2_txt > ul > li{
-        font-size:24px;
+        font-size:20px;
         /* margin-top:20px; */
         font-weight: bold;
         cursor: pointer;
@@ -1271,7 +1272,7 @@
         overflow: hidden;
     }
     .main3Head{
-        width:35%;
+        width:38%;
         height:65px;
         margin:20px ;
         overflow: hidden;
@@ -1281,7 +1282,7 @@
         width:100%;
         color:white;
         text-align:left;
-        font-size:50px;
+        font-size:40px;
         pointer-events: none;
     }
     .main3Head > span{
@@ -1407,7 +1408,7 @@
         margin: 0 auto;    
     }
     .prop{
-        width:20%;
+        width:30%;
         height:100%;
         position:relative;
     }
@@ -1416,7 +1417,7 @@
         text-align:center;
         margin:0 auto;
         left:50%;
-        top:20%;
+        top:10%;
         transform: translate(-50%,-00%);
         position:relative;
         color:#666;
@@ -1432,7 +1433,10 @@
         font-size:15px;
         text-align:center;
         font-weight:bold;
-        bottom:0;
+        width:100%;
+        bottom:10%;
+        left:50%;
+        transform: translate(-50%,-00%);
     }
 
     .review{
@@ -1502,7 +1506,7 @@
     .foot_logo{
         width:30%;
         color:white;
-        font-size:25px;
+        font-size:20px;
         display:flex;
         align-items: center;
     }
@@ -1511,7 +1515,7 @@
     }
     
     .ant_txt{
-        width:55%;
+        width:65%;
         font-size:20px;
         color:white;
         display:flex;
@@ -1522,6 +1526,7 @@
         width:100%;
         justify-content: space-around;
         display: flex;
+        align-items: center;
     }
     .ant_txt > ul > li{
         cursor:pointer;

@@ -1142,15 +1142,27 @@ $(function(){
 })
 // 그림 호버시 글자 생성
 
-$(function(){
-    $('section > div').on({mouseover:function(){
-        $(this).find('.main_txt').css({transform:'translateY(0%)',transition:'1s'})
-        $(this).find('p').stop().fadeIn(3200)
-    },mouseout:function(){
-        $(this).find('.main_txt').css({transform:'translateY(-100%)',transition:'1s'})
-        $(this).find('p').stop().fadeOut('fast')
-    }})
-})
+if(window.matchMedia('(max-width:799px)').matches){
+    $(function(){
+        $('section > div').on({mouseover:function(){
+            $(this).find('.main_txt').css({transform:'translateY(0%)',transition:'1s'})
+        },mouseout:function(){
+            $(this).find('.main_txt').css({transform:'translateY(-100%)',transition:'1s'})
+        }})
+    })
+}
+else{
+    $(function(){
+        $('section > div').on({mouseover:function(){
+            $(this).find('.main_txt').css({transform:'translateY(0%)',transition:'1s'})
+            $(this).find('p').stop().fadeIn(3200)
+        },mouseout:function(){
+            $(this).find('.main_txt').css({transform:'translateY(-100%)',transition:'1s'})
+            // $(this).find('.main_txt').css({transform:'translateY(-100%)',transition:'1s'})
+            $(this).find('p').stop().fadeOut('fast')
+        }})
+    })
+}
 
 
 // 바로 밑은 콜백함수 참고용
@@ -1236,21 +1248,23 @@ window.onload=function(){
 
 // $(function(){
 //     $('.txtSlideBtn').on({click:function(){
-//         $(this).find('.Turn').css({transform:'rotate('+0+'deg)',transition:'all 0.5s'});
+//         $(this).find('.Turn').css({transform:'rotate('+0+'deg)',transition:'all 0.5s',backgroundColor:'none',opacity:0});
 //         $('.main2_txt').css({right:'40%'})
 //     }})
 // })
 
-// $(function(){
-//     $('.Turn').on({mouseover:function(){
-//         $(this).css({transform:'rotate('+00+'deg)',transition:'all 0.5s'});
-//         $('.main2_txt').css({right:'40%'})
-//     }})
-//     $('.main2').mouseleave(function(){
-//         $('.Turn').css({transform:'rotate('+-180+'deg)',transition:'all 0.5s'});
-//         $('.main2_txt').css({right:'0%'})
-//     })
-// })
+$(function(){
+    $('.Turn').on({mouseover:function(){
+        $(this).css({transform:'rotate('+00+'deg)',transition:'all 0.5s'});
+        $(this).parent().css({right:'40%',transition:'all 0.5s'})
+        $('.main2_txt').css({right:'40%'})
+    }})
+    $('.main2').mouseleave(function(){
+        $('.Turn').css({transform:'rotate('+-180+'deg)',transition:'all 0.5s'});
+        $('.Turn').parent().css({right:'0%',transition:'all 0.5s'})
+        $('.main2_txt').css({right:'0%'})
+    })
+})
 
 $(function(){
     $('.Turn').click(function(){
@@ -1271,7 +1285,7 @@ if(window.matchMedia('(min-width:1100px)').matches){
         $('.main2_txt ul span').css({top:80})
         var hei = $('.main2_txt ul li').height();
         // var margin = 50
-        var margin = 50
+        var margin = 41
         $('.main2_txt ul li').on({'keydown click':function(){
             var index = $(this).index();
             $(this).find('a').addClass('on');
