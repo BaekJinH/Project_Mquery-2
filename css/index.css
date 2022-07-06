@@ -647,7 +647,8 @@
         font-weight:bold;
         font-size:30px;
         overflow:hidden;
-        color:#666
+        color:#666;
+        opacity:0.8
     }
     input::placeholder{
         color:#666;
@@ -1116,6 +1117,9 @@
         text-align: center;
         width:100%;
         transition: all 1s;
+        padding-top:15px;
+        padding-bottom:15px
+
     }
     
     
@@ -1159,7 +1163,7 @@
     
     .main2_imgtxt > h2{
         width:100%;
-        font-size:50px;
+        font-size:40px;
         color:white;
     }
     
@@ -1168,7 +1172,7 @@
         margin:0 auto;
         text-align:center;
         width:70%;
-        font-size:15px;
+        font-size:13px;
         /* font-weight:bold; */
         line-height: 30px;
         color:white;
@@ -1296,12 +1300,12 @@
         width:45%;
         height:80%;
         background-color:rgba(238, 238, 238, 0.842);
-
         border-radius: 10px;
         box-sizing:border-box;
         display:flex;
         flex-flow:column wrap;
         justify-content: space-evenly;
+        opacity:0.8
     }
     .up{
         width:100%;
