@@ -10,28 +10,28 @@ $(function(){
 
 // 스크롤 다운시 보이고 올리면 안 보이는 메뉴바 보류
 
-var lastScrollTop = 0;
+// var lastScrollTop = 0;
 
-$(window).scroll(function(){
-    var scrollTop = $(this).scrollTop(); 
-    if(scrollTop >= 100) { 
-        if ((scrollTop > lastScrollTop) && (lastScrollTop>0)) { 
-            $("header").css("top","-100px");
-        } else {
-            $("header").css("top","0px");
-        }
+// $(window).scroll(function(){
+//     var scrollTop = $(this).scrollTop(); 
+//     if(scrollTop >= 100) { 
+//         if ((scrollTop > lastScrollTop) && (lastScrollTop>0)) { 
+//             $("header").css("top","-100px");
+//         } else {
+//             $("header").css("top","0px");
+//         }
 
-        lastScrollTop = scrollTop;
-    } 
+//         lastScrollTop = scrollTop;
+//     } 
 
-    $(".content").each(function () {
-        var contentIndex = $(this).attr("id");
-        if(scrollTop >= $(this).offset().top) {
-            $(".scroll_03 a").removeClass("on");
-            $(".scroll_03 a[href=#"+contentIndex+"]").addClass("on");
-        }
-    })
-});
+//     $(".content").each(function () {
+//         var contentIndex = $(this).attr("id");
+//         if(scrollTop >= $(this).offset().top) {
+//             $(".scroll_03 a").removeClass("on");
+//             $(".scroll_03 a[href=#"+contentIndex+"]").addClass("on");
+//         }
+//     })
+// });
 
 // header 
 
@@ -123,10 +123,10 @@ $(function(){
                 slides.classList.remove('animated');
                 slides.style.left = '0px';
                 currentIdx = 0;
-            },1500);
+            },600);
             setTimeout(function(){
                 slides.classList.add('animated');
-            },1600);
+            },700);
         }
     }
     prevBtn.addEventListener('click',function(){
@@ -145,30 +145,130 @@ $(function(){
 
 
 
-// #slider end line
+// #slider end line 보류
 
 $(function(){
-    $('.category li').mouseover(function(){
-        $(this).find('.categorySub').stop().fadeIn('slow');
-        $(this).siblings().find('.categorySub').stop().fadeOut('fast')
+    $('.videoPlay').hide()
+    $('.imgWrap1 > div').on({mouseover:function(){
+        $(this).find('.videoPlay').show()
+    }})
+    $('.videoPlay').on({click:function(){
+        $(this).parent().css({boxShadow:'inset 100vw 100vh 3px rgba(0,0,0,'+0.5+')'})
+    },mouseleave:function(){
+        $(this).parent().css({boxShadow:'none'})
+    }})
+})
+
+
+$(function(){
+    $('.imgUp > div').click(function(){
+        var index = $('.imgUp > div').index(this)
+        if(index == 0){
+            $('iframe').attr('src','?autoplay=1&mute=1')
+        }
+        else if(index == 1){
+            $('iframe').attr('src','?autoplay=1&mute=1')
+        }
+        else if(index == 2){
+            $('iframe').attr('src','?autoplay=1&mute=1')
+        }
+        else{
+            $('iframe').attr('src','?autoplay=1&mute=1')
+        }
+        $('.popup , .mask , .close').stop().fadeIn()
     })
-    $('.category li').mouseout(function(){
-        $('.categorySub').stop().fadeOut('fast')
+    $('.close').click(function(){
+        $('.mask , .popup').stop().fadeOut()
     })
 })
 
+// $(function(){
+//     $('.category li').mouseover(function(){
+//         $(this).find('.categorySub').stop().fadeIn('slow');
+//         $(this).siblings().find('.categorySub').stop().fadeOut(50)
+//     })
+//     $('.category li').mouseout(function(){
+//         $('.categorySub').stop().fadeOut(50)
+//     })
+// })
+
+
+
+// $(function(){
+//     $('.imgWrap1 > div').on({mouseover:function(){
+//         $(this).find('.videoAndimg').stop().css({height:'100%',top:0});
+//         $(this).siblings().find('.videoAndimg').stop().css({height:'0%',top:'101%'})
+//     },mouseout:function(){
+//         $('.videoAndimg').stop().css({height:'0%',top:'101%'})
+//     }})
+// })
 
 
 $(function(){
     $('.imgWrap1 > div').on({mouseover:function(){
         $(this).find('.videoAndimg').stop().css({height:'100%',top:0});
-        $(this).siblings().find('.videoAndimg').stop().css({height:'0%',top:'101%'})
+        $(this).siblings().find('.videoAndimg').stop().css({height:'100%',top:'101%'})
+        $(this).css({boxShadow:'inset 100vw 100vh 8px rgba(0,0,0,'+0.5+')'})
     },mouseout:function(){
-        $('.videoAndimg').stop().css({height:'0%',top:'101%'})
+        $('.videoAndimg').stop().css({height:'100%',top:'101%'})
+        $('.imgWrap1 > div').css({boxShadow:'none'})
     }})
 })
 
 
 
+// dlc line
+
+// swiper 슬라이드
+
+
+
+window.addEventListener('touchstart',callback);
+window.addEventListener('touchmove',callback);
+window.addEventListener('touchend',callback);
+
+
+const outer = document.querySelector('.dlc');
+const inner = document.querySelector('.dlcScreen');
+
+let startPos = 0;
+let offset = 0;
+let curPos = 0;
+const screenWidth = outer.clientWidth;
+
+window.onload=function(){
+    outer.addEventListener('touchstart',(e) => {
+        startPos = e.touchs[0].pageX
+    })
+
+    outer.addEventListener('touchmove',(e) =>{
+        offset = curPos + (e.targetTouches[0].pageX - startPos)
+        inner.style.transform = 'translate3d(${offset}px,0x,0px)'
+        inner.style.transitionDuration = '0ms';
+    })
+
+    outer.addEventListener('touchend',(e) => {
+        const sum = curPos + (e.changedTouches[0].pageX - startPos);
+        let destination = Math.round(sum / screenWidth) * screenWidth;
+        if(destination > 0){
+            destination = 0;
+        }
+        else if (destination < -(screenWidth * (4 - 1))) {
+            destination = -(screenWidth * (4 - 1));
+          }
+        
+          inner.style.transform = `translate3d(${destination}px, 0px, 0px)`;
+          inner.style.transitionDuration = '300ms';
+          curPos = destination;
+        
+          setTimeout(() => {
+            inner.style.transitionDuration = '0ms';
+          }, 300);
+    })
+}  
+
+
+
+// dlc end line
 
 // main end line
