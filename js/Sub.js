@@ -1,11 +1,6 @@
 // position:sticky 사용해서 폴더식으로 만들기 
 
 
-$(function(){
-})
-
-
-
 // Wrap end line
 
 // 스크롤 다운시 보이고 올리면 안 보이는 메뉴바 보류
@@ -152,12 +147,25 @@ $(function(){
     $('.imgWrap1 > div').on({mouseover:function(){
         $(this).find('.videoPlay').show()
     }})
-    $('.videoPlay').on({click:function(){
+    $('.videoPlay').hover(function(){
         $(this).parent().css({boxShadow:'inset 100vw 100vh 3px rgba(0,0,0,'+0.5+')'})
-    },mouseleave:function(){
+    },function(){
         $(this).parent().css({boxShadow:'none'})
-    }})
+    })
+
+
+    // 밑의 주석처리는 비디오버튼 클릭하면 뒤의 사진이 흐려지는 건데 왜 넣었는지 모르겠네 일단 보류
+    
+    // $('.videoPlay').on({click:function(){
+    //     $(this).parent().css({boxShadow:'inset 100vw 100vh 3px rgba(0,0,0,'+0.5+')'})
+    // },mouseleave:function(){
+    //     $(this).parent().css({boxShadow:'none'})
+    // }})
 })
+
+
+
+
 
 
 $(function(){
@@ -182,15 +190,16 @@ $(function(){
     })
 })
 
-// $(function(){
-//     $('.category li').mouseover(function(){
-//         $(this).find('.categorySub').stop().fadeIn('slow');
-//         $(this).siblings().find('.categorySub').stop().fadeOut(50)
-//     })
-//     $('.category li').mouseout(function(){
-//         $('.categorySub').stop().fadeOut(50)
-//     })
-// })
+$(function(){
+    $('.categorySub').css({display:'none'})
+    $('.category li').mouseover(function(){
+        $(this).find('.categorySub').stop().fadeIn('slow');
+        $(this).siblings().find('.categorySub').stop().fadeOut(50)
+    })
+    $('.category li').mouseout(function(){
+        $('.categorySub').stop().fadeOut(50)
+    })
+})
 
 
 
@@ -215,60 +224,255 @@ $(function(){
     }})
 })
 
-
-
 // dlc line
+
+
+$(function(){
+    $('.imgWrap1').siblings().not('.액션').not('.imgWrap2').not('.imgWrap3').hide()
+    $('.dlc > ul').not('.dlcAction').css({display:'none'})
+    $('.category > ul > li').click(function(){
+        // dlcindex 값으로 슬라이드 이름 바꾸기
+        // var dlcIndex = 
+        var index = $('.category > ul > li').index(this);
+        if(index == 0){
+            $('.dlcAction').fadeIn()
+            $('.액션').fadeIn()
+            $('.imgWrap1').siblings().not('.액션').not('.imgWrap2').not('.imgWrap3').hide()
+            $('.dlcScreen').siblings().not('.dlcAction').hide();
+            $(this).addClass('categoryHold')
+            $(this).siblings().not(this).removeClass('categoryHold')
+    
+        }
+        else if(index == 1){
+            $('.dlcStory').fadeIn()
+            $('.스토리').fadeIn()
+            $('.imgWrap1').siblings().not('.스토리').not('.imgWrap2').not('.imgWrap3').hide()
+            $('.dlcScreen').siblings().not('.dlcStory').hide()
+            $(this).addClass('categoryHold')
+            $(this).siblings().not(this).removeClass('categoryHold')
+        }
+        else if(index == 2){
+            $('.dlcCasual').fadeIn()
+            $('.캐쥬얼').fadeIn()
+            $('.imgWrap1').siblings().not('.캐쥬얼').not('.imgWrap2').not('.imgWrap3').hide()
+            $('.dlcScreen').siblings().not('.dlcCasual').hide()
+            $(this).addClass('categoryHold')
+            $(this).siblings().not(this).removeClass('categoryHold')
+        }
+        else if(index == 3){
+            $('.dlcFantasy').fadeIn()
+            $('.판타지').fadeIn()
+            $('.imgWrap1').siblings().not('.판타지').not('.imgWrap2').not('.imgWrap3').hide()
+            $('.dlcScreen').siblings().not('.dlcFantasy').hide()
+            $(this).addClass('categoryHold')
+            $(this).siblings().not(this).removeClass('categoryHold')
+        }   
+    })
+})
+
+// 위는 태그 선택시 태그에 맞는 이미지로 모두 바꾸기
+
+
+// 밑의 슬라이드를 반복문으로 사용해서 태그별로 슬라이드를 적용해야함
+
+$(function(){
+
+    var slides = document.querySelector('.dlcAction'),
+        slide = document.querySelectorAll('.dlcAction > li'),
+        currentIdx = 0,
+        slideCount = slide.length,
+        slideWidth = $('.dlcSlide').width(),
+        slideMargin = 50,
+        prevBtn = document.querySelector('.prev1'),
+        nextBtn = document.querySelector('.next1');
+
+    makeClone();
+
+    function makeClone(){
+        for(var i = 0; i <slideCount; i++){
+            var cloneSlide = slide[i].cloneNode(true);
+            cloneSlide.classList.add('clone');
+            slides.appendChild(cloneSlide);
+        }
+        for(var i = slideCount -1; i >=0; i--){
+            var cloneSlide = slide[i].cloneNode(true);
+            cloneSlide.classList.add('clone');
+            slides.prepend(cloneSlide);
+        }
+            ubdateWidth();
+            setInitialPos();
+            
+            setTimeout(function(){
+                slides.classList.add('animated');
+            },100)
+    }
+
+    function ubdateWidth(){
+        var currentSlides = document.querySelectorAll('.dlcAction li');
+        var newSlideCount = currentSlides.length;
+        
+        var newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin + 'px';
+        slides.style.width = newWidth;
+    }
+    function setInitialPos(){
+        var initialTranslateValue = -(slideWidth + slideMargin) * slideCount;
+        slides.style.transform = 'translateX('+ initialTranslateValue +'px)';
+    }
+
+    nextBtn.addEventListener('click',function(){
+        moveSlide(currentIdx +1 )
+    })
+    prevBtn.addEventListener('click',function(){
+        moveSlide(currentIdx -1 )
+    })
+
+    var timer = undefined;
+
+    function autoSlide(){
+        if(timer == undefined){
+            timer = setInterval(function(){
+                moveSlide(currentIdx + 1 )
+            },3000)
+        }
+    }
+    autoSlide();
+
+    function stopSlide(){
+        clearInterval(timer);
+        timer = undefined;
+    }
+    slides.addEventListener('mouseenter',function(){
+        stopSlide();
+    })
+
+    slides.addEventListener('mouseleave',function(){
+        autoSlide();
+    })
+
+    function moveSlide(num){
+        slides.style.left = -num * (slideWidth + slideMargin) + 'px';
+        currentIdx = num;
+        console.log(currentIdx,slideCount);
+        
+        if(currentIdx == slideCount || currentIdx == -slideCount){
+            setTimeout(function(){
+                slides.classList.remove('animated');
+                slides.style.left = '0px';
+                currentIdx = 0;
+            },400);
+            setTimeout(function(){
+                slides.classList.add('animated');
+            },4100);
+        }
+    }
+    prevBtn.addEventListener('click',function(){
+        stopSlide()
+    })
+    prevBtn.addEventListener('mouseleave',function(){
+        autoSlide()
+    })
+    nextBtn.addEventListener('click',function(){
+        stopSlide()
+    })
+    nextBtn.addEventListener('mouseleave',function(){
+        autoSlide();
+    })
+})
+
+
+
 
 // swiper 슬라이드
 
 
+$(function(){
+    window.addEventListener('touchstart',callback);
+    window.addEventListener('touchmove',callback);
+    window.addEventListener('touchend',callback);
 
-window.addEventListener('touchstart',callback);
-window.addEventListener('touchmove',callback);
-window.addEventListener('touchend',callback);
 
+    const outer = document.querySelector('.dlc');
+    const inner = document.querySelector('.dlcScreen');
 
-const outer = document.querySelector('.dlc');
-const inner = document.querySelector('.dlcScreen');
+    let startPos = 0;
+    let offset = 0;
+    let curPos = 0;
+    const screenWidth = outer.clientWidth;
 
-let startPos = 0;
-let offset = 0;
-let curPos = 0;
-const screenWidth = outer.clientWidth;
+    window.onload=function(){
+        outer.addEventListener('touchstart',(e) => {
+            startPos = e.touchs[0].pageX
+        })
 
-window.onload=function(){
-    outer.addEventListener('touchstart',(e) => {
-        startPos = e.touchs[0].pageX
-    })
-
-    outer.addEventListener('touchmove',(e) =>{
-        offset = curPos + (e.targetTouches[0].pageX - startPos)
-        inner.style.transform = 'translate3d(${offset}px,0x,0px)'
-        inner.style.transitionDuration = '0ms';
-    })
-
-    outer.addEventListener('touchend',(e) => {
-        const sum = curPos + (e.changedTouches[0].pageX - startPos);
-        let destination = Math.round(sum / screenWidth) * screenWidth;
-        if(destination > 0){
-            destination = 0;
-        }
-        else if (destination < -(screenWidth * (4 - 1))) {
-            destination = -(screenWidth * (4 - 1));
-          }
-        
-          inner.style.transform = `translate3d(${destination}px, 0px, 0px)`;
-          inner.style.transitionDuration = '300ms';
-          curPos = destination;
-        
-          setTimeout(() => {
+        outer.addEventListener('touchmove',(e) =>{
+            offset = curPos + (e.targetTouches[0].pageX - startPos)
+            inner.style.transform = 'translate3d(${offset}px,0x,0px)'
             inner.style.transitionDuration = '0ms';
-          }, 300);
+        })
+
+        outer.addEventListener('touchend',(e) => {
+            const sum = curPos + (e.changedTouches[0].pageX - startPos);
+            let destination = Math.round(sum / screenWidth) * screenWidth;
+            if(destination > 0){
+                destination = 0;
+            }
+            else if (destination < -(screenWidth * (4 - 1))) {
+                destination = -(screenWidth * (4 - 1));
+            }
+            
+            inner.style.transform = `translate3d(${destination}px, 0px, 0px)`;
+            inner.style.transitionDuration = '300ms';
+            curPos = destination;
+            
+            setTimeout(() => {
+                inner.style.transitionDuration = '0ms';
+            }, 300);
+            //   }, 300);
+        })
+    }  
+})
+
+
+$(function(){
+    $(window).scroll(function(){
+        var scrollValue = $(this).scrollTop()
+        if(scrollValue > 2000){
+            $('.slideIn1').stop().css({right:'100%'})
+        }
+        else{
+            $('.slideIn1').css({right:'-100%'})
+        }
+
+
+        if(scrollValue > 2600){
+            $('.slideIn2').css({right:'0%'})
+
+        }
+        else{
+            $('.slideIn2').css({right:'-100%'})
+        }
+
+        
+        if(scrollValue > 3400){
+            $('.slideIn3').css({right:'100%'})
+
+        }
+        else{
+            $('.slideIn3').css({right:'-100%'})
+        }
+
+
+        if(scrollValue > 4100){
+            $('.slideIn4').css({right:'0%'})
+        }
+        else{
+            $('.slideIn4').css({right:'-100%'})
+        }
     })
-}  
+})
 
 
 
-// dlc end line
+
 
 // main end line
