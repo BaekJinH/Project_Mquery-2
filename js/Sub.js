@@ -169,27 +169,77 @@ $(function(){
 
 
 $(function(){
-    $('.imgUp > div').click(function(){
-        var index = $('.imgUp > div').index(this)
+    $('.action  .imgUp > div').click(function(){
+        var index = $('.action  .imgUp > div').index(this)
         if(index == 0){
-            $('iframe').attr('src','?autoplay=1&mute=1')
+            $('iframe').attr('src','https://www.youtube.com/embed/yQxwbZsL14Y?autoplay=1&mute=1')
         }
         else if(index == 1){
-            $('iframe').attr('src','?autoplay=1&mute=1')
+            $('iframe').attr('src','https://www.youtube.com/embed/cheYIVEtVQ4?autoplay=1&mute=1')
         }
         else if(index == 2){
-            $('iframe').attr('src','?autoplay=1&mute=1')
+            $('iframe').attr('src','https://www.youtube.com/embed/Lq594XmpPBg?autoplay=1&mute=1')
         }
         else{
-            $('iframe').attr('src','?autoplay=1&mute=1')
+            $('iframe').attr('src','https://www.youtube.com/embed/lrL3Qjv2jZI?autoplay=1&mute=1')
         }
         $('.popup , .mask , .close').stop().fadeIn()
     })
-    $('.close').click(function(){
+    $('.story  .imgUp > div').click(function(){
+        var index = $('.story .imgUp > div').index(this)
+        if(index == 0){
+            $('iframe').attr('src','https://www.youtube.com/embed/eaW0tYpxyp0?autoplay=1&mute=1')
+        }
+        else if(index == 1){
+            $('iframe').attr('src','https://www.youtube.com/embed/ohClxMmNLQQ?autoplay=1&mute=1')
+        }
+        else if(index == 2){
+            $('iframe').attr('src','https://www.youtube.com/embed/dIQGI36BxDE?autoplay=1&mute=1')
+        }
+        else{
+            $('iframe').attr('src','https://www.youtube.com/embed/rXMX4YJ7Lks?autoplay=1&mute=1')
+        }
+        $('.popup , .mask , .close').stop().fadeIn()
+    })
+    $('.casual  .imgUp > div').click(function(){
+        var index = $('.casual .imgUp > div').index(this)
+        if(index == 0){
+            $('iframe').attr('src','https://www.youtube.com/embed/ot7uXNQskhs?autoplay=1&mute=1')
+        }
+        else if(index == 1){
+            $('iframe').attr('src','https://www.youtube.com/embed/jp_XgQjgGNY?autoplay=1&mute=1')
+        }
+        else if(index == 2){
+            $('iframe').attr('src','https://www.youtube.com/embed/0JG5Y7ZWvWU?autoplay=1&mute=1')
+        }
+        else{
+            $('iframe').attr('src','https://www.youtube.com/embed/z00mK3Pxc8w?autoplay=1&mute=1')
+        }
+        $('.popup , .mask , .close').stop().fadeIn()
+    })
+    $('.fantasy  .imgUp > div').click(function(){
+        var index = $('.fantasy .imgUp > div').index(this)
+        if(index == 0){
+            $('iframe').attr('src','https://www.youtube.com/embed/c0i88t0Kacs?autoplay=1&mute=1')
+        }
+        else if(index == 1){
+            $('iframe').attr('src','https://www.youtube.com/embed/H70EGmRMMnk?autoplay=1&mute=1')
+        }
+        else if(index == 2){
+            $('iframe').attr('src','https://www.youtube.com/embed/ETWtvVGFNqU?autoplay=1&mute=1')
+        }
+        else{
+            $('iframe').attr('src','https://www.youtube.com/embed/y8f8QZTOrfk?autoplay=1&mute=1')
+        }
+        $('.popup , .mask , .close').stop().fadeIn()
+    })
+    $('.close , .mask').click(function(){
         $('.mask , .popup').stop().fadeOut()
     })
 })
-
+$(function(){
+    
+})
 $(function(){
     $('.categorySub').css({display:'none'})
     $('.category li').mouseover(function(){
@@ -217,10 +267,11 @@ $(function(){
     $('.imgWrap1 > div').on({mouseover:function(){
         $(this).find('.videoAndimg').stop().css({height:'100%',top:0});
         $(this).siblings().find('.videoAndimg').stop().css({height:'100%',top:'101%'})
-        $(this).css({boxShadow:'inset 100vw 100vh 8px rgba(0,0,0,'+0.5+')'})
+        $(this).css({boxShadow:'inset 100vw 100vh 8px rgba(0,0,0,'+0.5+')',transform:'scale(1.1)'})
     },mouseout:function(){
         $('.videoAndimg').stop().css({height:'100%',top:'101%'})
         $('.imgWrap1 > div').css({boxShadow:'none'})
+        $(this).css({transform:'scale(1)'})
     }})
 })
 
@@ -230,6 +281,7 @@ $(function(){
 $(function(){
     $('.imgWrap1').siblings().not('.액션').not('.imgWrap2').not('.imgWrap3').hide()
     $('.dlc > ul').not('.dlcAction').css({display:'none'})
+    $('.slideRight').siblings().not('.slideAction').not('.wrap3Head').hide()            
     $('.category > ul > li').click(function(){
         // dlcindex 값으로 슬라이드 이름 바꾸기
         // var dlcIndex = 
@@ -239,6 +291,9 @@ $(function(){
             $('.액션').fadeIn()
             $('.imgWrap1').siblings().not('.액션').not('.imgWrap2').not('.imgWrap3').hide()
             $('.dlcScreen').siblings().not('.dlcAction').hide();
+            $('.slideAction').show()
+            $('.slideRight').siblings().not('.slideAction').hide()            
+
             $(this).addClass('categoryHold')
             $(this).siblings().not(this).removeClass('categoryHold')
     
@@ -248,6 +303,10 @@ $(function(){
             $('.스토리').fadeIn()
             $('.imgWrap1').siblings().not('.스토리').not('.imgWrap2').not('.imgWrap3').hide()
             $('.dlcScreen').siblings().not('.dlcStory').hide()
+            $('.slideStory').show()
+            $('.slideRight').siblings().not('.slideStory').hide()            
+
+            
             $(this).addClass('categoryHold')
             $(this).siblings().not(this).removeClass('categoryHold')
         }
@@ -256,6 +315,10 @@ $(function(){
             $('.캐쥬얼').fadeIn()
             $('.imgWrap1').siblings().not('.캐쥬얼').not('.imgWrap2').not('.imgWrap3').hide()
             $('.dlcScreen').siblings().not('.dlcCasual').hide()
+            $('.slideCasual').show()
+            $('.slideRight').siblings().not('.slideCasual').hide()            
+            
+            
             $(this).addClass('categoryHold')
             $(this).siblings().not(this).removeClass('categoryHold')
         }
@@ -264,6 +327,10 @@ $(function(){
             $('.판타지').fadeIn()
             $('.imgWrap1').siblings().not('.판타지').not('.imgWrap2').not('.imgWrap3').hide()
             $('.dlcScreen').siblings().not('.dlcFantasy').hide()
+            $('.slideFantasy').show()
+            $('.slideRight').siblings().not('.slideFantasy').hide()          
+            
+            
             $(this).addClass('categoryHold')
             $(this).siblings().not(this).removeClass('categoryHold')
         }   
@@ -438,35 +505,50 @@ $(function(){
         var scrollValue = $(this).scrollTop()
         if(scrollValue > 2000){
             $('.slideIn1').stop().css({right:'100%'})
+            $('.slideRight h4').eq(0).fadeIn(3000)
+            $('.slideRight p').eq(0).fadeIn(3000)
         }
         else{
             $('.slideIn1').css({right:'-100%'})
+            $('.slideRight h4').eq(0).fadeOut()
+            $('.slideRight p').eq(0).fadeOut()
         }
 
 
         if(scrollValue > 2600){
             $('.slideIn2').css({right:'0%'})
-
+            $('.slideRight h4').eq(1).fadeIn(3000)
+            $('.slideRight p').eq(1).fadeIn(3000)
         }
         else{
             $('.slideIn2').css({right:'-100%'})
+            $('.slideRight h4').eq(1).fadeIn(3000)
+            $('.slideRight p').eq(1).fadeIn(3000)
         }
 
         
         if(scrollValue > 3400){
             $('.slideIn3').css({right:'100%'})
-
+            $('.slideRight h4').eq(2).fadeIn(3000)
+            $('.slideRight p').eq(2).fadeIn(3000)
         }
         else{
             $('.slideIn3').css({right:'-100%'})
+            $('.slideRight h4').eq(2).fadeIn(3000)
+            $('.slideRight p').eq(2).fadeIn(3000)
         }
+        
 
 
         if(scrollValue > 4100){
             $('.slideIn4').css({right:'0%'})
+            $('.slideRight h4').eq(3).fadeIn(3000)
+            $('.slideRight p').eq(3).fadeIn(3000)
         }
         else{
             $('.slideIn4').css({right:'-100%'})
+            $('.slideRight h4').eq(3).fadeIn(3000)
+            $('.slideRight p').eq(3).fadeIn(3000)
         }
     })
 })
