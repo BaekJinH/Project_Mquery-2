@@ -139,7 +139,7 @@
     #slider{
         overflow:hidden;
         width:100%;
-        height:850px;
+        height:800px;
         background-color:#888;
         position: relative;
     }
@@ -200,10 +200,22 @@
     }
     .leftDownText{
         width:70%;
-        height:30%;
-        background-color:#eee
+        height:15%;
+        background-color:#eee;
+        display:flex;
+        flex-flow:row nowrap;
+        justify-content: space-between;
+        align-items: center;;
     }
-    
+    .leftDownText > div{
+        width:100px;
+        height:100px;
+        /* width:18%;
+        height:100%; */
+        border:3px solid #888;
+        box-sizing: border-box;
+        
+    }
     .right{
         width:50%;
         height:100%;
@@ -221,8 +233,19 @@
         width: 80%;
         height:45%;
         background-color:#eee;
+        display:flex;
+        flex-flow:column wrap;
+        justify-content: space-evenly;
+        align-items: center;
     }
-    
+    .rightDownText > h2{
+        font-size:35px;
+    }
+    .rightDownText > p{
+        width:90%;
+        line-height:30px;
+        font-weight: normal;
+    }
     .sliderBar{
         position:absolute;
         /* width:35%; */
@@ -727,7 +750,7 @@
         overflow:hidden;
     }
     .slideRight > div {
-        width:270px;
+        width:350px;
         height:400px;
         background-color:#eee;
         position:absolute;
@@ -824,19 +847,22 @@
     
     
     .slideAction> div:nth-of-type(1){
-        background-color:cyan;
+        background-image:url(../img/slideRight1.jpg)
     
     }
     .slideAction> div:nth-of-type(2){
-        background-color:pink;
+        background-image:url(../img/slideRight2.jpg)
+
     
     }
     .slideAction> div:nth-of-type(3){
-        background-color:lightblue;
+        background-image:url(../img/slideRight3.jpg)
+
     
     }
     .slideAction> div:nth-of-type(4){
-        background-color:#eee;
+        background-image:url(../img/slideRight4.jpg)
+
     
     }
     
