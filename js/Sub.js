@@ -349,14 +349,14 @@ function Slider(target, type) {
     const speed = 1000; // ms
   
     // 방향
-    const transform = "transform " + speed / 1000 + "s";
+    const transform = "transform " + speed / 5000 + "s";
     let translate = (i) => "translateX(-" + 100 * i + "%)";
     if (type === "V") {
       translate = (i) => "translateY(-" + 100 * i + "%)";
     }
   
     // 슬라이더
-    const slider = document.querySelector(target);
+    const slider = document.querySelector('.dlcScreen');
     const sliderRects = slider.getClientRects()[0];
     slider.style["overflow"] = "hidden";
   
