@@ -342,109 +342,162 @@ $(function(){
 
 // 밑의 슬라이드를 반복문으로 사용해서 태그별로 슬라이드를 적용해야함
 
-$(function(){
-
-    var slides = document.querySelector('.dlcAction'),
-        slide = document.querySelectorAll('.dlcAction > li'),
-        currentIdx = 0,
-        slideCount = slide.length,
-        slideWidth = $('.dlcSlide').width(),
-        slideMargin = 50,
-        prevBtn = document.querySelector('.prev1'),
-        nextBtn = document.querySelector('.next1');
-
-    makeClone();
-
-    function makeClone(){
-        for(var i = 0; i <slideCount; i++){
-            var cloneSlide = slide[i].cloneNode(true);
-            cloneSlide.classList.add('clone');
-            slides.appendChild(cloneSlide);
+function Slider(target, type) {
+    // 상태
+    let index = 1;
+    let isMoved = true;
+    const speed = 1000; // ms
+  
+    // 방향
+    const transform = "transform " + speed / 1000 + "s";
+    let translate = (i) => "translateX(-" + 100 * i + "%)";
+    if (type === "V") {
+      translate = (i) => "translateY(-" + 100 * i + "%)";
+    }
+  
+    // 슬라이더
+    const slider = document.querySelector(target);
+    const sliderRects = slider.getClientRects()[0];
+    slider.style["overflow"] = "hidden";
+  
+    // 슬라이더 화면 컨테이너
+    const container = document.createElement("div");
+    container.style["display"] = "flex";
+    container.style["flex-direction"] = type === "V" ? "column" : "row";
+    container.style["width"] = sliderRects.width + "px";
+    container.style["height"] = sliderRects.height + "px";
+    container.style["transform"] = translate(index);
+  
+    // 슬라이더 화면 목록
+    let boxes = [].slice.call(slider.children);
+    boxes = [].concat(boxes[boxes.length - 1], boxes, boxes[0]);
+  
+    // 슬라이더 화면 스타일
+    const size = boxes.length;
+    for (let i = 0; i < size; i++) {
+      const box = boxes[i];
+      box.style["flex"] = "none";
+      box.style["flex-wrap"] = "wrap";
+      box.style["height"] = "100%";
+      box.style["width"] = "100%";
+      container.appendChild(box.cloneNode(true));
+    }
+  
+    // 처음/마지막 화면 눈속임 이벤트
+    container.addEventListener("transitionstart", function () {
+      isMoved = false;
+      setTimeout(() => {
+        isMoved = true;
+      }, speed);
+    });
+    container.addEventListener("transitionend", function () {
+      // 처음으로 순간이동
+      if (index === size - 1) {
+        index = 1;
+        container.style["transition"] = "none";
+        container.style["transform"] = translate(index);
+      }
+      // 끝으로 순간이동
+      if (index === 0) {
+        index = size - 2;
+        container.style["transition"] = "none";
+        container.style["transform"] = translate(index);
+      }
+    });
+  
+    // 슬라이더 붙이기
+    slider.innerHTML = "";
+    slider.appendChild(container);
+  
+    return {
+      move: function (i) {
+        if (isMoved === true) {
+          index = i;
+          container.style["transition"] = transform;
+          container.style["transform"] = translate(index);
         }
-        for(var i = slideCount -1; i >=0; i--){
-            var cloneSlide = slide[i].cloneNode(true);
-            cloneSlide.classList.add('clone');
-            slides.prepend(cloneSlide);
+      },
+      next: function () {
+        if (isMoved === true) {
+          index = (index + 1) % size;
+          container.style["transition"] = transform;
+          container.style["transform"] = translate(index);
         }
-            ubdateWidth();
-            setInitialPos();
-            
-            setTimeout(function(){
-                slides.classList.add('animated');
-            },100)
-    }
-
-    function ubdateWidth(){
-        var currentSlides = document.querySelectorAll('.dlcAction li');
-        var newSlideCount = currentSlides.length;
-        
-        var newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin + 'px';
-        slides.style.width = newWidth;
-    }
-    function setInitialPos(){
-        var initialTranslateValue = -(slideWidth + slideMargin) * slideCount;
-        slides.style.transform = 'translateX('+ initialTranslateValue +'px)';
-    }
-
-    nextBtn.addEventListener('click',function(){
-        moveSlide(currentIdx +1 )
-    })
-    prevBtn.addEventListener('click',function(){
-        moveSlide(currentIdx -1 )
-    })
-
-    var timer = undefined;
-
-    function autoSlide(){
-        if(timer == undefined){
-            timer = setInterval(function(){
-                moveSlide(currentIdx + 1 )
-            },3000)
+      },
+      prev: function () {
+        if (isMoved === true) {
+          index = index === 0 ? index + size : index;
+          index = (index - 1) % size;
+          container.style["transition"] = transform;
+          container.style["transform"] = translate(index);
         }
-    }
-    autoSlide();
+      }
+    };
+  }
+  
+  const s1 = new Slider("#slider1", "H");
+  const s2 = new Slider("#slider2", "V");
+  
+  setInterval(() => {
+    s1.next();
+    s2.next();
+  }, 1000)
 
-    function stopSlide(){
-        clearInterval(timer);
-        timer = undefined;
-    }
-    slides.addEventListener('mouseenter',function(){
-        stopSlide();
-    })
 
-    slides.addEventListener('mouseleave',function(){
-        autoSlide();
-    })
 
-    function moveSlide(num){
-        slides.style.left = -num * (slideWidth + slideMargin) + 'px';
-        currentIdx = num;
-        console.log(currentIdx,slideCount);
-        
-        if(currentIdx == slideCount || currentIdx == -slideCount){
-            setTimeout(function(){
-                slides.classList.remove('animated');
-                slides.style.left = '0px';
-                currentIdx = 0;
-            },400);
-            setTimeout(function(){
-                slides.classList.add('animated');
-            },4100);
-        }
-    }
-    prevBtn.addEventListener('click',function(){
-        stopSlide()
-    })
-    prevBtn.addEventListener('mouseleave',function(){
-        autoSlide()
-    })
-    nextBtn.addEventListener('click',function(){
-        stopSlide()
-    })
-    nextBtn.addEventListener('mouseleave',function(){
-        autoSlide();
-    })
-})
+// let banner = {
+//     rollId : null,
+//     interval : 2000,
+
+//     rollInit : function (newInterval) {
+//         if(parseInt(newInterval) > 0) {
+//             this.interval = newInterval;
+//         }
+
+//         let firstItem = document.querySelector('.dlcAction > li');
+//         if(firstItem) {
+//             firstItem.classList.add('currentRoll')
+//         }
+
+//         let secondItem = document.querySelectorAll('.dlcAction > li')[1];
+//         if(secondItem) {
+//             secondItem.classList.add('nextRoll')
+//         }
+
+//         let thirdItem = document.querySelectorAll('.dlcAction > li')[2];
+//         if(thirdItem) {
+//             thirdItem.classList.add('nextRoll')
+//         }
+
+//         let fourItem = document.querySelectorAll('.dlcAction > li')[3];
+//         if(fourItem) {
+//             fourItem.classList.add('nextRoll')
+//         }
+
+//         let fiveItem = document.querySelectorAll('.dlcAction > li')[4];
+//         if(fiveItem) {
+//             fiveItem.classList.add('nextRoll')
+//         }
+
+//         let sixItem = document.querySelectorAll('.dlcAction > li')[5];
+//         if(sixItem) {
+//             sixItem.classList.add('nextRoll')
+//         }
+
+//         let sevenItem = document.querySelectorAll('.dlcAction > li')[6];
+//         if(sevenItem) {
+//             sevenItem.classList.add('nextRoll')
+//         }
+
+//         let eightItem = document.querySelectorAll('.dlcAction > li')[7];
+//         if(secondItem) {
+//             secondItem.classList.add('nextRoll')
+//         }
+//     }
+// }
+
+
+
 
 
 

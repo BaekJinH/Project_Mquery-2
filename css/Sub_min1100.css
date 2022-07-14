@@ -1,4 +1,4 @@
-@media screen and (min-width:1500px){
+@media screen and (min-width:1100px) and (max-width:1499px){
     #wrap{
         width:100%;
         height:auto;
@@ -672,7 +672,6 @@
     }
     .dlcScreen{
         position:relative;;
-        width:3400px;
         height:100%;
         /* display:flex;
         flex-flow:row nowrap;
