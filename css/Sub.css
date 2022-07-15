@@ -688,26 +688,35 @@
     
     
     .dlc{
-        width:1500px;
+        width:100%;
         height:600px;
         margin:0 auto;
-        overflow:hidden
     }
     .dlcScreen{
         position:relative;;
-        width:3400px;
+        width:1500px;
         height:100%;
+        overflow: hidden;
+        margin:auto;
         /* display:flex;
         flex-flow:row nowrap;
         justify-content: center;
         align-items: center; */
     }
     .dlcSlide{
-        position: relative;
+        position: absolute;
         width:300px;
         height:70%;
-        float:left;
+        margin-left:25px;
+        margin-right:25px;
         border:2px solid cyan;
+        overflow:hidden;
+    }
+    .dlcSlide > div{
+        height:100%;
+        width:100%;
+        background:linear-gradient(180deg,)
+        /* 밑은 검은색 바탕 위는 opacity로 흰색 */
     }
     .dlcScreen > li:not(:last-child){
         margin-right:50px;

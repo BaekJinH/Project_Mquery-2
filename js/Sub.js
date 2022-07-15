@@ -283,14 +283,12 @@ $(function(){
     $('.dlc > ul').not('.dlcAction').css({display:'none'})
     $('.slideRight').siblings().not('.slideAction').not('.wrap3Head').hide()            
     $('.category > ul > li').click(function(){
-        // dlcindex 값으로 슬라이드 이름 바꾸기
-        // var dlcIndex = 
+
         var index = $('.category > ul > li').index(this);
         if(index == 0){
-            $('.dlcAction').fadeIn()
             $('.액션').fadeIn()
             $('.imgWrap1').siblings().not('.액션').not('.imgWrap2').not('.imgWrap3').hide()
-            $('.dlcScreen').siblings().not('.dlcAction').hide();
+
             $('.slideAction').show()
             $('.slideRight').siblings().not('.slideAction').hide()            
 
@@ -299,10 +297,8 @@ $(function(){
     
         }
         else if(index == 1){
-            $('.dlcStory').fadeIn()
             $('.스토리').fadeIn()
             $('.imgWrap1').siblings().not('.스토리').not('.imgWrap2').not('.imgWrap3').hide()
-            $('.dlcScreen').siblings().not('.dlcStory').hide()
             $('.slideStory').show()
             $('.slideRight').siblings().not('.slideStory').hide()            
 
@@ -311,10 +307,8 @@ $(function(){
             $(this).siblings().not(this).removeClass('categoryHold')
         }
         else if(index == 2){
-            $('.dlcCasual').fadeIn()
             $('.캐쥬얼').fadeIn()
             $('.imgWrap1').siblings().not('.캐쥬얼').not('.imgWrap2').not('.imgWrap3').hide()
-            $('.dlcScreen').siblings().not('.dlcCasual').hide()
             $('.slideCasual').show()
             $('.slideRight').siblings().not('.slideCasual').hide()            
             
@@ -323,10 +317,8 @@ $(function(){
             $(this).siblings().not(this).removeClass('categoryHold')
         }
         else if(index == 3){
-            $('.dlcFantasy').fadeIn()
             $('.판타지').fadeIn()
             $('.imgWrap1').siblings().not('.판타지').not('.imgWrap2').not('.imgWrap3').hide()
-            $('.dlcScreen').siblings().not('.dlcFantasy').hide()
             $('.slideFantasy').show()
             $('.slideRight').siblings().not('.slideFantasy').hide()          
             
@@ -342,162 +334,183 @@ $(function(){
 
 // 밑의 슬라이드를 반복문으로 사용해서 태그별로 슬라이드를 적용해야함
 
-// function Slider(target, type) {
-//     // 상태
-//     let index = 1;
-//     let isMoved = true;
-//     const speed = 1000; // ms
-  
-//     // 방향
-//     const transform = "transform " + speed / 5000 + "s";
-//     let translate = (i) => "translateX(-" + 100 * i + "%)";
-//     if (type === "V") {
-//       translate = (i) => "translateY(-" + 100 * i + "%)";
-//     }
-  
-//     // 슬라이더
-//     const slider = document.querySelector('.dlcScreen');
-//     const sliderRects = slider.getClientRects()[0];
-//     slider.style["overflow"] = "hidden";
-  
-//     // 슬라이더 화면 컨테이너
-//     const container = document.createElement("div");
-//     container.style["display"] = "flex";
-//     container.style["flex-direction"] = type === "V" ? "column" : "row";
-//     container.style["width"] = sliderRects.width + "px";
-//     container.style["height"] = sliderRects.height + "px";
-//     container.style["transform"] = translate(index);
-  
-//     // 슬라이더 화면 목록
-//     let boxes = [].slice.call(slider.children);
-//     boxes = [].concat(boxes[boxes.length - 1], boxes, boxes[0]);
-  
-//     // 슬라이더 화면 스타일
-//     const size = boxes.length;
-//     for (let i = 0; i < size; i++) {
-//       const box = boxes[i];
-//       box.style["flex"] = "none";
-//       box.style["flex-wrap"] = "wrap";
-//       box.style["height"] = "100%";
-//       box.style["width"] = "100%";
-//       container.appendChild(box.cloneNode(true));
-//     }
-  
-//     // 처음/마지막 화면 눈속임 이벤트
-//     container.addEventListener("transitionstart", function () {
-//       isMoved = false;
-//       setTimeout(() => {
-//         isMoved = true;
-//       }, speed);
-//     });
-//     container.addEventListener("transitionend", function () {
-//       // 처음으로 순간이동
-//       if (index === size - 1) {
-//         index = 1;
-//         container.style["transition"] = "none";
-//         container.style["transform"] = translate(index);
-//       }
-//       // 끝으로 순간이동
-//       if (index === 0) {
-//         index = size - 2;
-//         container.style["transition"] = "none";
-//         container.style["transform"] = translate(index);
-//       }
-//     });
-  
-//     // 슬라이더 붙이기
-//     slider.innerHTML = "";
-//     slider.appendChild(container);
-  
-//     return {
-//       move: function (i) {
-//         if (isMoved === true) {
-//           index = i;
-//           container.style["transition"] = transform;
-//           container.style["transform"] = translate(index);
-//         }
-//       },
-//       next: function () {
-//         if (isMoved === true) {
-//           index = (index + 1) % size;
-//           container.style["transition"] = transform;
-//           container.style["transform"] = translate(index);
-//         }
-//       },
-//       prev: function () {
-//         if (isMoved === true) {
-//           index = index === 0 ? index + size : index;
-//           index = (index - 1) % size;
-//           container.style["transition"] = transform;
-//           container.style["transform"] = translate(index);
-//         }
-//       }
-//     };
-//   }
-  
-//   const s1 = new Slider("#slider1", "H");
-//   const s2 = new Slider("#slider2", "V");
-  
-//   setInterval(() => {
-//     s1.next();
-//     s2.next();
-//   }, 1000)
+$(function(){
+    var bannerLeft = 0;
+    var imgCnt = 0;
+    var first = 1;
+    var last;
+    var interval;
+
+    $('.dlcAction > li').each(function(){
+        $(this).css('left',bannerLeft);
+        bannerLeft += $(this).width() +50;
+        $(this).attr('id','content'+(++imgCnt));
+    })
+    last = imgCnt;
+    startAction();
+
+    $('.content').hover(function(){
+        stopAction();
+    },function(){
+        startAction();
+    })
+
+    function startAction() {
+        interval = setInterval(function(){
+            $('.dlcAction > li').each(function(){
+                $(this).css('left',$(this).position().left-1);
+            });
+
+            var firstContent = $('#content' + first);
+            var lastContent = $('#content' + last);
+
+            if(firstContent.position().left < '-' + $(firstContent).width()) {
+                firstContent.css('left',lastContent.position().left+lastContent.width()+50);
+                first++;
+                last++;
+                if(last > imgCnt) {last =1};
+                if(first > imgCnt) {first = 1};
+            }
+        },15)
+    }
+    function stopAction(){
+        clearInterval(interval)
+    }
+})
+
+$(function(){
+    var bannerLeft = 0;
+    var imgCnt = 0;
+    var first = 1;
+    var last;
+    var interval;
+
+    $('.dlcStory > li').each(function(){
+        $(this).css('left',bannerLeft);
+        bannerLeft += $(this).width() +50;
+        $(this).attr('id','content'+(++imgCnt));
+    })
+    last = imgCnt;
+    startAction();
+
+    $('.content').hover(function(){
+        stopAction();
+    },function(){
+        startAction();
+    })
+
+    function startAction() {
+        interval = setInterval(function(){
+            $('.dlcStory > li').each(function(){
+                $(this).css('left',$(this).position().left-1);
+            });
+
+            var firstContent = $('#content' + first);
+            var lastContent = $('#content' + last);
+
+            if(firstContent.position().left < '-' + $(firstContent).width()) {
+                firstContent.css('left',lastContent.position().left+lastContent.width()+50);
+                first++;
+                last++;
+                if(last > imgCnt) {last =1};
+                if(first > imgCnt) {first = 1};
+            }
+        },15)
+    }
+    function stopAction(){
+        clearInterval(interval)
+    }
+})
 
 
+$(function(){
+    var bannerLeft = 0;
+    var imgCnt = 0;
+    var first = 1;
+    var last;
+    var interval;
 
-// let banner = {
-//     rollId : null,
-//     interval : 2000,
+    $('.dlcCasual > li').each(function(){
+        $(this).css('left',bannerLeft);
+        bannerLeft += $(this).width() +50;
+        $(this).attr('id','content'+(++imgCnt));
+    })
+    last = imgCnt;
+    startAction();
 
-//     rollInit : function (newInterval) {
-//         if(parseInt(newInterval) > 0) {
-//             this.interval = newInterval;
-//         }
+    $('.content').hover(function(){
+        stopAction();
+    },function(){
+        startAction();
+    })
 
-//         let firstItem = document.querySelector('.dlcAction > li');
-//         if(firstItem) {
-//             firstItem.classList.add('currentRoll')
-//         }
+    function startAction() {
+        interval = setInterval(function(){
+            $('.dlcCasual > li').each(function(){
+                $(this).css('left',$(this).position().left-1);
+            });
 
-//         let secondItem = document.querySelectorAll('.dlcAction > li')[1];
-//         if(secondItem) {
-//             secondItem.classList.add('nextRoll')
-//         }
+            var firstContent = $('#content' + first);
+            var lastContent = $('#content' + last);
 
-//         let thirdItem = document.querySelectorAll('.dlcAction > li')[2];
-//         if(thirdItem) {
-//             thirdItem.classList.add('nextRoll')
-//         }
-
-//         let fourItem = document.querySelectorAll('.dlcAction > li')[3];
-//         if(fourItem) {
-//             fourItem.classList.add('nextRoll')
-//         }
-
-//         let fiveItem = document.querySelectorAll('.dlcAction > li')[4];
-//         if(fiveItem) {
-//             fiveItem.classList.add('nextRoll')
-//         }
-
-//         let sixItem = document.querySelectorAll('.dlcAction > li')[5];
-//         if(sixItem) {
-//             sixItem.classList.add('nextRoll')
-//         }
-
-//         let sevenItem = document.querySelectorAll('.dlcAction > li')[6];
-//         if(sevenItem) {
-//             sevenItem.classList.add('nextRoll')
-//         }
-
-//         let eightItem = document.querySelectorAll('.dlcAction > li')[7];
-//         if(secondItem) {
-//             secondItem.classList.add('nextRoll')
-//         }
-//     }
-// }
+            if(firstContent.position().left < '-' + $(firstContent).width()) {
+                firstContent.css('left',lastContent.position().left+lastContent.width()+50);
+                first++;
+                last++;
+                if(last > imgCnt) {last =1};
+                if(first > imgCnt) {first = 1};
+            }
+        },15)
+    }
+    function stopAction(){
+        clearInterval(interval)
+    }
+})
 
 
+$(function(){
+    var bannerLeft = 0;
+    var imgCnt = 0;
+    var first = 1;
+    var last;
+    var interval;
 
+    $('.dlcFantasy > li').each(function(){
+        $(this).css('left',bannerLeft);
+        bannerLeft += $(this).width() +50;
+        $(this).attr('id','content'+(++imgCnt));
+    })
+    last = imgCnt;
+    startAction();
+
+    $('.content').hover(function(){
+        stopAction();
+    },function(){
+        startAction();
+    })
+
+    function startAction() {
+        interval = setInterval(function(){
+            $('.dlcFantasy > li').each(function(){
+                $(this).css('left',$(this).position().left-1);
+            });
+
+            var firstContent = $('#content' + first);
+            var lastContent = $('#content' + last);
+
+            if(firstContent.position().left < '-' + $(firstContent).width()) {
+                firstContent.css('left',lastContent.position().left+lastContent.width()+50);
+                first++;
+                last++;
+                if(last > imgCnt) {last =1};
+                if(first > imgCnt) {first = 1};
+            }
+        },15)
+    }
+    function stopAction(){
+        clearInterval(interval)
+    }
+})
 
 
 
@@ -505,52 +518,52 @@ $(function(){
 // swiper 슬라이드
 
 
-$(function(){
-    window.addEventListener('touchstart',callback);
-    window.addEventListener('touchmove',callback);
-    window.addEventListener('touchend',callback);
+// $(function(){
+//     window.addEventListener('touchstart',callback);
+//     window.addEventListener('touchmove',callback);
+//     window.addEventListener('touchend',callback);
 
 
-    const outer = document.querySelector('.dlc');
-    const inner = document.querySelector('.dlcScreen');
+//     const outer = document.querySelector('.dlc');
+//     const inner = document.querySelector('.dlcScreen');
 
-    let startPos = 0;
-    let offset = 0;
-    let curPos = 0;
-    const screenWidth = outer.clientWidth;
+//     let startPos = 0;
+//     let offset = 0;
+//     let curPos = 0;
+//     const screenWidth = outer.clientWidth;
 
-    window.onload=function(){
-        outer.addEventListener('touchstart',(e) => {
-            startPos = e.touchs[0].pageX
-        })
+//     window.onload=function(){
+//         outer.addEventListener('touchstart',(e) => {
+//             startPos = e.touchs[0].pageX
+//         })
 
-        outer.addEventListener('touchmove',(e) =>{
-            offset = curPos + (e.targetTouches[0].pageX - startPos)
-            inner.style.transform = 'translate3d(${offset}px,0x,0px)'
-            inner.style.transitionDuration = '0ms';
-        })
+//         outer.addEventListener('touchmove',(e) =>{
+//             offset = curPos + (e.targetTouches[0].pageX - startPos)
+//             inner.style.transform = 'translate3d(${offset}px,0x,0px)'
+//             inner.style.transitionDuration = '0ms';
+//         })
 
-        outer.addEventListener('touchend',(e) => {
-            const sum = curPos + (e.changedTouches[0].pageX - startPos);
-            let destination = Math.round(sum / screenWidth) * screenWidth;
-            if(destination > 0){
-                destination = 0;
-            }
-            else if (destination < -(screenWidth * (4 - 1))) {
-                destination = -(screenWidth * (4 - 1));
-            }
+//         outer.addEventListener('touchend',(e) => {
+//             const sum = curPos + (e.changedTouches[0].pageX - startPos);
+//             let destination = Math.round(sum / screenWidth) * screenWidth;
+//             if(destination > 0){
+//                 destination = 0;
+//             }
+//             else if (destination < -(screenWidth * (4 - 1))) {
+//                 destination = -(screenWidth * (4 - 1));
+//             }
             
-            inner.style.transform = `translate3d(${destination}px, 0px, 0px)`;
-            inner.style.transitionDuration = '300ms';
-            curPos = destination;
+//             inner.style.transform = `translate3d(${destination}px, 0px, 0px)`;
+//             inner.style.transitionDuration = '300ms';
+//             curPos = destination;
             
-            setTimeout(() => {
-                inner.style.transitionDuration = '0ms';
-            }, 300);
-            //   }, 300);
-        })
-    }  
-})
+//             setTimeout(() => {
+//                 inner.style.transitionDuration = '0ms';
+//             }, 300);
+//             //   }, 300);
+//         })
+//     }  
+// })
 
 
 $(function(){
