@@ -158,21 +158,26 @@
     #slider > .prev{
         left:0;
         z-index:10;
+        color:white;
+        display:none;
     }
     
     #slider > .next{
         right:0%;
         z-index:10;
+        color:white;
+        display:none;
     }
     .prev > i ,.next > i{
         cursor: pointer;
         transition:all 0.3s;
     }
     .prev > i:hover{
-        color:White;
+        opacity:0.7;
     }
     .next > i:hover{
-        color:White;
+        opacity:0.7;
+
     }
     
     .sliderImg{
@@ -244,7 +249,7 @@
         height:100px;
         /* width:18%;
         height:100%; */
-        border:3px solid #888;
+        border:1px solid white;
         box-sizing: border-box;
         background-size:cover;
         background-position:center;    
@@ -267,10 +272,10 @@
 
     }
     .leftDownText1 > div:nth-of-type(5){
-
+        border:none
     }
     .leftDownText1 > div:nth-of-type(6){
-
+        border:none
     }
     
 
@@ -294,7 +299,7 @@
 
     }
     .leftDownText2 > div:nth-of-type(6){
-
+        border:none
     }
 
 
@@ -321,6 +326,8 @@
     .leftDownText3 > div:nth-of-type(6){
         background-image: url(../img/banner_3-6.jpg);
     }
+
+
 
 
     .leftDownText4 > div:nth-of-type(1){

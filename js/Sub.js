@@ -31,7 +31,14 @@
 // header 
 
 // Vanila Js vs
+$(function(){
+    $('.slideWrap').hover(function(){
+        $('.prev')
+    },function(){
+        $('.prev')
 
+    })
+})
 
 $(function(){
     var slides = document.querySelector('.slideWrap'),
