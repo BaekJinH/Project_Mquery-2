@@ -172,68 +172,68 @@ $(function(){
     $('.action  .imgUp > div').click(function(){
         var index = $('.action  .imgUp > div').index(this)
         if(index == 0){
-            $('iframe').attr('src','https://www.youtube.com/embed/yQxwbZsL14Y?autoplay=1&mute=1')
+            $('.popup iframe').attr('src','https://www.youtube.com/embed/yQxwbZsL14Y?autoplay=1&mute=1')
         }
         else if(index == 1){
-            $('iframe').attr('src','https://www.youtube.com/embed/cheYIVEtVQ4?autoplay=1&mute=1')
+            $('.popup iframe').attr('src','https://www.youtube.com/embed/cheYIVEtVQ4?autoplay=1&mute=1')
         }
         else if(index == 2){
-            $('iframe').attr('src','https://www.youtube.com/embed/Lq594XmpPBg?autoplay=1&mute=1')
+            $('.popup iframe').attr('src','https://www.youtube.com/embed/Lq594XmpPBg?autoplay=1&mute=1')
         }
         else{
-            $('iframe').attr('src','https://www.youtube.com/embed/lrL3Qjv2jZI?autoplay=1&mute=1')
+            $('.popup iframe').attr('src','https://www.youtube.com/embed/lrL3Qjv2jZI?autoplay=1&mute=1')
         }
         $('.popup , .mask , .close').stop().fadeIn()
     })
     $('.story  .imgUp > div').click(function(){
         var index = $('.story .imgUp > div').index(this)
         if(index == 0){
-            $('iframe').attr('src','https://www.youtube.com/embed/eaW0tYpxyp0?autoplay=1&mute=1')
+            $('.popup iframe').attr('src','https://www.youtube.com/embed/eaW0tYpxyp0?autoplay=1&mute=1')
         }
         else if(index == 1){
-            $('iframe').attr('src','https://www.youtube.com/embed/ohClxMmNLQQ?autoplay=1&mute=1')
+            $('.popup iframe').attr('src','https://www.youtube.com/embed/ohClxMmNLQQ?autoplay=1&mute=1')
         }
         else if(index == 2){
-            $('iframe').attr('src','https://www.youtube.com/embed/dIQGI36BxDE?autoplay=1&mute=1')
+            $('.popup iframe').attr('src','https://www.youtube.com/embed/dIQGI36BxDE?autoplay=1&mute=1')
         }
         else{
-            $('iframe').attr('src','https://www.youtube.com/embed/rXMX4YJ7Lks?autoplay=1&mute=1')
+            $('.popup iframe').attr('src','https://www.youtube.com/embed/rXMX4YJ7Lks?autoplay=1&mute=1')
         }
         $('.popup , .mask , .close').stop().fadeIn()
     })
     $('.casual  .imgUp > div').click(function(){
         var index = $('.casual .imgUp > div').index(this)
         if(index == 0){
-            $('iframe').attr('src','https://www.youtube.com/embed/ot7uXNQskhs?autoplay=1&mute=1')
+            $('.popup iframe').attr('src','https://www.youtube.com/embed/ot7uXNQskhs?autoplay=1&mute=1')
         }
         else if(index == 1){
-            $('iframe').attr('src','https://www.youtube.com/embed/jp_XgQjgGNY?autoplay=1&mute=1')
+            $('.popup iframe').attr('src','https://www.youtube.com/embed/jp_XgQjgGNY?autoplay=1&mute=1')
         }
         else if(index == 2){
-            $('iframe').attr('src','https://www.youtube.com/embed/0JG5Y7ZWvWU?autoplay=1&mute=1')
+            $('.popup iframe').attr('src','https://www.youtube.com/embed/0JG5Y7ZWvWU?autoplay=1&mute=1')
         }
         else{
-            $('iframe').attr('src','https://www.youtube.com/embed/z00mK3Pxc8w?autoplay=1&mute=1')
+            $('.popup iframe').attr('src','https://www.youtube.com/embed/z00mK3Pxc8w?autoplay=1&mute=1')
         }
         $('.popup , .mask , .close').stop().fadeIn()
     })
     $('.fantasy  .imgUp > div').click(function(){
         var index = $('.fantasy .imgUp > div').index(this)
         if(index == 0){
-            $('iframe').attr('src','https://www.youtube.com/embed/c0i88t0Kacs?autoplay=1&mute=1')
+            $('.popup iframe').attr('src','https://www.youtube.com/embed/c0i88t0Kacs?autoplay=1&mute=1')
         }
         else if(index == 1){
-            $('iframe').attr('src','https://www.youtube.com/embed/H70EGmRMMnk?autoplay=1&mute=1')
+            $('.popup iframe').attr('src','https://www.youtube.com/embed/H70EGmRMMnk?autoplay=1&mute=1')
         }
         else if(index == 2){
-            $('iframe').attr('src','https://www.youtube.com/embed/ETWtvVGFNqU?autoplay=1&mute=1')
+            $('.popup iframe').attr('src','https://www.youtube.com/embed/ETWtvVGFNqU?autoplay=1&mute=1')
         }
         else{
-            $('iframe').attr('src','https://www.youtube.com/embed/y8f8QZTOrfk?autoplay=1&mute=1')
+            $('.popup iframe').attr('src','https://www.youtube.com/embed/y8f8QZTOrfk?autoplay=1&mute=1')
         }
         $('.popup , .mask , .close').stop().fadeIn()
     })
-    $('.close , .mask').click(function(){
+    $('.close').click(function(){
         $('.mask , .popup').stop().fadeOut()
     })
 })
@@ -295,36 +295,54 @@ $(function(){
             $(this).addClass('categoryHold')
             $(this).siblings().not(this).removeClass('categoryHold')
     
+
+            // slideRight 텍스트 부분
+            
         }
         else if(index == 1){
             $('.스토리').fadeIn()
             $('.imgWrap1').siblings().not('.스토리').not('.imgWrap2').not('.imgWrap3').hide()
+
             $('.slideStory').show()
             $('.slideRight').siblings().not('.slideStory').hide()            
-
+            $('.slideStory h4 , .slideStory p').css({display:'block'})
             
             $(this).addClass('categoryHold')
             $(this).siblings().not(this).removeClass('categoryHold')
+            
+            
+            
         }
         else if(index == 2){
             $('.캐쥬얼').fadeIn()
             $('.imgWrap1').siblings().not('.캐쥬얼').not('.imgWrap2').not('.imgWrap3').hide()
+            
+            
             $('.slideCasual').show()
             $('.slideRight').siblings().not('.slideCasual').hide()            
+            $('.slideCasual h4 , .slideCasual p').css({display:'block'})
             
             
             $(this).addClass('categoryHold')
             $(this).siblings().not(this).removeClass('categoryHold')
+            
+            
+            
         }
         else if(index == 3){
             $('.판타지').fadeIn()
             $('.imgWrap1').siblings().not('.판타지').not('.imgWrap2').not('.imgWrap3').hide()
+
+            
             $('.slideFantasy').show()
             $('.slideRight').siblings().not('.slideFantasy').hide()          
-            
+            $('.slideFantasy h4 , .slideFantasy p').css({display:'block'})
             
             $(this).addClass('categoryHold')
             $(this).siblings().not(this).removeClass('categoryHold')
+
+            
+            
         }   
     })
 })
@@ -515,73 +533,23 @@ $(function(){
 
 
 
-// swiper 슬라이드
-
-
-// $(function(){
-//     window.addEventListener('touchstart',callback);
-//     window.addEventListener('touchmove',callback);
-//     window.addEventListener('touchend',callback);
-
-
-//     const outer = document.querySelector('.dlc');
-//     const inner = document.querySelector('.dlcScreen');
-
-//     let startPos = 0;
-//     let offset = 0;
-//     let curPos = 0;
-//     const screenWidth = outer.clientWidth;
-
-//     window.onload=function(){
-//         outer.addEventListener('touchstart',(e) => {
-//             startPos = e.touchs[0].pageX
-//         })
-
-//         outer.addEventListener('touchmove',(e) =>{
-//             offset = curPos + (e.targetTouches[0].pageX - startPos)
-//             inner.style.transform = 'translate3d(${offset}px,0x,0px)'
-//             inner.style.transitionDuration = '0ms';
-//         })
-
-//         outer.addEventListener('touchend',(e) => {
-//             const sum = curPos + (e.changedTouches[0].pageX - startPos);
-//             let destination = Math.round(sum / screenWidth) * screenWidth;
-//             if(destination > 0){
-//                 destination = 0;
-//             }
-//             else if (destination < -(screenWidth * (4 - 1))) {
-//                 destination = -(screenWidth * (4 - 1));
-//             }
-            
-//             inner.style.transform = `translate3d(${destination}px, 0px, 0px)`;
-//             inner.style.transitionDuration = '300ms';
-//             curPos = destination;
-            
-//             setTimeout(() => {
-//                 inner.style.transitionDuration = '0ms';
-//             }, 300);
-//             //   }, 300);
-//         })
-//     }  
-// })
-
 
 $(function(){
     $(window).scroll(function(){
         var scrollValue = $(this).scrollTop()
-        if(scrollValue > 2000){
-            $('.slideIn1').stop().css({right:'100%'})
-            $('.slideRight h4').eq(0).fadeIn(3000)
-            $('.slideRight p').eq(0).fadeIn(3000)
+        if(scrollValue > $('.wrap3Head').offset().top-200){
+            $('.slideIn1').stop().css({left:'0%'})
+            $('.slideRight h4').eq(0).stop().fadeIn(3000)
+            $('.slideRight p').eq(0).stop().fadeIn(3000)
         }
         else{
-            $('.slideIn1').css({right:'-100%'})
-            $('.slideRight h4').eq(0).fadeOut()
-            $('.slideRight p').eq(0).fadeOut()
+            $('.slideIn1').css({left:'-100%'})
+            $('.slideRight h4').eq(0).stop().fadeOut()
+            $('.slideRight p').eq(0).stop().fadeOut()
         }
 
 
-        if(scrollValue > 2600){
+        if(scrollValue > $('.slideIn1').offset().top-200){
             $('.slideIn2').css({right:'0%'})
             $('.slideRight h4').eq(1).fadeIn(3000)
             $('.slideRight p').eq(1).fadeIn(3000)
@@ -593,20 +561,20 @@ $(function(){
         }
 
         
-        if(scrollValue > 3200){
-            $('.slideIn3').css({right:'100%'})
+        if(scrollValue > $('.slideIn2').offset().top-200){
+            $('.slideIn3').css({left:'0%'})
             $('.slideRight h4').eq(2).fadeIn(3000)
             $('.slideRight p').eq(2).fadeIn(3000)
         }
         else{
-            $('.slideIn3').css({right:'-100%'})
+            $('.slideIn3').css({left:'-100%'})
             $('.slideRight h4').eq(2).fadeIn(3000)
             $('.slideRight p').eq(2).fadeIn(3000)
         }
         
 
 
-        if(scrollValue > 3800){
+        if(scrollValue > $('.slideIn3').offset().top-200){
             $('.slideIn4').css({right:'0%'})
             $('.slideRight h4').eq(3).fadeIn(3000)
             $('.slideRight p').eq(3).fadeIn(3000)
