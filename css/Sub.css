@@ -14,7 +14,6 @@
         left:50%;
         top:50%;
         transform: translate(-50%,-50%);
-        background-color:red;
         z-index:120;
         position:fixed;
         display:none;
@@ -67,6 +66,7 @@
         height:100px;
         margin:0 auto;
         /* background-color:#eee; */
+        transition:all 0.5s
     }
     .headerContainer{
         width:1502px;
@@ -77,6 +77,8 @@
         /* background-color:#eee; */
         align-items: center;
         justify-content: space-between;
+        position: relative;
+        transition:all 0.5s;
     }
     .logo{
         width:20%;
@@ -98,6 +100,7 @@
         flex-flow:row nowrap;
         justify-content: space-around;
         align-items: center;
+
     }
     nav > ul{
         display:flex;
@@ -111,6 +114,9 @@
         height: 100%;
         float:left;
         display:block;
+        font-size:35px;
+        color:white;
+        cursor: pointer;
     }
     .nav_Anc{
         display:block;
@@ -121,6 +127,16 @@
         cursor:pointer;
     }
     
+    .subAncNav {
+        width:100%;
+        height:100px;
+        background-color:white;
+        position: absolute;
+        top:-10%;
+        left:0;
+        transition: all 0.5s;
+    }
+
     /* header end line */
     
     .slideZindex{
@@ -191,7 +207,7 @@
     .slideWrap > .slide{
         float:left;
         display:flex;
-        justify-content: center;
+        justify-content: space-between;
         width:100vw;
         height:100%;
         position:relative;
@@ -205,8 +221,10 @@
         position:absolute;
         z-index:-9;
         display:flex;
+        justify-content: space-between;
     }
     .slide-1 .bgImg{
+        background-color:#111;
 
     }
     .slide-2 .bgImg{
@@ -214,10 +232,11 @@
 
     }
     .slide-3 .bgImg{
+        background-color:#111;
 
     }
     .slide-4 .bgImg{
-        background-color:black;
+        background-color:#111;
 
     }
 
@@ -231,7 +250,7 @@
     
     .left{
         width:50%;
-        height:85%;
+        height:95%;
         display:flex;
         align-items: flex-end;
         justify-content: center;
@@ -355,7 +374,7 @@
 
 
     .right{
-        width:50%;
+        width:35%;
         height:100%;
         display:flex;
         flex-flow: column;
@@ -363,7 +382,7 @@
         justify-content: space-evenly;
     }
     .rightUpVideo{
-        width: 55%;
+        width: 70%;
         height:35%;
     }
     .rightDownText{
@@ -378,7 +397,7 @@
         align-items: center;
     }
     .rightDownText > h2{
-        font-size:50px;
+        font-size:30px;
     }
     .rightDownText > p{
         width:90%;
@@ -446,6 +465,7 @@
         position:sticky;;
         z-index:90;
         top:0;
+        margin-bottom: 150px;
     }
     
     .categoryHold{
@@ -465,14 +485,14 @@
         width:auto;
         height:auto;
     }
-    
+
     .category li:hover{
         background-color:#777;
     }
     
     .category li > .categorySub{
         width:150%;
-        height:200px;
+        height:auto;
         background-color:#eee;
         position: absolute;
         top:100%;
@@ -492,7 +512,7 @@
         width:100%;
         color:black;
         line-height:40px;
-        margin:0 auto;
+        padding-left:10px;
     }
     form{
         width:304px;
@@ -701,12 +721,15 @@
         height:30px;
         bottom:10%;
         right:0%;
-        background-color:pink;
+        background-color:#eee;
+        border-top:1px solid black;
+        border-left:1px solid black;
+        border-bottom:1px solid black;
         display:flex;
+        box-sizing: border-box;
     }
     .persent {
         width:40%;
-        background-color:lightgreen;
         display:flex;
         align-items: center;
         justify-content: center;
@@ -716,6 +739,7 @@
         display:flex;
         align-items: center;
         justify-content: center;
+        border-left:1px solid black;
     }
     .imgWrap1 > div  .imgUp{
         width:100%;
@@ -805,6 +829,7 @@
     .imgWrap2{
         width:100%;
         height:auto;
+        margin-top:150px;
     }
     .wrap2Head{
         width:1300px;
@@ -1089,9 +1114,7 @@
     footer{
         width:100%;
         height:auto;
-        margin-top:250px;
         border-top:3px solid white;
-        
     }
     
     .footWrap{

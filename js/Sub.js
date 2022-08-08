@@ -40,110 +40,110 @@ $(function(){
     })
 })
 
-// $(function(){
-//     var slides = document.querySelector('.slideWrap'),
-//         slide = document.querySelectorAll('.slideWrap li'),
-//         currentIdx = 0,
-//         slideCount = slide.length,
-//         slideWidth = $('.slide').width(),
-//         slideMargin = 0,
-//         prevBtn = document.querySelector('.prev1'),
-//         nextBtn = document.querySelector('.next1');
+$(function(){
+    var slides = document.querySelector('.slideWrap'),
+        slide = document.querySelectorAll('.slideWrap li'),
+        currentIdx = 0,
+        slideCount = slide.length,
+        slideWidth = $('.slide').width(),
+        slideMargin = 0,
+        prevBtn = document.querySelector('.prev1'),
+        nextBtn = document.querySelector('.next1');
 
-//     makeClone();
+    makeClone();
 
-//     function makeClone(){
-//         for(var i = 0; i <slideCount; i++){
-//             var cloneSlide = slide[i].cloneNode(true);
-//             cloneSlide.classList.add('clone');
-//             slides.appendChild(cloneSlide);
-//         }
-//         for(var i = slideCount -1; i >=0; i--){
-//             var cloneSlide = slide[i].cloneNode(true);
-//             cloneSlide.classList.add('clone');
-//             slides.prepend(cloneSlide);
-//         }
-//             ubdateWidth();
-//             setInitialPos();
+    function makeClone(){
+        for(var i = 0; i <slideCount; i++){
+            var cloneSlide = slide[i].cloneNode(true);
+            cloneSlide.classList.add('clone');
+            slides.appendChild(cloneSlide);
+        }
+        for(var i = slideCount -1; i >=0; i--){
+            var cloneSlide = slide[i].cloneNode(true);
+            cloneSlide.classList.add('clone');
+            slides.prepend(cloneSlide);
+        }
+            ubdateWidth();
+            setInitialPos();
             
-//             setTimeout(function(){
-//                 slides.classList.add('animated');
-//             },100)
-//     }
+            setTimeout(function(){
+                slides.classList.add('animated');
+            },100)
+    }
 
-//     function ubdateWidth(){
-//         var currentSlides = document.querySelectorAll('.slideWrap li');
-//         var newSlideCount = currentSlides.length;
+    function ubdateWidth(){
+        var currentSlides = document.querySelectorAll('.slideWrap li');
+        var newSlideCount = currentSlides.length;
         
-//         var newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin + 'px';
-//         slides.style.width = newWidth;
-//     }
-//     function setInitialPos(){
-//         var initialTranslateValue = -(slideWidth + slideMargin) * slideCount;
-//         slides.style.transform = 'translateX('+ initialTranslateValue +'px)';
-//     }
+        var newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin + 'px';
+        slides.style.width = newWidth;
+    }
+    function setInitialPos(){
+        var initialTranslateValue = -(slideWidth + slideMargin) * slideCount;
+        slides.style.transform = 'translateX('+ initialTranslateValue +'px)';
+    }
 
-//     nextBtn.addEventListener('click',function(){
-//         moveSlide(currentIdx +1 )
-//     })
-//     prevBtn.addEventListener('click',function(){
-//         moveSlide(currentIdx -1 )
-//     })
+    nextBtn.addEventListener('click',function(){
+        moveSlide(currentIdx +1 )
+    })
+    prevBtn.addEventListener('click',function(){
+        moveSlide(currentIdx -1 )
+    })
 
-//     var timer = undefined;
+    var timer = undefined;
 
-//     function autoSlide(){
-//         if(timer == undefined){
-//             timer = setInterval(function(){
-//                 moveSlide(currentIdx + 1 )
-//             },3000)
-//         }
-//     }
-//     autoSlide();
+    function autoSlide(){
+        if(timer == undefined){
+            timer = setInterval(function(){
+                moveSlide(currentIdx + 1 )
+            },3000)
+        }
+    }
+    autoSlide();
 
-//     function stopSlide(){
-//         clearInterval(timer);
-//         timer = undefined;
-//         // timer의 값을 undefined으로 지정을 해줘야 마우스로 왔다갔다 했을 때 오류가 안 생김
-//     }
-//     // stop()을 붙여줘야 할 것 같음
-//     slides.addEventListener('mouseenter',function(){
-//         stopSlide();
-//     })
+    function stopSlide(){
+        clearInterval(timer);
+        timer = undefined;
+        // timer의 값을 undefined으로 지정을 해줘야 마우스로 왔다갔다 했을 때 오류가 안 생김
+    }
+    // stop()을 붙여줘야 할 것 같음
+    slides.addEventListener('mouseenter',function(){
+        stopSlide();
+    })
 
-//     slides.addEventListener('mouseleave',function(){
-//         autoSlide();
-//     })
+    slides.addEventListener('mouseleave',function(){
+        autoSlide();
+    })
 
-//     function moveSlide(num){
-//         slides.style.left = -num * (slideWidth + slideMargin) + 'px';
-//         currentIdx = num;
-//         console.log(currentIdx,slideCount);
+    function moveSlide(num){
+        slides.style.left = -num * (slideWidth + slideMargin) + 'px';
+        currentIdx = num;
+        console.log(currentIdx,slideCount);
         
-//         if(currentIdx == slideCount || currentIdx == -slideCount){
-//             setTimeout(function(){
-//                 slides.classList.remove('animated');
-//                 slides.style.left = '0px';
-//                 currentIdx = 0;
-//             },600);
-//             setTimeout(function(){
-//                 slides.classList.add('animated');
-//             },700);
-//         }
-//     }
-//     prevBtn.addEventListener('click',function(){
-//         stopSlide()
-//     })
-//     prevBtn.addEventListener('mouseleave',function(){
-//         autoSlide()
-//     })
-//     nextBtn.addEventListener('click',function(){
-//         stopSlide()
-//     })
-//     nextBtn.addEventListener('mouseleave',function(){
-//         autoSlide();
-//     })
-// })
+        if(currentIdx == slideCount || currentIdx == -slideCount){
+            setTimeout(function(){
+                slides.classList.remove('animated');
+                slides.style.left = '0px';
+                currentIdx = 0;
+            },600);
+            setTimeout(function(){
+                slides.classList.add('animated');
+            },700);
+        }
+    }
+    prevBtn.addEventListener('click',function(){
+        stopSlide()
+    })
+    prevBtn.addEventListener('mouseleave',function(){
+        autoSlide()
+    })
+    nextBtn.addEventListener('click',function(){
+        stopSlide()
+    })
+    nextBtn.addEventListener('mouseleave',function(){
+        autoSlide();
+    })
+})
 
 
 
@@ -595,7 +595,36 @@ $(function(){
 })
 
 
+$(function(){
+    $('.leftDownText1 > div').click(function(){
+        var index = $('.leftDownText1 > div').index(this)
+        if(index == 0) {
+            $('.bgImg > img').attr('src','img/banner_1-4.jpg')
+        }
+    })
 
+    $('.leftDownText2 > div').click(function(){
+        var index = $('.leftDownText2 > div').index(this)
+        if(index == 0) {
+            $('.bgImg > img').attr('src','img/banner_1-4.jpg')
+        }
+    })
 
+    $('.leftDownText3 > div').click(function(){
+        var index = $('.leftDownText3 > div').index(this)
+        if(index == 0) {
+            $('.bgImg > img').attr('src','img/banner_1-4.jpg')
+        }
+    })
 
+    $('.leftDownText4 > div').click(function(){
+        var index = $('.leftDownText4 > div').index(this)
+    })
+})
+
+$(function(){
+    $('.upAngle').click(function(){
+        $(".subAncNav").stop().css({top:'0%'})
+    })
+})
 // main end line
