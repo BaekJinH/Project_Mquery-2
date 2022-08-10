@@ -1,4 +1,4 @@
-@media screen and (min-width:1100px) and (max-width:1450px){
+@media screen and (min-width:799px) and (max-width:1099px){
     #wrap{
         width:100%;
         height:auto;
@@ -69,7 +69,7 @@
         transition:all 0.5s
     }
     .headerContainer{
-        width:1502px;
+        width:100%;
         height:100%;
         margin:0 auto;
         display:flex;
@@ -396,11 +396,12 @@
         align-items: center;
     }
     .rightDownText > h2{
-        font-size:30px;
+        font-size:10px;
     }
     .rightDownText > p{
         width:90%;
-        line-height:30px;
+        height:60%;
+        overflow: hidden;
         font-weight: normal;
     }
     .sliderBar{
@@ -458,7 +459,7 @@
         margin:0 auto;
         text-align: center;
         display:flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         background-color:#eee;
         position:sticky;;
@@ -471,16 +472,24 @@
         background-color: #777;
     }
     .category{
+        width:80%;
         margin-right:0px;
+    }
+    .category > ul {
+        width:100%;
+        height:100%;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
     }
     .category > ul > li{
         float:left;
         color:White;
-        padding:10px;
+        /* padding:5px; */
         cursor: pointer;
         position: relative;
-        margin-left:30px;
-        padding:10px 15px;
+        /* margin-left:10px; */
+        padding:15px 15px;
         width:auto;
         height:auto;
     }
@@ -514,12 +523,12 @@
         padding-left:10px;
     }
     form{
-        width:304px;
+        width:204px;
         height:34px;
         position: relative;
     }
     input{
-        width:300px;
+        width:200px;
         height:30px;
         text-align:center;
         border:none;
@@ -851,7 +860,7 @@
     }
     .dlcScreen{
         position:relative;;
-        width:1500px;
+        width:100%;
         height:100%;
         overflow: hidden;
         margin:auto;
@@ -921,7 +930,7 @@
     }
     
     .wrap3Head{
-        width:1300px;
+        width:100%;
         height:30px;
         text-align:center;
         color:white;
@@ -957,6 +966,7 @@
     .slideRight > h4{
         position:absolute;
         text-align: center;
+        width:350px;
         height:400px;
         color:white;
     }
@@ -967,52 +977,53 @@
     .slideRight > h4:nth-of-type(1){
         top:0%;
         left:50%;
-        transform: translateX(-50%);
+        transform: translateX(-00%);
     }
     .slideRight > h4:nth-of-type(2){
         top:20%;
         left:50%;
-        transform: translateX(-50%);
+        transform: translateX(-100%);
     }
     .slideRight > h4:nth-of-type(3){
         top:40%;
         left:50%;
-        transform: translateX(-50%);
+        transform: translateX(-0%);
     }
     .slideRight > h4:nth-of-type(4){
         top:60%;
         left:50%;
-        transform: translateX(-50%);
+        transform: translateX(-100%);
     }
     
     .slideRight > p{
         position:absolute;
         text-align: center;
-        width:550px;
-        height:400px;
+        width:350px;
+        height:300px;
         line-height: 30px;;
         color:white;
+        overflow: hidden;
     }
     
     .slideRight > p:nth-of-type(1){
         top:3%;
         left:50%;
-        transform: translateX(-50%);
+        transform: translateX(-00%);
     }
     .slideRight > p:nth-of-type(2){
         top:23%;
         left:50%;
-        transform: translateX(-50%);
+        transform: translateX(-100%);
     }
     .slideRight > p:nth-of-type(3){
         top:43%;
         left:50%;
-        transform: translateX(-50%);
+        transform: translateX(-00%);
     }
     .slideRight > p:nth-of-type(4){
         top:63%;
         left:50%;
-        transform: translateX(-50%);
+        transform: translateX(-100%);
     }
     
     
@@ -1123,7 +1134,7 @@
     }
     
     .footWrap{
-        width:1502px;
+        width:100%;
         height:150px;
         margin:0 auto;
         display:flex;
