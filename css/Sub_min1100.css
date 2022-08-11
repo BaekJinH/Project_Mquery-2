@@ -1,4 +1,4 @@
-@media screen and (min-width:1100px) and (max-width:1450px){
+@media screen and (min-width:1100px) and (max-width:1499px){
     #wrap{
         width:100%;
         height:auto;
@@ -69,7 +69,7 @@
         transition:all 0.5s
     }
     .headerContainer{
-        width:1502px;
+        width:100%;
         height:100%;
         margin:0 auto;
         display:flex;
@@ -249,18 +249,18 @@
 
     
     .left{
-        width:50%;
+        width:60%;
         height:95%;
         display:flex;
         align-items: flex-end;
         justify-content: center;
     }
     .leftDownText{
-        width:70%;
+        width:95%;
         height:15%;
         display:flex;
         flex-flow:row nowrap;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;;
     }
     .leftDownText > div{
@@ -273,6 +273,7 @@
         background-size:cover;
         background-position:center;    
         cursor:pointer;
+        margin-right:10px;
     }
 
     .leftDownText1 > div:nth-of-type(1){
@@ -373,7 +374,7 @@
 
 
     .right{
-        width:35%;
+        width:45%;
         height:100%;
         display:flex;
         flex-flow: column;
@@ -396,10 +397,12 @@
         align-items: center;
     }
     .rightDownText > h2{
-        font-size:30px;
+        font-size:20px;
     }
     .rightDownText > p{
         width:90%;
+        height:65%;
+        overflow: hidden;
         line-height:30px;
         font-weight: normal;
     }
@@ -479,7 +482,7 @@
         padding:10px;
         cursor: pointer;
         position: relative;
-        margin-left:30px;
+        margin-left:20px;
         padding:10px 15px;
         width:auto;
         height:auto;
@@ -566,7 +569,7 @@
     }
     
     .firstMainHead{
-        width:1300px;
+        width:100%;
         height:30px;
         text-align:center;
         color:white;
@@ -832,7 +835,7 @@
         margin-top:150px;
     }
     .wrap2Head{
-        width:1300px;
+        width:100%;
         height:30px;
         text-align:center;
         color:white;
@@ -851,7 +854,7 @@
     }
     .dlcScreen{
         position:relative;;
-        width:1500px;
+        width:100%;
         height:100%;
         overflow: hidden;
         margin:auto;
@@ -921,7 +924,7 @@
     }
     
     .wrap3Head{
-        width:1300px;
+        width:100%;
         height:30px;
         text-align:center;
         color:white;
@@ -1123,7 +1126,7 @@
     }
     
     .footWrap{
-        width:1502px;
+        width:100%;
         height:150px;
         margin:0 auto;
         display:flex;

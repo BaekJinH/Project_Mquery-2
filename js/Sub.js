@@ -161,13 +161,18 @@ $(function(){
     })
 
 
-    // 밑의 주석처리는 비디오버튼 클릭하면 뒤의 사진이 흐려지는 건데 왜 넣었는지 모르겠네 일단 보류
-    
-    // $('.videoPlay').on({click:function(){
-    //     $(this).parent().css({boxShadow:'inset 100vw 100vh 3px rgba(0,0,0,'+0.5+')'})
-    // },mouseleave:function(){
-    //     $(this).parent().css({boxShadow:'none'})
-    // }})
+    $(function(){
+        $('.videoPlay').click(function(){
+            $('.searchBox').css({position:'relative'})
+            // $('.searchBox').css({zIndex:'-1'})
+            // $('.mainWrap > div').not().css({zIndex:'-10'})
+            // $('.searchBox').css({zIndex:'-10'})
+        })
+
+        $('.close').click(function(){
+            $('.searchBox').css({zIndex:90 , position:'sticky'})
+        })
+    })
 })
 
 
