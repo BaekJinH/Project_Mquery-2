@@ -90,6 +90,7 @@
         display:flex;
         justify-content:center;
         align-items: center;
+        cursor: pointer;
     }
     .logo h3{
         color:white;
@@ -158,7 +159,7 @@
     #slider{
         overflow:hidden;
         width:100%;
-        height:800px;
+        height:750px;
         background-color:#888;
         position: relative;
     }
@@ -385,7 +386,6 @@
         flex-flow: column;
         align-items: center;
         justify-content: space-evenly;
-        display:none;
     }
     .rightUpVideo{
         width: 35%;
@@ -393,7 +393,7 @@
     }
     .rightDownText{
         width: 50%;
-        height:60%;
+        height:40%;
         background-color:rgb(179, 179, 179);
         border:2px solid #eee;
         border-radius: 8px;
@@ -401,13 +401,14 @@
         flex-flow:column wrap;
         justify-content: space-evenly;
         align-items: center;
+        overflow:hidden;
     }
     .rightDownText > h2{
-        font-size:10px;
+        font-size:20px;
     }
     .rightDownText > p{
         width:90%;
-        height:60%;
+        height:50%;
         overflow: hidden;
         font-weight: normal;
     }
@@ -1158,6 +1159,7 @@
         align-items: center;
         color:white;
         font-size:35px;
+        cursor:pointer;
     }
     
     
@@ -1184,6 +1186,7 @@
         display:block;
         color:White;
         font-size:20px;
+        cursor:pointer;
     }
     
     

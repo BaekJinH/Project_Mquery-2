@@ -302,7 +302,7 @@ $(function(){
             $('.imgWrap1').siblings().not('.액션').not('.imgWrap2').not('.imgWrap3').hide()
 
             $('.slideAction').show()
-            $('.slideRight').siblings().not('.slideAction').hide()            
+            $('.slideRight').siblings().not('.slideAction').not('.wrap3Head').hide()            
 
             $(this).addClass('categoryHold')
             $(this).siblings().not(this).removeClass('categoryHold')
@@ -316,7 +316,7 @@ $(function(){
             $('.imgWrap1').siblings().not('.스토리').not('.imgWrap2').not('.imgWrap3').hide()
 
             $('.slideStory').show()
-            $('.slideRight').siblings().not('.slideStory').hide()            
+            $('.slideRight').siblings().not('.slideStory').not('.wrap3Head').hide()            
             $('.slideStory h4 , .slideStory p').css({display:'block'})
             
             $(this).addClass('categoryHold')
@@ -331,7 +331,7 @@ $(function(){
             
             
             $('.slideCasual').show()
-            $('.slideRight').siblings().not('.slideCasual').hide()            
+            $('.slideRight').siblings().not('.slideCasual').not('.wrap3Head').hide()            
             $('.slideCasual h4 , .slideCasual p').css({display:'block'})
             
             
@@ -347,7 +347,7 @@ $(function(){
 
             
             $('.slideFantasy').show()
-            $('.slideRight').siblings().not('.slideFantasy').hide()          
+            $('.slideRight').siblings().not('.slideFantasy').not('.wrap3Head').hide()          
             $('.slideFantasy h4 , .slideFantasy p').css({display:'block'})
             
             $(this).addClass('categoryHold')
@@ -690,4 +690,19 @@ $(function(){
         $(".subAncNav").stop().css({top:'0%'})
     })
 })
+$(function(){
+    $('.downAngle').click(function(){
+        $(".subAncNav").stop().css({top:'-10%',transition:'all 1.5s'})
+    })
+})
+
+// $(function(){
+//     var offset = $('.imgWrap1 ').offset();
+//     $('.subAncNav > li').click(function(){
+//         var index = $('.subAncNav > li').index(this);
+//         if(index == 0) {
+//             $('html , body').animate({scrollTop : offset.top}, 400)
+//         }
+//     })
+// })
 // main end line
