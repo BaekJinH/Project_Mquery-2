@@ -186,7 +186,7 @@
     #slider{
         overflow:hidden;
         width:100%;
-        height:550px;
+        height:480px;
         background-color:#888;
         position: relative;
     }
@@ -966,7 +966,7 @@
     }
     .imgWrap3{
         widtH:100%;
-        height:2800px;
+        height:2500px;
         overflow:hidden;
     }
     
@@ -1010,13 +1010,14 @@
         width:40%;
         height:400px;
         color:white;
+        font-size:18px;
     }
     
     
     
     
     .slideRight > h4:nth-of-type(1){
-        top:10%;
+        top:5%;
         right:0%;
         transform: translateX(-00%);
     }
@@ -1026,12 +1027,12 @@
         transform: translateX(0%);
     }
     .slideRight > h4:nth-of-type(3){
-        top:50%;
+        top:55%;
         right:0%;
         transform: translateX(-0%);
     }
     .slideRight > h4:nth-of-type(4){
-        top:70%;
+        top:80%;
         left:0%;
         transform: translateX(0%);
     }
@@ -1047,7 +1048,7 @@
     }
     
     .slideRight > p:nth-of-type(1){
-        top:13%;
+        top:8%;
         right:0%;
         transform: translateX(-00%);
     }
@@ -1057,12 +1058,12 @@
         transform: translateX(0%);
     }
     .slideRight > p:nth-of-type(3){
-        top:53%;
+        top:58%;
         right:0%;
         transform: translateX(-00%);
     }
     .slideRight > p:nth-of-type(4){
-        top:73%;
+        top:83%;
         left:0%;
         transform: translateX(0%);
     }
@@ -1072,7 +1073,7 @@
     .slideRight > div:nth-of-type(1){
         transform: translateX(0);
         transition: all 2.5s;
-        top:10%;
+        top:5%;
     }
     .slideRight > div:nth-of-type(2){
         top:30%;
@@ -1081,10 +1082,10 @@
     .slideRight > div:nth-of-type(3){
         transform: translateX(0%);
         transition: all 2.5s;
-        top:50%;
+        top:55%;
     }
     .slideRight > div:nth-of-type(4){
-        top:70%;
+        top:80%;
         transition: all 1.0s;
     }
     

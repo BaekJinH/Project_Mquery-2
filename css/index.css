@@ -129,6 +129,7 @@
         width:100%;
         display:flex;
         flex-flow:row nowrap;
+        justify-content: space-evenly;
     }
     .flex_Box > li{
         width:20%;
@@ -648,7 +649,8 @@
         font-size:30px;
         overflow:hidden;
         color:#666;
-        opacity:0.8
+        opacity:0.8;
+        z-index:20;
     }
     input::placeholder{
         color:#666;
@@ -1269,12 +1271,12 @@
         height:auto;
         margin-top:250px;
     }
-    .main3 > h2{
+    .main3 > .main3Head > h2{
         width:75%;
         margin:100px auto;
         color:white;
         text-align:center;
-        font-size:30px;
+        font-size:40px;
     }
 
 
@@ -1507,6 +1509,7 @@
         width:100%;
         justify-content: space-around;
         display: flex;
+        align-items: center;
     }
     .ant_txt > ul > li{
         cursor:pointer;

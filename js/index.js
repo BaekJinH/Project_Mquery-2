@@ -954,8 +954,10 @@ $(function(){
 })
 
 $(function(){
+    $('.categoryBox').css({display:'none'})
+
     $('input').on({'click keydown focus':function(){
-        $('.categoryBox').hide()
+        $('.categoryBox').css({display:'none'})
         $('.popup').stop().animate({height:350},100);
         $('.popup').css({boxShadow:'0 0 8px white'});
         $('.btn_Box').css({display:'block'}).fadeDown('slow').height(350);
@@ -1246,15 +1248,8 @@ window.onload=function(){
 // main2
 
 
-// $(function(){
-//     $('.txtSlideBtn').on({click:function(){
-//         $(this).find('.Turn').css({transform:'rotate('+0+'deg)',transition:'all 0.5s',backgroundColor:'none',opacity:0});
-//         $('.main2_txt').css({right:'40%'})
-//     }})
-// })
-
 $(function(){
-    $('.Turn').on({mouseover:function(){
+    $('.Turn').on({'mouseover , click':function(){
         $(this).css({transform:'rotate('+00+'deg)',transition:'all 0.5s'});
         $(this).parent().css({right:'40%',transition:'all 0.5s'})
         $('.main2_txt').css({right:'40%'})
