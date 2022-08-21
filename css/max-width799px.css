@@ -1037,7 +1037,7 @@
     
     .main2_img{
         width:100%;
-        height:650px;
+        height:550px;
         /* background-color:#ddd; */
         background-size:cover;
         background-position:center;
@@ -1076,7 +1076,7 @@
         /* position: relative; */
         position: absolute;
         width:40%;
-        height:650px;
+        height:550px;
         top:0;
         right:0;
         transform: translateX(100%);
@@ -1230,7 +1230,7 @@
         justify-content: space-evenly;
     }
     .main2_txt > ul > li{
-        font-size:20px;
+        font-size:15px;
         /* margin-top:20px; */
         font-weight: bold;
         cursor: pointer;
@@ -1282,7 +1282,7 @@
         width:100%;
         color:white;
         text-align:left;
-        font-size:40px;
+        font-size:37px;
         pointer-events: none;
     }
     .main3Head > span{
@@ -1516,7 +1516,6 @@
     
     .ant_txt{
         width:65%;
-        font-size:20px;
         color:white;
         display:flex;
         align-items: center;
@@ -1530,6 +1529,8 @@
     }
     .ant_txt > ul > li{
         cursor:pointer;
+        font-size:16px;
+
     }
     /* footer */
     
