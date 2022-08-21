@@ -1430,11 +1430,11 @@
     .prop span{
         position:absolute;
         display:block;
-        font-size:15px;
+        font-size:12px;
         text-align:center;
         font-weight:bold;
         width:100%;
-        bottom:10%;
+        bottom:00%;
         left:50%;
         transform: translate(-50%,-00%);
     }
@@ -1493,7 +1493,7 @@
     }
     
     footer >.foot_Wrap{
-        width:85%;
+        width:95%;
         height:150px;
         display:flex;
         flex-flow:row wrap;
