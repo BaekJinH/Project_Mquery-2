@@ -546,61 +546,62 @@ $(function(){
 
 
 
-
-$(function(){
-    $(window).scroll(function(){
-        var scrollValue = $(this).scrollTop()
-        if(scrollValue > $('.wrap3Head').offset().top-800){
-            $('.slideRight > .slideIn1').stop().css({left:'0%'})
-            $('.slideRight h4').eq(0).stop().fadeIn(1000)
-            $('.slideRight p').eq(0).stop().fadeIn(1000)
-        }
-        else{
-            $('.slideRight > .slideIn1').css({left:'-100%'})
-            $('.slideRight h4').eq(0).stop().fadeOut(500)
-            $('.slideRight p').eq(0).stop().fadeOut(500)
-        }
-
-
-        if(scrollValue > $('.slideRight > .slideIn1').offset().top-800){
-            $('.slideRight > .slideIn2').css({right:'0%'})
-            $('.slideRight h4').eq(1).stop().fadeIn(1000)
-            $('.slideRight p').eq(1).stop().fadeIn(1000)
-
-        }
-        else{
-            $('.slideRight > .slideIn2').css({right:'-100%'})
-            $('.slideRight h4').eq(1).stop().fadeOut(500)
-            $('.slideRight p').eq(1).stop().fadeOut(500)
-        }
-
-        
-        if(scrollValue > $('.slideRight > .slideIn2').offset().top-800){
-            $('.slideRight > .slideIn3').css({left:'0%'})
-            $('.slideRight h4').eq(2).stop().fadeIn(1000)
-            $('.slideRight p').eq(2).stop().fadeIn(1000)
-        }
-        else{
-            $('.slideRight > .slideIn3').css({left:'-100%'})
-            $('.slideRight h4').eq(2).stop().fadeOut(500)
-            $('.slideRight p').eq(2).stop().fadeOut(500)
-        }
-        
+if (matchMedia ('screen and (min-width : 799px)').matches) {
+    $(function(){
+        $(window).scroll(function(){
+            var scrollValue = $(this).scrollTop()
+            if(scrollValue > $('.wrap3Head').offset().top-800){
+                $('.slideRight > .slideIn1').stop().css({left:'0%'})
+                $('.slideRight h4').eq(0).stop().fadeIn(1000)
+                $('.slideRight p').eq(0).stop().fadeIn(1000)
+            }
+            else{
+                $('.slideRight > .slideIn1').css({left:'-100%'})
+                $('.slideRight h4').eq(0).stop().fadeOut(500)
+                $('.slideRight p').eq(0).stop().fadeOut(500)
+            }
 
 
-        if(scrollValue > $('.slideRight > .slideIn3').offset().top-800){
-            $('.slideRight > .slideIn4').css({right:'0%'})
-            $('.slideRight h4').eq(3).stop().fadeIn(1000)
-            $('.slideRight p').eq(3).stop().fadeIn(1000)
-        }
-        else{
-            $('.slideRight > .slideIn4').css({right:'-100%'})
-            $('.slideRight h4').eq(3).stop().fadeOut(500)
-            $('.slideRight p').eq(3).stop().fadeOut(500)
-        }
+            if(scrollValue > $('.slideRight > .slideIn1').offset().top-800){
+                $('.slideRight > .slideIn2').css({right:'0%'})
+                $('.slideRight h4').eq(1).stop().fadeIn(1000)
+                $('.slideRight p').eq(1).stop().fadeIn(1000)
+
+            }
+            else{
+                $('.slideRight > .slideIn2').css({right:'-100%'})
+                $('.slideRight h4').eq(1).stop().fadeOut(500)
+                $('.slideRight p').eq(1).stop().fadeOut(500)
+            }
+
+            
+            if(scrollValue > $('.slideRight > .slideIn2').offset().top-800){
+                $('.slideRight > .slideIn3').css({left:'0%'})
+                $('.slideRight h4').eq(2).stop().fadeIn(1000)
+                $('.slideRight p').eq(2).stop().fadeIn(1000)
+            }
+            else{
+                $('.slideRight > .slideIn3').css({left:'-100%'})
+                $('.slideRight h4').eq(2).stop().fadeOut(500)
+                $('.slideRight p').eq(2).stop().fadeOut(500)
+            }
+            
+
+
+            if(scrollValue > $('.slideRight > .slideIn3').offset().top-800){
+                $('.slideRight > .slideIn4').css({right:'0%'})
+                $('.slideRight h4').eq(3).stop().fadeIn(1000)
+                $('.slideRight p').eq(3).stop().fadeIn(1000)
+            }
+            else{
+                $('.slideRight > .slideIn4').css({right:'-100%'})
+                $('.slideRight h4').eq(3).stop().fadeOut(500)
+                $('.slideRight p').eq(3).stop().fadeOut(500)
+            }
+        })
     })
-})
-
+} 
+    
 
 
 $(function(){

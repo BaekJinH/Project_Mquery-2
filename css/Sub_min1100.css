@@ -472,14 +472,15 @@
     }
     
     .categoryHold{
-        background-color: #777;
+        background-color: black;
+        color:white;
+        
     }
     .category{
         margin-right:0px;
     }
     .category > ul > li{
         float:left;
-        color:White;
         padding:10px;
         cursor: pointer;
         position: relative;
@@ -490,7 +491,8 @@
     }
 
     .category li:hover{
-        background-color:#777;
+        background-color:black;
+        color:white;
     }
     
     .category li > .categorySub{
